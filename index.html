@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+  <title>Shahzaib Siddiqui — Senior Product Leader, AI-First Builder</title>
+  <meta name="description" content="Operator-builder. Ex-CEO/COO at Sirge (Shopify-AI). Ships product. Leads teams. Reads metrics like a second language." />
+
+  <meta property="og:title" content="Shahzaib Siddiqui — Senior PM, AI-First Builder" />
+  <meta property="og:description" content="A builder's portfolio. Founder-grade execution, AI fluency, product thinking — rendered as a working document." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og/og-image.svg" />
+  <!-- TODO: convert og-image.svg to og-image.png at 1200×630 for full LinkedIn/FB compat -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="/assets/og/og-image.svg" />
+  <meta name="theme-color" content="#111112" />
+
+  <link rel="icon" href="/assets/og/favicon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@300;400;500;700;800&family=Anton&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/styles/tokens.css" />
+  <link rel="stylesheet" href="/styles/base.css" />
+  <link rel="stylesheet" href="/styles/nav.css" />
+  <link rel="stylesheet" href="/styles/hero.css" />
+  <link rel="stylesheet" href="/styles/about.css" />
+  <link rel="stylesheet" href="/styles/experience.css" />
+  <link rel="stylesheet" href="/styles/stats.css" />
+  <link rel="stylesheet" href="/styles/skills.css" />
+  <link rel="stylesheet" href="/styles/work.css" />
+  <link rel="stylesheet" href="/styles/approach.css" />
+  <link rel="stylesheet" href="/styles/contact.css" />
+  <link rel="stylesheet" href="/styles/copilot.css" />
+</head>
+<body>
+
+<!-- ─────────────────────── NAV ─────────────────────── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="monogram">
+      <span class="monogram-mark">SS</span>
+      <span>Shahzaib&nbsp;Siddiqui</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#stats">Stats</a>
+      <a href="#skills">Skills</a>
+      <a href="#work">Work</a>
+      <a href="#approach">Approach</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-meta">
+      <span class="live-dot" aria-hidden="true"></span>
+      <span id="liveClock">—</span>
+      <span>·</span>
+      <span>Toronto / GMT-4</span>
+    </div>
+    <button class="nav-toggle" aria-label="Menu" id="navToggle">≡</button>
+  </div>
+</nav>
+
+<!-- ─────────────────────── HERO ─────────────────────── -->
+<header id="top" class="shell hero section">
+  <div class="hero-grid">
+    <div class="hero-rail">
+      <div class="crop"></div>
+      <span class="label">Portfolio · 2026</span>
+    </div>
+
+    <div>
+      <div class="hero-meta fade-in">
+        <div>
+          <span>Status</span>
+          <span class="num">SS · #04</span>
+        </div>
+        <div class="signal">
+          <span>Role</span>
+          <span>Senior PM (open)</span>
+        </div>
+        <div class="signal">
+          <span>Background</span>
+          <span>Founder · 7y</span>
+        </div>
+        <div>
+          <span>Currently</span>
+          <span>Co-running Sirge</span>
+        </div>
+      </div>
+
+      <h1 class="hero-name display-0">
+        <span class="rise-line">Senior PM.</span>
+        <span class="rise-line"><span class="accent">AI-first</span>&nbsp;builder.</span>
+        <span class="rise-line">Operator at heart.</span>
+      </h1>
+
+      <div class="hero-deck">
+        <div class="hero-deck-l">
+          <p class="lede fade-in delay-1">Hi, I'm <strong>Shahz</strong>. I co-founded <strong>Sirge</strong> (Shopify-AI) and ran it from operations to CEO. I build the system, read the metrics, and ship the product — in roughly that order.</p>
+          <p class="fade-in delay-2">This site is part of the interview. Hover the photo. Scroll the work. The skills below are real and downloadable.</p>
+
+          <div class="hero-tags fade-in delay-3">
+            <span class="hero-tag solid">Open to senior PM roles</span>
+            <span class="hero-tag">Toronto</span>
+            <span class="hero-tag">Shopify · AI · Ops</span>
+          </div>
+
+          <div class="cta-row fade-in delay-4">
+            <a href="#work" class="btn solid">See the work →</a>
+            <a href="#contact" class="btn">Get in touch</a>
+          </div>
+
+          <div class="status-panel fade-in delay-5">
+            <div>
+              <span>Status</span>
+              <span class="v signal">Open</span>
+            </div>
+            <div>
+              <span>Location</span>
+              <span class="v">Toronto, GMT-4</span>
+            </div>
+            <div>
+              <span>Mode</span>
+              <span class="v">Remote / hybrid</span>
+            </div>
+            <div>
+              <span>Available</span>
+              <span class="v">Q3 2026</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ─── photo stage: 2-layer cursor reveal ─── -->
+        <div class="hero-photo fade-in delay-2" id="heroPhoto" aria-label="Move cursor to reveal">
+          <div class="hero-photo-fallback" id="heroFallback"></div>
+          <div class="hero-photo-base" id="heroBase"></div>
+          <div class="hero-photo-reveal" id="heroReveal"></div>
+          <div class="hero-photo-coord" id="heroCoord">x: — · y: —</div>
+          <div class="hero-photo-tag"><span class="live">●</span> live / move to reveal</div>
+          <div class="hero-photo-hint" id="heroHint">Move anywhere</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ─────────────────────── ABOUT ─────────────────────── -->
+<section id="about" class="shell section">
+  <div class="section-head fade-in">
+    <span class="section-num">02</span>
+    <span class="section-title">About / Operator's note</span>
+  </div>
+
+  <div class="about-grid">
+    <div></div>
+    <h2 class="about-headline fade-in">
+      I build products the way <em>operators</em> do — metrics in one hand, the team in the other.
+    </h2>
+    <div class="about-body">
+      <div class="about-now fade-in">
+        Now: still co-running <strong>Sirge</strong> in a reduced operator role; Nolan owns day-to-day. Looking for a senior product seat to go deep on one product instead of running the whole org.
+      </div>
+
+      <p class="fade-in">I started as an analyst at <strong>Deloitte</strong>, sold tech at <strong>Trading Central</strong>, ran an account book at <strong>SHOEBOX</strong>, and then co-founded <strong>Sirge</strong> — a Shopify-AI company where I went from operations to COO to CEO across the arc of the business.</p>
+
+      <p class="fade-in delay-1">Along the way I learned that the difference between a junior PM and a senior one isn't the framework they use — it's whether they can read a system, find the bottleneck, and unblock it without permission. That's the muscle I've been training for ten years.</p>
+
+      <p class="fade-in delay-2">I'm now looking for a senior product role at a growth-stage company where AI fluency, ecommerce instincts, and operator-grade execution actually matter. If that's you, the contact section is at the bottom.</p>
+
+      <div class="about-facts fade-in delay-3">
+        <div class="fact"><div class="label">Based</div><div class="v">Toronto, ON</div></div>
+        <div class="fact"><div class="label">Mode</div><div class="v">Build · Ship · Read</div></div>
+        <div class="fact"><div class="label">Stack</div><div class="v">AI · Shopify · Ops</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────── EXPERIENCE ─────────────────────── -->
+<section id="experience" class="shell section">
+  <div class="section-head fade-in">
+    <span class="section-num">03</span>
+    <span class="section-title">Experience / Career</span>
+  </div>
+
+  <div class="experience-list">
+    <div class="exp-spine" id="expSpine"></div>
+    <div class="exp-cards">
+
+      <article class="exp-card flagship fade-in">
+        <div class="exp-meta">
+          <span>2022 — Present</span>
+          <span>Ottawa / Remote</span>
+        </div>
+        <div class="exp-co">Sirge Inc.</div>
+        <div class="exp-role">Co-Founder · COO → CEO</div>
+        <ul class="exp-bullets">
+          <li>Co-founded a Shopify-AI company; took it from zero to two revenue lines (CRO agency + self-serve SaaS editor).</li>
+          <li>Scaled the team from four to twenty-two, then designed an operating system to remove myself as the single point of failure.</li>
+          <li>Built a ten-step CRO methodology now applied across high-stakes Shopify Plus redesigns.</li>
+          <li>Designed and shipped an AI-assisted design pipeline (brand-token extraction → wireframe → taste-controlled HTML → Figma → Liquid).</li>
+          <li>Set GTM: Meta, founder-led LinkedIn, cold outbound — every other channel deferred.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag signal">Founder-grade</span>
+          <span class="exp-tag">Shopify Plus</span>
+          <span class="exp-tag">AI tooling</span>
+          <span class="exp-tag">Team 4→22</span>
+        </div>
+      </article>
+
+      <article class="exp-card fade-in">
+        <div class="exp-meta">
+          <span>2019 — 2022</span>
+          <span>Ottawa</span>
+        </div>
+        <div class="exp-co">SHOEBOX Ltd.</div>
+        <div class="exp-role">Account Manager · Product</div>
+        <ul class="exp-bullets">
+          <li>Led a product repackaging initiative that materially expanded ARR by aligning pricing tiers with how customers actually used the product.</li>
+          <li>Owned the renewal book; became the team's de-facto translator between sales, support, and product.</li>
+          <li>First exposure to product-led thinking inside a B2B health-tech context.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">SaaS</span>
+          <span class="exp-tag">Repackaging</span>
+          <span class="exp-tag">B2B</span>
+        </div>
+      </article>
+
+      <article class="exp-card fade-in">
+        <div class="exp-meta">
+          <span>2017 — 2019</span>
+          <span>Toronto</span>
+        </div>
+        <div class="exp-co">Trading Central</div>
+        <div class="exp-role">Territory Manager</div>
+        <ul class="exp-bullets">
+          <li>Owned a territory selling research and signal products into financial institutions.</li>
+          <li>Learned how to read a deal cycle and how operators inside large orgs actually buy.</li>
+          <li>Built the discipline of running a quarter, not a week.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Fintech</span>
+          <span class="exp-tag">Enterprise</span>
+        </div>
+      </article>
+
+      <article class="exp-card fade-in">
+        <div class="exp-meta">
+          <span>2015 — 2017</span>
+          <span>Toronto</span>
+        </div>
+        <div class="exp-co">Deloitte</div>
+        <div class="exp-role">Tax Analyst</div>
+        <ul class="exp-bullets">
+          <li>Started here. Learned how to read systems, regulations, and structures — habits that carried into every job since.</li>
+          <li>Where I figured out I wanted to build, not advise.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Foundations</span>
+          <span class="exp-tag">Big-4</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────── STATS ─────────────────────── -->
+<section id="stats" class="stats">
+  <div class="shell">
+    <div class="section-head fade-in">
+      <span class="section-num">04</span>
+      <span class="section-title">Stats / Operator metrics</span>
+    </div>
+
+    <div class="stats-intro">
+      <div></div>
+      <h2 class="fade-in">Real numbers from real work.</h2>
+      <p class="fade-in">A snapshot of operating outcomes across seven years of building. <em>No revenue figures shown</em> — these are throughput, scope, and structure measures.</p>
+    </div>
+
+    <div class="stats-grid" id="statsGrid">
+      <div class="stat-cell signal" data-target="22" data-bar="73" data-prefix="4 → ">
+        <div class="label">Team scaled</div>
+        <div class="stat-value"><span class="prefix">4 → </span><span class="num-target">22</span></div>
+        <div class="stat-bar"><i></i></div>
+        <div class="stat-context">At Sirge, 2022 → 2025</div>
+      </div>
+      <div class="stat-cell" data-target="15" data-bar="92" data-prefix="4h → " data-suffix="m">
+        <div class="label">Decisions, escalation → resolution</div>
+        <div class="stat-value"><span class="prefix">4h → </span><span class="num-target">15</span><span class="unit">m</span></div>
+        <div class="stat-bar"><i></i></div>
+        <div class="stat-context">After Sirge OS rollout</div>
+      </div>
+      <div class="stat-cell" data-target="92" data-bar="88" data-suffix="+">
+        <div class="label">Pages shipped, single dev</div>
+        <div class="stat-value"><span class="num-target">92</span><span class="unit">+</span></div>
+        <div class="stat-bar"><i></i></div>
+        <div class="stat-context">TCP redesign, 8 phases</div>
+      </div>
+      <div class="stat-cell ledger" data-target="8" data-bar="50">
+        <div class="label">Phases, structured build</div>
+        <div class="stat-value"><span class="num-target">8</span></div>
+        <div class="stat-bar"><i></i></div>
+        <div class="stat-context">TCP master plan</div>
+      </div>
+
+      <div class="stat-cell" data-target="10" data-bar="62">
+        <div class="label">CRO methodology stages</div>
+        <div class="stat-value"><span class="num-target">10</span></div>
+        <div class="stat-bar"><i></i></div>
+        <div class="stat-context">Codified, repeatable</div>
+      </div>
+      <div class="stat-cell" data-target="9" data-bar="56">
+        <div class="label">Buyer-journey stages</div>
+        <div class="stat-value"><span class="num-target">9</span></div>
+        <div class="stat-bar"><i></i></div>
+        <div class="stat-context">Framework</div>
+      </div>
+      <div class="stat-cell signal" data-target="15" data-bar="50">
+        <div class="label">Skills authored (Claude Code)</div>
+        <div class="stat-value"><span class="num-target">15</span></div>
+        <div class="stat-bar"><i></i></div>
+        <div class="stat-context">7 design · 8 marketing</div>
+      </div>
+      <div class="stat-cell" data-target="7" data-bar="44" data-suffix="+">
+        <div class="label">Years operating</div>
+        <div class="stat-value"><span class="num-target">7</span><span class="unit">+ yrs</span></div>
+        <div class="stat-bar"><i></i></div>
+        <div class="stat-context">2019 → present</div>
+      </div>
+    </div>
+
+    <div class="stats-footer fade-in">
+      Real operating metrics. No revenue figures shown.
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────── SKILLS ─────────────────────── -->
+<section id="skills" class="shell section">
+  <div class="section-head fade-in">
+    <span class="section-num">05</span>
+    <span class="section-title">Skills / Open-source AI tooling</span>
+  </div>
+
+  <div class="skills-intro">
+    <div></div>
+    <div>
+      <h2 class="fade-in">AI tooling, shipped publicly.</h2>
+      <p class="fade-in">Claude Code skills I've built and use daily. Each is a self-contained prompt + workflow you can install, fork, and modify. Install one:</p>
+      <div class="skills-install fade-in delay-1">
+        <span>npx skills add</span> <span class="signal">ShahzDevAventures/&lt;skill-name&gt;</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="skills-grid">
+
+    <article class="skill-card fade-in">
+      <div class="skill-name">design-taste-frontend</div>
+      <p class="skill-desc">Senior UI/UX engineer rules. Overrides default LLM design biases — strict typography, calibrated color, asymmetric layouts, hardware acceleration.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Frontend</span>
+        <span class="skill-tag">Design system</span>
+        <span class="skill-tag">Anti-slop</span>
+      </div>
+      <div class="skill-cmd">
+        <code>npx skills add ShahzDevAventures/design-taste-frontend</code>
+        <button class="copy-btn" data-copy="npx skills add ShahzDevAventures/design-taste-frontend">Copy</button>
+      </div>
+      <div class="skill-foot">
+        <a href="https://github.com/ShahzDevAventures/design-taste-frontend" target="_blank" rel="noopener">GitHub →</a>
+        <span class="skill-status coming">Coming</span>
+      </div>
+    </article>
+
+    <article class="skill-card fade-in delay-1">
+      <div class="skill-name">redesign-existing-projects</div>
+      <p class="skill-desc">Audits existing sites for generic AI patterns and applies high-end design standards without breaking functionality. Works with any CSS framework.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Audit</span>
+        <span class="skill-tag">Redesign</span>
+        <span class="skill-tag">Premium</span>
+      </div>
+      <div class="skill-cmd">
+        <code>npx skills add ShahzDevAventures/redesign-existing-projects</code>
+        <button class="copy-btn" data-copy="npx skills add ShahzDevAventures/redesign-existing-projects">Copy</button>
+      </div>
+      <div class="skill-foot">
+        <a href="https://github.com/ShahzDevAventures/redesign-existing-projects" target="_blank" rel="noopener">GitHub →</a>
+        <span class="skill-status coming">Coming</span>
+      </div>
+    </article>
+
+    <article class="skill-card fade-in delay-2">
+      <div class="skill-name">cold-email</div>
+      <p class="skill-desc">An end-to-end cold-email skill — research, structure, voice, sequencing — tuned for founder-led B2B outbound. The GTM muscle most PMs can't show.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">GTM</span>
+        <span class="skill-tag">B2B</span>
+        <span class="skill-tag">Outbound</span>
+      </div>
+      <div class="skill-cmd">
+        <code>npx skills add ShahzDevAventures/cold-email</code>
+        <button class="copy-btn" data-copy="npx skills add ShahzDevAventures/cold-email">Copy</button>
+      </div>
+      <div class="skill-foot">
+        <a href="https://github.com/ShahzDevAventures/cold-email" target="_blank" rel="noopener">GitHub →</a>
+        <span class="skill-status coming">Coming</span>
+      </div>
+    </article>
+
+    <article class="skill-card fade-in delay-3">
+      <div class="skill-name">cro-audit</div>
+      <p class="skill-desc">A 10-step conversion-rate-optimization methodology, codified. From audit to publish — covers six recurring failure modes. Used on 10+ Shopify Plus stores.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">CRO</span>
+        <span class="skill-tag">Shopify</span>
+        <span class="skill-tag">Methodology</span>
+      </div>
+      <div class="skill-cmd">
+        <code>npx skills add ShahzDevAventures/cro-audit</code>
+        <button class="copy-btn" data-copy="npx skills add ShahzDevAventures/cro-audit">Copy</button>
+      </div>
+      <div class="skill-foot">
+        <a href="https://github.com/ShahzDevAventures/cro-audit" target="_blank" rel="noopener">GitHub →</a>
+        <span class="skill-status coming">Coming</span>
+      </div>
+    </article>
+
+    <article class="skill-card fade-in delay-2">
+      <div class="skill-name">stitch-design-taste</div>
+      <p class="skill-desc">Generates agent-friendly DESIGN.md files that enforce premium, anti-generic UI standards — strict typography, calibrated color, perpetual micro-motion.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Design system</span>
+        <span class="skill-tag">Tokens</span>
+      </div>
+      <div class="skill-cmd">
+        <code>npx skills add ShahzDevAventures/stitch-design-taste</code>
+        <button class="copy-btn" data-copy="npx skills add ShahzDevAventures/stitch-design-taste">Copy</button>
+      </div>
+      <div class="skill-foot">
+        <a href="https://github.com/ShahzDevAventures/stitch-design-taste" target="_blank" rel="noopener">GitHub →</a>
+        <span class="skill-status coming">Coming</span>
+      </div>
+    </article>
+
+    <article class="skill-card fade-in delay-3">
+      <div class="skill-name">content-humanizer</div>
+      <p class="skill-desc">Strips the AI smell out of generated copy — tightens cadence, removes corporate hedging, restores voice. Built because most "AI writing" reads like a 10-Q.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Content</span>
+        <span class="skill-tag">Voice</span>
+        <span class="skill-tag">Anti-slop</span>
+      </div>
+      <div class="skill-cmd">
+        <code>npx skills add ShahzDevAventures/content-humanizer</code>
+        <button class="copy-btn" data-copy="npx skills add ShahzDevAventures/content-humanizer">Copy</button>
+      </div>
+      <div class="skill-foot">
+        <a href="https://github.com/ShahzDevAventures/content-humanizer" target="_blank" rel="noopener">GitHub →</a>
+        <span class="skill-status coming">Coming</span>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="skills-footer fade-in">
+    <a href="https://github.com/ShahzDevAventures" target="_blank" rel="noopener">More on github.com/ShahzDevAventures →</a>
+  </div>
+</section>
+
+<!-- ─────────────────────── WORK ─────────────────────── -->
+<section id="work" class="shell section">
+  <div class="section-head fade-in">
+    <span class="section-num">06</span>
+    <span class="section-title">Featured Work / Case studies</span>
+  </div>
+
+  <div class="work-grid" id="workGrid">
+
+    <article class="work-card fade-in" data-case="sirge">
+      <div class="wc-num">CASE / 01</div>
+      <div class="wc-title">Sirge Operating System</div>
+      <div class="wc-desc">An internal operating layer to take myself out of the agency's critical path — playbooks, agent definitions, and a Claude Code workspace that turns four-hour decisions into fifteen-minute ones.</div>
+      <div class="wc-foot">
+        <span class="wc-metric">4h → 15m</span>
+        <span>Read case <span class="wc-arrow">→</span></span>
+      </div>
+    </article>
+
+    <article class="work-card fade-in delay-1" data-case="tcp">
+      <div class="wc-num">CASE / 02</div>
+      <div class="wc-title">The Christmas Palace</div>
+      <div class="wc-desc">A complex Shopify Plus redesign — 92+ collection pages, metaobject architecture, full CRO audit identifying funnel leaks across cart, checkout, and PDP. Built in eight phases with one developer.</div>
+      <div class="wc-foot">
+        <span class="wc-metric">8 phases · 92+ pages</span>
+        <span>Read case <span class="wc-arrow">→</span></span>
+      </div>
+    </article>
+
+    <article class="work-card fade-in delay-2" data-case="cro">
+      <div class="wc-num">CASE / 03</div>
+      <div class="wc-title">CRO Methodology</div>
+      <div class="wc-desc">A ten-step framework now applied to every Sirge engagement. Audit → metrics → voice → copy → wireframes → design → guidelines → generation → dev fixes → publish. Documented as a working skill.</div>
+      <div class="wc-foot">
+        <span class="wc-metric">10 steps · 9 stages</span>
+        <span>Read case <span class="wc-arrow">→</span></span>
+      </div>
+    </article>
+
+    <article class="work-card fade-in delay-3" data-case="ai-pipeline">
+      <div class="wc-num">CASE / 04</div>
+      <div class="wc-title">Anti-Slop AI Pipeline</div>
+      <div class="wc-desc">After three months of generic AI-design output, I designed a constrained pipeline: brand-token extraction → taste-controlled HTML → Figma push → human refinement → Liquid. The model writes the floor, the team sets the ceiling.</div>
+      <div class="wc-foot">
+        <span class="wc-metric">Quality &gt; volume</span>
+        <span>Read case <span class="wc-arrow">→</span></span>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ─────────────────────── APPROACH ─────────────────────── -->
+<section id="approach" class="shell section">
+  <div class="section-head fade-in">
+    <span class="section-num">07</span>
+    <span class="section-title">Approach / 2026 operating principles</span>
+  </div>
+
+  <div class="approach-grid">
+    <div class="approach-cell fade-in">
+      <div class="approach-num">P / 01</div>
+      <h3 class="approach-h">AI is the <em>floor</em>, not the ceiling.</h3>
+      <p>Generic AI output is the starting line. The role of a senior PM in 2026 is to set taste, constraints, and direction so the model produces a useful first draft — and to know exactly where humans need to take over.</p>
+      <div class="approach-pull">Receipts: <a href="#work" data-case-link="ai-pipeline">Anti-slop AI pipeline →</a></div>
+    </div>
+    <div class="approach-cell fade-in delay-1">
+      <div class="approach-num">P / 02</div>
+      <h3 class="approach-h">Proof of work <em>over</em> proof of role.</h3>
+      <p>Resumes describe what someone was allowed to do; portfolios show what they actually shipped. The site you're using right now is part of the interview.</p>
+      <div class="approach-pull">Receipts: <a href="#skills">this site, the skills section →</a></div>
+    </div>
+    <div class="approach-cell fade-in delay-2">
+      <div class="approach-num">P / 03</div>
+      <h3 class="approach-h">Build the <em>system</em>, not the heroics.</h3>
+      <p>Single-points-of-failure are an org smell. The right move is almost never working harder — it's designing the operating layer so the team can ship without you, then doing it again.</p>
+      <div class="approach-pull">Receipts: <a href="#work" data-case-link="sirge">Sirge OS →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────── CONTACT ─────────────────────── -->
+<section id="contact" class="shell contact">
+  <div class="section-head fade-in">
+    <span class="section-num">08</span>
+    <span class="section-title">Contact / End of document</span>
+  </div>
+
+  <div class="contact-grid">
+    <div></div>
+    <div>
+      <h2 class="contact-headline fade-in">Let's <em>build</em><br/>something.</h2>
+
+      <div class="contact-rows">
+        <a href="mailto:shahz.siddiqui@outlook.com" class="contact-row" target="_blank" rel="noopener">
+          <span class="label">Email</span>
+          <span class="contact-link">shahz.siddiqui@outlook.com</span>
+          <span class="arr">→</span>
+        </a>
+        <a href="https://www.linkedin.com/in/shahz-siddiqui-lead" class="contact-row" target="_blank" rel="noopener">
+          <span class="label">LinkedIn</span>
+          <span class="contact-link">in/shahz-siddiqui-lead</span>
+          <span class="arr">→</span>
+        </a>
+        <a href="https://github.com/ShahzDevAventures" class="contact-row" target="_blank" rel="noopener">
+          <span class="label">GitHub</span>
+          <span class="contact-link">@ShahzDevAventures</span>
+          <span class="arr">→</span>
+        </a>
+        <a href="#" class="contact-row" id="downloadOnePager">
+          <span class="label">One-pager</span>
+          <span class="contact-link">Download PDF resume</span>
+          <span class="arr">→</span>
+        </a>
+        <div class="contact-row">
+          <span class="label">Location</span>
+          <span class="contact-link">Toronto, Canada</span>
+          <span class="arr"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="shell footer-inner">
+    <div>© 2026 Shahzaib Siddiqui · All rights reserved</div>
+    <div>Set in JetBrains Mono &amp; Fraunces · <em>Built as the interview</em></div>
+  </div>
+</footer>
+
+<!-- ─────────────────────── COPILOT (spoof) ─────────────────────── -->
+<button class="copilot-trigger copilot" id="copilotTrigger" aria-label="Open contact spoof">
+  <span class="dot"></span>
+  <span>[ Ask Shahz-AI ]</span>
+</button>
+
+<aside class="copilot-panel" id="copilotPanel" aria-hidden="true">
+  <div class="copilot-head">
+    <span><span class="acid">●</span>&nbsp; SHAHZ-AI · v1.0</span>
+    <button class="copilot-close" id="copilotClose" aria-label="Close">×</button>
+  </div>
+  <div class="copilot-msgs" id="copilotMsgs">
+    <div class="msg bot">
+      <span class="who">Shahz-AI</span>
+      Hey. Type whatever you want — a role, a question, a hi.
+    </div>
+  </div>
+  <div class="copilot-suggestions" id="copilotSuggestions">
+    <button class="suggestion">I have a role for you</button>
+    <button class="suggestion">Let's talk Shopify</button>
+    <button class="suggestion">Want to chat AI tooling</button>
+  </div>
+  <form class="copilot-input" id="copilotForm">
+    <input type="text" id="copilotInput" placeholder="say something…" autocomplete="off" />
+    <button type="submit">Send</button>
+  </form>
+</aside>
+
+<!-- ─────────────────────── MODAL ─────────────────────── -->
+<div class="modal" id="caseModal" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h3 id="caseTitle">—</h3>
+      <button class="modal-close" id="caseClose" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body" id="caseBody"></div>
+  </div>
+</div>
+
+<script src="/scripts/main.js" defer></script>
+<script src="/scripts/hero-photo.js" defer></script>
+<script src="/scripts/stats.js" defer></script>
+<script src="/scripts/work-modal.js" defer></script>
+<script src="/scripts/copilot.js" defer></script>
+
+</body>
+</html>

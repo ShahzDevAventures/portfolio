@@ -1,0 +1,303 @@
+/* ═══════════════════════════════════════════════════════════
+   HERO — dark stage, kinetic name, photo with cursor glow
+   ═══════════════════════════════════════════════════════════ */
+
+.hero {
+  background: var(--void);
+  color: var(--chalk);
+  min-height: 100vh;
+  padding-top: 120px;
+  padding-bottom: 64px;
+  position: relative;
+  overflow: hidden;
+  border-top: none;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: var(--rail) 1fr;
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-rail {
+  position: relative;
+}
+.hero-rail .label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  position: sticky;
+  top: 120px;
+  color: var(--chalk);
+  opacity: 0.6;
+}
+.hero-rail .crop {
+  position: absolute;
+  top: 0; left: 0;
+  width: 14px; height: 14px;
+  border-top: 1px solid var(--chalk);
+  border-left: 1px solid var(--chalk);
+}
+
+.hero-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding-bottom: 28px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--void-3);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: color-mix(in oklab, var(--chalk) 60%, transparent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.hero-meta div span:first-child { display: block; margin-bottom: 4px; }
+.hero-meta div span:last-child {
+  display: block;
+  color: var(--chalk);
+  font-weight: 500;
+}
+.hero-meta div.signal span:last-child { color: var(--signal); }
+
+.hero-name {
+  display: block;
+  margin: 8px 0 32px;
+  color: var(--chalk);
+  line-height: 1.0;
+}
+.hero-name .accent { color: var(--signal); }
+
+.hero-deck {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 56px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+.hero-deck-l p {
+  max-width: 56ch;
+  color: color-mix(in oklab, var(--chalk) 90%, transparent);
+}
+.hero-deck-l p + p { margin-top: 16px; }
+.hero-deck-l .lede { color: color-mix(in oklab, var(--chalk) 92%, transparent); }
+.hero-deck-l .lede strong {
+  color: var(--signal);
+  background: none;
+  font-weight: 600;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 24px;
+}
+.hero-tag {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 5px 10px;
+  border: 1px solid var(--void-3);
+  color: var(--chalk);
+}
+.hero-tag.solid {
+  background: var(--signal);
+  color: var(--void);
+  border-color: var(--signal);
+  font-weight: 700;
+}
+
+.cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+.hero .btn {
+  border-color: var(--chalk);
+  color: var(--chalk);
+}
+.hero .btn:hover {
+  background: var(--signal);
+  color: var(--void);
+  border-color: var(--signal);
+}
+.hero .btn.solid {
+  background: var(--signal);
+  color: var(--void);
+  border-color: var(--signal);
+}
+.hero .btn.solid:hover {
+  background: var(--chalk);
+  border-color: var(--chalk);
+  color: var(--void);
+}
+
+/* ─── photo stage: 2-layer cursor reveal
+       BASE layer (always visible)  = stylized art
+       REVEAL layer (cursor-masked) = real photo
+       Cursor moves → real photo punches through the art via radial mask. ─── */
+.hero-photo {
+  position: relative;
+  border: 1px solid var(--void-3);
+  background: var(--void-2);
+  aspect-ratio: 4/5;
+  min-height: 420px;
+  overflow: hidden;
+  --px: 50%;
+  --py: 40%;
+}
+
+/* base layer (stylized art) — always rendered */
+.hero-photo-base {
+  position: absolute;
+  inset: 0;
+  background-image: var(--photo-base, none);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(0.05) contrast(1.0);
+  z-index: 1;
+}
+
+/* reveal layer (real photo) — masked to a circle around the cursor */
+.hero-photo-reveal {
+  position: absolute;
+  inset: 0;
+  background-image: var(--photo-reveal, none);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: contrast(1.05);
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 400ms var(--ease-out);
+  -webkit-mask-image: radial-gradient(circle 220px at var(--px) var(--py), black 0%, black 45%, rgba(0,0,0,0.4) 75%, transparent 100%);
+          mask-image: radial-gradient(circle 220px at var(--px) var(--py), black 0%, black 45%, rgba(0,0,0,0.4) 75%, transparent 100%);
+  -webkit-mask-size: 100% 100%;
+          mask-size: 100% 100%;
+}
+.hero-photo.engaged .hero-photo-reveal { opacity: 1; }
+
+/* fallback letterform shows only when no images load */
+.hero-photo-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 400ms var(--ease-out);
+}
+.hero-photo-fallback::after {
+  content: "SS";
+  font-family: var(--font-display);
+  font-size: clamp(160px, 22vw, 360px);
+  color: rgba(242, 239, 232, 0.10);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.hero-photo-tag {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  z-index: 4;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--chalk);
+  background: rgba(17,17,18,0.7);
+  backdrop-filter: blur(6px);
+  padding: 6px 10px;
+  border: 1px solid var(--void-3);
+}
+.hero-photo-tag .live { color: var(--signal); }
+
+.hero-photo-coord {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 4;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: color-mix(in oklab, var(--chalk) 70%, transparent);
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-photo-hint {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--signal);
+  z-index: 5;
+  pointer-events: none;
+  transition: opacity 400ms var(--ease);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+}
+.hero-photo.engaged .hero-photo-hint { opacity: 0; }
+
+/* ─── status & fit panel ─── */
+.status-panel {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--void-3);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.status-panel > div {
+  padding: 14px 16px;
+  border-right: 1px solid var(--void-3);
+  color: color-mix(in oklab, var(--chalk) 60%, transparent);
+}
+.status-panel > div:last-child { border-right: none; }
+.status-panel .v {
+  display: block;
+  margin-top: 4px;
+  color: var(--chalk);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+}
+.status-panel .v.signal { color: var(--signal); }
+
+@media (max-width: 880px) {
+  .hero { padding-top: 100px; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-rail { display: none; }
+  .hero-deck { grid-template-columns: 1fr; gap: 32px; }
+  .hero-meta { grid-template-columns: 1fr 1fr; gap: 14px; padding-bottom: 20px; margin-bottom: 20px; font-size: 10px; }
+  .hero-meta div span:last-child { font-size: 12px; }
+  .status-panel { grid-template-columns: 1fr 1fr; margin-top: 28px; }
+  .status-panel > div { border-right: 1px solid var(--void-3); border-bottom: 1px solid var(--void-3); padding: 12px 14px; }
+  .status-panel > div:nth-child(2n) { border-right: none; }
+  .status-panel > div:nth-last-child(-n+2) { border-bottom: none; }
+  .hero-name { margin: 4px 0 24px; }
+  .hero-photo { min-height: 360px; aspect-ratio: 1/1; }
+}
+@media (hover: none) {
+  /* on touch: skip the cursor mechanic. Show the real photo fully, drop the
+     reveal mask so users see the actual person without trying to hover. */
+  .hero-photo-reveal {
+    opacity: 1;
+    -webkit-mask-image: none;
+            mask-image: none;
+  }
+  .hero-photo-base { opacity: 0; }
+  .hero-photo-hint { opacity: 0; }
+}

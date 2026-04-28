@@ -1,0 +1,103 @@
+/* ═══════════════════════════════════════════════════════════
+   CONTACT — dark inverted section
+   ═══════════════════════════════════════════════════════════ */
+
+.contact {
+  background: var(--void);
+  color: var(--chalk);
+  padding: 120px 0 80px;
+}
+
+.contact .section-num,
+.contact .section-title {
+  color: var(--chalk);
+  border-color: var(--chalk);
+}
+.contact .section-num { color: color-mix(in oklab, var(--chalk) 60%, transparent); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: var(--rail) 1fr;
+  gap: 24px;
+}
+
+.contact-headline {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 9vw, 144px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 0.92;
+  color: var(--chalk);
+  margin-bottom: 36px;
+  text-transform: uppercase;
+}
+.contact-headline em {
+  background: var(--signal);
+  color: var(--void);
+  padding: 0 12px;
+  text-transform: lowercase;
+  font-style: italic;
+}
+
+.contact-rows {
+  border-top: 1px solid var(--chalk);
+}
+
+.contact-row {
+  display: grid;
+  grid-template-columns: 160px 1fr auto;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid color-mix(in oklab, var(--chalk) 25%, transparent);
+  align-items: baseline;
+  transition: padding var(--dur-2) var(--ease);
+}
+.contact-row:hover { padding-left: 14px; }
+.contact-row .label {
+  color: color-mix(in oklab, var(--chalk) 60%, transparent);
+  font-size: 11px;
+}
+.contact-link {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--chalk);
+  letter-spacing: -0.02em;
+  transition: color var(--dur-1) var(--ease);
+  word-break: break-all;
+}
+.contact-row:hover .contact-link { color: var(--signal); }
+.contact-row .arr {
+  font-family: var(--font-mono);
+  color: color-mix(in oklab, var(--chalk) 60%, transparent);
+  transition: transform var(--dur-2) var(--ease), color var(--dur-1) var(--ease);
+}
+.contact-row:hover .arr { color: var(--signal); transform: translateX(8px); }
+
+footer {
+  background: var(--void);
+  border-top: 1px solid var(--void-3);
+  color: color-mix(in oklab, var(--chalk) 60%, transparent);
+  padding: 32px 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-inner em {
+  color: var(--signal);
+  font-style: normal;
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .contact-row { grid-template-columns: 100px 1fr auto; gap: 12px; }
+  .contact-link { font-size: 15px; }
+}

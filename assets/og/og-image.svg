@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <pattern id="grain" patternUnits="userSpaceOnUse" width="240" height="240">
+      <filter id="n">
+        <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/>
+        <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.06 0"/>
+      </filter>
+      <rect width="240" height="240" filter="url(#n)"/>
+    </pattern>
+  </defs>
+
+  <!-- background -->
+  <rect width="1200" height="630" fill="#111112"/>
+  <rect width="1200" height="630" fill="url(#grain)"/>
+
+  <!-- top stripe -->
+  <g>
+    <rect x="0" y="0" width="1200" height="6" fill="#D2FF00"/>
+  </g>
+
+  <!-- left rail label -->
+  <g transform="translate(48, 540) rotate(-90)" font-family="JetBrains Mono, monospace" font-size="13" letter-spacing="2" fill="#F2EFE8" opacity="0.6">
+    <text>PORTFOLIO · 2026</text>
+  </g>
+
+  <!-- name -->
+  <g font-family="Anton, Impact, sans-serif" fill="#F2EFE8" letter-spacing="-2">
+    <text x="120" y="240" font-size="116">SHAHZAIB SIDDIQUI.</text>
+    <text x="120" y="356" font-size="116">SENIOR <tspan fill="#D2FF00">PM</tspan>.</text>
+  </g>
+
+  <!-- subtitle -->
+  <g font-family="Fraunces, Georgia, serif" fill="#F2EFE8" font-style="italic">
+    <text x="120" y="430" font-size="28" opacity="0.92">AI-first builder. Operator at heart.</text>
+  </g>
+
+  <!-- chips row -->
+  <g font-family="JetBrains Mono, monospace" font-size="14" letter-spacing="2">
+    <g transform="translate(120, 490)">
+      <rect width="240" height="36" fill="#D2FF00"/>
+      <text x="120" y="24" text-anchor="middle" fill="#111112" font-weight="700">OPEN TO SENIOR PM</text>
+    </g>
+    <g transform="translate(376, 490)" fill="#F2EFE8">
+      <rect width="120" height="36" fill="none" stroke="#2B2B2D"/>
+      <text x="60" y="24" text-anchor="middle">TORONTO</text>
+    </g>
+    <g transform="translate(512, 490)" fill="#F2EFE8">
+      <rect width="220" height="36" fill="none" stroke="#2B2B2D"/>
+      <text x="110" y="24" text-anchor="middle">SHOPIFY · AI · OPS</text>
+    </g>
+  </g>
+
+  <!-- url + monogram -->
+  <g transform="translate(120, 580)" font-family="JetBrains Mono, monospace" font-size="14" fill="#F2EFE8" opacity="0.6">
+    <text>shahzaibsiddiqui.vercel.app</text>
+  </g>
+
+  <g transform="translate(1080, 88)">
+    <rect width="56" height="56" fill="#D2FF00"/>
+    <text x="28" y="38" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="32" fill="#111112" font-weight="700" letter-spacing="-2">SS</text>
+  </g>
+
+</svg>

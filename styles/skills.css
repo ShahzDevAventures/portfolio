@@ -1,0 +1,181 @@
+/* ═══════════════════════════════════════════════════════════
+   SKILLS — open-source AI tooling (the differentiator)
+   ═══════════════════════════════════════════════════════════ */
+
+.skills-intro {
+  display: grid;
+  grid-template-columns: var(--rail) 5fr 7fr;
+  gap: 24px;
+  align-items: end;
+  margin-bottom: 36px;
+}
+.skills-intro h2 {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.4vw, 44px);
+  text-transform: uppercase;
+  line-height: 0.95;
+  margin-bottom: 12px;
+}
+.skills-intro p {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--ink-2);
+  max-width: 56ch;
+}
+.skills-install {
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 8px 12px;
+  display: inline-block;
+  letter-spacing: -0.01em;
+}
+.skills-install .signal { color: var(--signal); }
+
+.skills-grid {
+  margin-left: var(--rail);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--ink);
+}
+
+.skill-card {
+  padding: 24px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  position: relative;
+}
+.skill-card:nth-child(2n) { border-right: none; }
+.skill-card:nth-last-child(-n+2) { border-bottom: none; }
+
+.skill-name {
+  font-family: var(--font-mono);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.skill-desc {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  margin-bottom: 14px;
+  max-width: 50ch;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.skill-tag {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 4px 8px;
+  border: 1px solid var(--rule);
+  color: var(--ink-2);
+}
+
+.skill-cmd {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--ink);
+  background: var(--paper-2);
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  overflow: hidden;
+}
+.skill-cmd code {
+  flex: 1;
+  padding: 10px 12px;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.skill-cmd .copy-btn {
+  border: none;
+  border-left: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+  transition: background var(--dur-1) var(--ease), color var(--dur-1) var(--ease);
+  font-weight: 600;
+}
+.skill-cmd .copy-btn:hover { background: var(--signal); color: var(--void); }
+.skill-cmd .copy-btn.copied { background: var(--signal); color: var(--void); }
+
+.skill-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.skill-foot a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur-1) var(--ease);
+}
+.skill-foot a:hover { border-bottom-color: var(--signal); }
+.skill-status {
+  color: var(--ink-3);
+}
+.skill-status.live::before {
+  content: "● ";
+  color: var(--signal);
+}
+.skill-status.coming::before {
+  content: "○ ";
+}
+
+.skills-footer {
+  margin-left: var(--rail);
+  margin-top: 24px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+.skills-footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 2px;
+  transition: color var(--dur-1) var(--ease);
+}
+.skills-footer a:hover { color: var(--ledger); border-color: var(--ledger); }
+
+@media (max-width: 720px) {
+  .skills-intro { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; margin-left: 0; }
+  .skill-card { border-right: none; }
+  .skills-footer { margin-left: 0; }
+}
