@@ -13,17 +13,18 @@
   const fallEl   = document.getElementById('heroFallback');
   const coordEl  = document.getElementById('heroCoord');
 
-  /* candidates: base (stylized art) and reveal (real photo).
+  /* candidates: base = real photo (always visible)
+                 reveal = stylized art (visible only inside cursor radius)
      The first that loads in each list wins. */
   const baseCandidates = [
-    '/assets/photos/portrait-art.png',
-    '/assets/photos/portrait-art.jpg',
-    '/assets/photos/portrait-art.webp',
-  ];
-  const revealCandidates = [
     '/assets/photos/portrait.jpg',
     '/assets/photos/portrait.png',
     '/assets/photos/portrait.webp',
+  ];
+  const revealCandidates = [
+    '/assets/photos/portrait-art.png',
+    '/assets/photos/portrait-art.jpg',
+    '/assets/photos/portrait-art.webp',
   ];
 
   let baseLoaded = false;
