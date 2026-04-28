@@ -61,28 +61,40 @@
 }
 .hero-meta div.signal span:last-child { color: var(--signal); }
 
+/* hero-body: 2-column grid where the photo column runs the full content
+   height, sitting alongside the name + lede + CTAs + status panel. */
+.hero-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 56px;
+  align-items: stretch;
+}
+.hero-body-l {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
 .hero-name {
   display: block;
-  margin: 8px 0 32px;
+  margin: 0 0 32px;
   color: var(--chalk);
   line-height: 1.0;
+  /* Cap below display-0 default so "AI-first builder." fits the narrower
+     left column alongside the full-height photo, without ugly mid-word wraps. */
+  font-size: clamp(38px, 6.4vw, 92px);
+  letter-spacing: -0.02em;
 }
 .hero-name .accent { color: var(--signal); }
+.hero-name .rise-line { white-space: nowrap; }
 
-.hero-deck {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 56px;
-  align-items: start;
-  margin-bottom: 24px;
-}
-.hero-deck-l p {
+.hero-body-l p {
   max-width: 56ch;
   color: color-mix(in oklab, var(--chalk) 90%, transparent);
 }
-.hero-deck-l p + p { margin-top: 16px; }
-.hero-deck-l .lede { color: color-mix(in oklab, var(--chalk) 92%, transparent); }
-.hero-deck-l .lede strong {
+.hero-body-l p + p { margin-top: 16px; }
+.hero-body-l .lede { color: color-mix(in oklab, var(--chalk) 92%, transparent); }
+.hero-body-l .lede strong {
   color: var(--signal);
   background: none;
   font-weight: 600;
@@ -136,7 +148,7 @@
   color: var(--void);
 }
 
-/* ─── photo stage: 2-layer cursor reveal
+/* ─── photo stage: full-height column, 2-layer cursor reveal
        BASE layer (always visible)  = stylized art
        REVEAL layer (cursor-masked) = real photo
        Cursor moves → real photo punches through the art via radial mask. ─── */
@@ -144,8 +156,9 @@
   position: relative;
   border: 1px solid var(--void-3);
   background: var(--void-2);
-  aspect-ratio: 4/5;
-  min-height: 420px;
+  width: 100%;
+  height: 100%;
+  min-height: 580px;
   overflow: hidden;
   --px: 50%;
   --py: 40%;
@@ -249,8 +262,9 @@
 .hero-photo.engaged .hero-photo-hint { opacity: 0; }
 
 /* ─── status & fit panel ─── */
+.cta-row { margin-bottom: 40px; }
 .status-panel {
-  margin-top: 40px;
+  margin-top: auto; /* push to bottom of hero-body-l, aligns with photo's lower edge */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0;
@@ -280,7 +294,7 @@
   .hero { padding-top: 100px; }
   .hero-grid { grid-template-columns: 1fr; }
   .hero-rail { display: none; }
-  .hero-deck { grid-template-columns: 1fr; gap: 32px; }
+  .hero-body { grid-template-columns: 1fr; gap: 32px; }
   .hero-meta { grid-template-columns: 1fr 1fr; gap: 14px; padding-bottom: 20px; margin-bottom: 20px; font-size: 10px; }
   .hero-meta div span:last-child { font-size: 12px; }
   .status-panel { grid-template-columns: 1fr 1fr; margin-top: 28px; }
@@ -288,7 +302,7 @@
   .status-panel > div:nth-child(2n) { border-right: none; }
   .status-panel > div:nth-last-child(-n+2) { border-bottom: none; }
   .hero-name { margin: 4px 0 24px; }
-  .hero-photo { min-height: 360px; aspect-ratio: 1/1; }
+  .hero-photo { min-height: 420px; aspect-ratio: 4/5; height: auto; }
 }
 @media (hover: none) {
   /* on touch: skip the cursor mechanic. Show the real photo fully, drop the
