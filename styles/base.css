@@ -122,6 +122,11 @@ section[id], header[id] { scroll-margin-top: 60px; }
   .section { padding: 88px 0 72px; }
   .section-head { grid-template-columns: 1fr; gap: 8px; margin-bottom: 40px; }
 }
+@media (max-width: 480px) {
+  :root { --gutter: 20px; }
+  .section { padding: 64px 0 56px; }
+  .section-head { margin-bottom: 28px; }
+}
 
 .section-num {
   font-family: var(--font-mono);

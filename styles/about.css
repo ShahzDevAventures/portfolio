@@ -47,12 +47,14 @@
   color: var(--ink);
 }
 .inline-link {
+  background: var(--signal);
   color: var(--ink);
-  border-bottom: 1px solid var(--ink);
-  padding-bottom: 1px;
+  padding: 2px 8px;
+  font-weight: 600;
+  white-space: nowrap;
   transition: opacity var(--dur-1) var(--ease);
 }
-.inline-link:hover { opacity: 0.6; }
+.inline-link:hover { opacity: 0.82; }
 
 .about-facts {
   margin-top: 32px;

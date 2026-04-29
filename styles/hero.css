@@ -153,8 +153,6 @@
        Cursor moves → real photo punches through the art via radial mask. ─── */
 .hero-photo {
   position: relative;
-  border: 1px solid var(--void-3);
-  background: var(--void-2);
   width: 340px;
   aspect-ratio: 4/5;
   overflow: hidden;
@@ -299,7 +297,15 @@
   .status-panel > div:nth-child(2n) { border-right: none; }
   .status-panel > div:nth-last-child(-n+2) { border-bottom: none; }
   .hero-name { margin: 4px 0 24px; }
-  .hero-photo { min-height: 420px; aspect-ratio: 4/5; height: auto; }
+  .hero-photo { width: 100%; max-width: 320px; min-height: auto; aspect-ratio: 4/5; height: auto; }
+  .hero-body { gap: 40px; }
+}
+@media (max-width: 480px) {
+  .hero { padding-top: 92px; padding-bottom: 64px; }
+  .hero-photo { max-width: 280px; }
+  .status-panel { grid-template-columns: 1fr; }
+  .status-panel > div { border-right: none; border-bottom: 1px solid var(--void-3); }
+  .status-panel > div:last-child { border-bottom: none; }
 }
 @media (hover: none) {
   /* on touch: skip the cursor mechanic. Real photo is the base now and
