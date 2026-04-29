@@ -120,7 +120,7 @@
   max-height: 88vh;
   overflow-y: auto;
   position: relative;
-  box-shadow: 16px 16px 0 -1px var(--signal);
+  box-shadow: 16px 16px 0 -1px var(--ink);
 }
 
 .modal-head {
@@ -241,9 +241,7 @@
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 22px;
-  background: var(--signal);
   color: var(--ink);
-  padding: 0 6px;
   display: inline-block;
   margin-top: 6px;
   letter-spacing: -0.02em;

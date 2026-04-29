@@ -34,11 +34,11 @@
   color: var(--ink);
 }
 .approach-h em {
-  background: var(--signal);
   color: var(--ink);
-  padding: 0 6px;
   text-transform: lowercase;
   font-style: italic;
+  font-family: var(--font-body);
+  font-variation-settings: "opsz" 144, "wght" 380;
 }
 
 .approach-cell p {
@@ -60,7 +60,7 @@
   padding-top: 12px;
 }
 .approach-pull a {
-  border-bottom: 1px solid var(--signal);
+  border-bottom: 1px solid var(--ink);
   padding-bottom: 1px;
   transition: color var(--dur-1) var(--ease);
 }

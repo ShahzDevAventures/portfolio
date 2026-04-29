@@ -20,7 +20,7 @@ body {
   color: var(--ink-2);
   font-family: var(--font-body);
   font-size: 17px;
-  line-height: 1.55;
+  line-height: 1.65;
   font-variation-settings: "opsz" 18, "SOFT" 30;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -103,7 +103,7 @@ h1, h2, h3, h4 {
 
 .section {
   position: relative;
-  padding: 96px 0 80px;
+  padding: 144px 0 128px;
   border-top: 1px solid var(--rule);
   scroll-margin-top: 60px; /* offset for fixed nav when anchor-scrolling */
 }
@@ -115,12 +115,12 @@ section[id], header[id] { scroll-margin-top: 60px; }
   grid-template-columns: var(--rail) 1fr;
   gap: 24px;
   align-items: baseline;
-  margin-bottom: 56px;
+  margin-bottom: 80px;
 }
 
 @media (max-width: 720px) {
-  .section { padding: 64px 0 48px; }
-  .section-head { grid-template-columns: 1fr; gap: 8px; margin-bottom: 32px; }
+  .section { padding: 88px 0 72px; }
+  .section-head { grid-template-columns: 1fr; gap: 8px; margin-bottom: 40px; }
 }
 
 .section-num {

@@ -39,9 +39,8 @@
 }
 .stats-intro p em {
   font-style: italic;
-  background: var(--signal);
-  color: var(--ink);
-  padding: 0 4px;
+  color: var(--chalk);
+  font-family: var(--font-body);
 }
 
 .stats-grid {
@@ -85,7 +84,7 @@
   color: color-mix(in oklab, var(--chalk) 60%, transparent);
   letter-spacing: 0;
 }
-.stat-cell.signal .stat-value { color: var(--signal); }
+.stat-cell.signal .stat-value { color: var(--chalk); }
 .stat-cell.ledger .stat-value { color: var(--ledger); }
 
 .stat-bar {
@@ -103,7 +102,7 @@
   transition: width 1.2s var(--ease-out);
 }
 .stat-cell.in-view .stat-bar i { width: var(--bar, 60%); }
-.stat-cell.signal .stat-bar i { background: var(--signal); }
+.stat-cell.signal .stat-bar i { background: var(--chalk); }
 .stat-cell.ledger .stat-bar i { background: var(--ledger); }
 
 .stat-context {

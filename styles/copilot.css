@@ -15,29 +15,28 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  background: var(--signal);
-  color: var(--void);
-  border: 1px solid var(--signal);
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--ink);
   padding: 14px 18px;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 10px;
   transition: background var(--dur-1) var(--ease), color var(--dur-1) var(--ease);
-  box-shadow: 4px 4px 0 -1px var(--void);
 }
 .copilot-trigger:hover {
-  background: var(--void);
-  color: var(--signal);
-  border-color: var(--signal);
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
 }
 .copilot-trigger .dot {
   width: 6px; height: 6px;
-  background: var(--void);
+  background: var(--ink);
   border-radius: 50%;
   animation: pulse 2s ease-in-out infinite;
 }
-.copilot-trigger:hover .dot { background: var(--signal); }
+.copilot-trigger:hover .dot { background: var(--paper); }
 
 .copilot-panel {
   position: fixed;
@@ -54,7 +53,7 @@
   opacity: 0;
   pointer-events: none;
   transition: transform var(--dur-2) var(--ease), opacity var(--dur-2) var(--ease);
-  box-shadow: 12px 12px 0 -1px var(--signal);
+  box-shadow: 8px 8px 0 -1px var(--ink);
 }
 .copilot-panel.open {
   transform: translateY(0) scale(1);
@@ -74,7 +73,7 @@
   text-transform: uppercase;
   letter-spacing: 0.14em;
 }
-.copilot-head .acid { color: var(--signal); }
+.copilot-head .acid { color: color-mix(in oklab, var(--paper) 70%, transparent); }
 .copilot-close {
   background: transparent;
   border: none;

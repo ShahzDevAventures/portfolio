@@ -90,6 +90,14 @@
   stage.addEventListener('touchstart', update, { passive: true });
   stage.addEventListener('touchmove',  update, { passive: true });
 
+  /* on cursor leave, drop engaged so the hint/reveal returns to default state.
+     touch devices won't fire this — they keep the auto-engaged state below. */
+  stage.addEventListener('mouseleave', () => {
+    if (window.matchMedia('(hover: none)').matches) return;
+    engaged = false;
+    stage.classList.remove('engaged');
+  });
+
   /* mobile: auto-engage to show the real photo without requiring hover */
   if (window.matchMedia('(hover: none)').matches) {
     setTimeout(() => stage.classList.add('engaged'), 600);

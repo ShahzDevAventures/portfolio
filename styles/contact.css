@@ -32,11 +32,11 @@
   text-transform: uppercase;
 }
 .contact-headline em {
-  background: var(--signal);
-  color: var(--void);
-  padding: 0 12px;
+  color: var(--chalk);
   text-transform: lowercase;
   font-style: italic;
+  font-family: var(--font-body);
+  font-variation-settings: "opsz" 144, "wght" 380;
 }
 
 .contact-rows {
@@ -92,7 +92,7 @@ footer {
   gap: 16px;
 }
 .footer-inner em {
-  color: var(--signal);
+  color: var(--chalk);
   font-style: normal;
   font-weight: 700;
 }

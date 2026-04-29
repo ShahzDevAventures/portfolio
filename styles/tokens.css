@@ -25,7 +25,7 @@
   --font-mono:    "JetBrains Mono", ui-monospace, monospace;
 
   /* layout */
-  --gutter: 24px;
+  --gutter: 32px;
   --rail:   72px;
   --max:    1440px;
 

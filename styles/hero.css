@@ -6,8 +6,8 @@
   background: var(--void);
   color: var(--chalk);
   min-height: 100vh;
-  padding-top: 120px;
-  padding-bottom: 64px;
+  padding-top: 140px;
+  padding-bottom: 112px;
   position: relative;
   overflow: hidden;
   border-top: none;
@@ -59,14 +59,14 @@
   color: var(--chalk);
   font-weight: 500;
 }
-.hero-meta div.signal span:last-child { color: var(--signal); }
+.hero-meta div.signal span:last-child { color: var(--chalk); }
 
 /* hero-body: 2-column grid. Left = name + lede + CTAs + status panel.
    Right = compact photo (fixed width, top-aligned). */
 .hero-body {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 56px;
+  gap: 96px;
   align-items: start;
 }
 .hero-body-l {
@@ -93,10 +93,11 @@
 .hero-body-l p + p { margin-top: 16px; }
 .hero-body-l .lede { color: color-mix(in oklab, var(--chalk) 92%, transparent); }
 .hero-body-l .lede strong {
-  color: var(--signal);
+  color: var(--chalk);
   background: none;
   font-weight: 600;
 }
+.hero-body-l .lede strong.name { color: var(--signal); }
 
 .hero-tags {
   display: flex;
@@ -114,9 +115,9 @@
   color: var(--chalk);
 }
 .hero-tag.solid {
-  background: var(--signal);
-  color: var(--void);
-  border-color: var(--signal);
+  background: transparent;
+  color: var(--chalk);
+  border-color: var(--chalk);
   font-weight: 700;
 }
 
@@ -154,7 +155,7 @@
   position: relative;
   border: 1px solid var(--void-3);
   background: var(--void-2);
-  width: 380px;
+  width: 340px;
   aspect-ratio: 4/5;
   overflow: hidden;
   --px: 50%;
@@ -184,7 +185,7 @@
   filter: contrast(1.05);
   z-index: 2;
   opacity: 0;
-  transition: opacity 400ms var(--ease-out);
+  transition: opacity 260ms var(--ease-out);
   -webkit-mask-image: radial-gradient(circle 220px at var(--px) var(--py), black 0%, black 45%, rgba(0,0,0,0.4) 75%, transparent 100%);
           mask-image: radial-gradient(circle 220px at var(--px) var(--py), black 0%, black 45%, rgba(0,0,0,0.4) 75%, transparent 100%);
   -webkit-mask-size: 100% 100%;
@@ -200,7 +201,7 @@
   place-items: center;
   pointer-events: none;
   z-index: 0;
-  transition: opacity 400ms var(--ease-out);
+  transition: opacity 260ms var(--ease-out);
 }
 .hero-photo-fallback::after {
   content: "SS";
@@ -250,10 +251,10 @@
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: var(--signal);
+  color: var(--chalk);
   z-index: 5;
   pointer-events: none;
-  transition: opacity 400ms var(--ease);
+  transition: opacity 260ms var(--ease);
   text-shadow: 0 2px 12px rgba(0,0,0,0.6);
 }
 .hero-photo.engaged .hero-photo-hint { opacity: 0; }
@@ -284,7 +285,7 @@
   font-size: 13px;
   letter-spacing: 0.06em;
 }
-.status-panel .v.signal { color: var(--signal); }
+.status-panel .v.signal { color: var(--chalk); }
 
 @media (max-width: 880px) {
   .hero { padding-top: 100px; }

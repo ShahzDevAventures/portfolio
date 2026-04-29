@@ -1,11 +1,11 @@
 # Shahzaib Siddiqui
 
 Senior PM. AI-first builder. Operator at heart.
-Toronto, Canada · Open to senior product roles.
+Ottawa, Canada · Open to senior product roles.
 
 ---
 
-I co-founded **Sirge** (Shopify-AI) and ran it from operations to CEO. I build the system, read the metrics, and ship the product — in roughly that order.
+Most recently CEO at **Sirge** (Shopify-AI). I build the system, read the metrics, and ship the product — in roughly that order.
 
 This profile is a working surface for the AI tooling I ship publicly. Browse the repos for installable Claude Code skills, or visit the portfolio for the full story.
 
@@ -13,18 +13,16 @@ This profile is a working surface for the AI tooling I ship publicly. Browse the
 
 - **Open-source Claude Code skills** — installable via `npx skills add ShahzDevAventures/<slug>`
 - **CRO methodology** — a 10-step framework codified as a workflow
-- **Anti-slop AI design pipeline** — brand-token extraction → wireframe → taste-controlled HTML → Figma → Liquid
+- **End-to-end CRO pipeline** — audit → copy → wireframe → design
 
-### Skills
+### Skills (4, end-to-end pipeline)
 
 | Skill | What it does |
 |---|---|
-| `design-taste-frontend` | Senior UI/UX engineer rules. Overrides default LLM design biases. |
-| `redesign-existing-projects` | Audits existing sites for generic AI patterns; applies high-end design standards. |
-| `industrial-brutalist-ui` | Raw mechanical interfaces. Swiss print + military terminal. |
-| `cro-audit` | 10-step CRO methodology. Used on 10+ Shopify Plus stores. |
-| `stitch-design-taste` | Generates DESIGN.md files enforcing premium, anti-generic UI. |
-| `high-end-visual-design` | Designs websites at high-end agency quality. |
+| [`cro-audit-skill`](https://github.com/ShahzDevAventures/cro-audit-skill) | 10-step CRO methodology codified. Used on 10+ Shopify Plus stores. |
+| [`ecommerce-copywriter`](https://github.com/ShahzDevAventures/ecommerce-copywriter) | Three-mode conversion copywriting (Contextual / Conversational / Elevated) for Shopify. |
+| [`shopify-wireframe`](https://github.com/ShahzDevAventures/shopify-wireframe) | Grey-box HTML wireframes for Shopify Dawn — pipeline-aware, takes audit + copy as inputs. |
+| [`stitch-design-taste`](https://github.com/ShahzDevAventures/stitch-design-taste) | Generates DESIGN.md files for Google Stitch. Anti-slop frontend taste, configurable. |
 
 ### Background
 
@@ -41,4 +39,4 @@ This profile is a working surface for the AI tooling I ship publicly. Browse the
 
 ---
 
-*Open to senior PM roles at growth-stage startups in the Shopify, AI, or operator-ecosystem space. Remote / hybrid. Available from Q3 2026.*
+*Open to senior PM roles at growth-stage startups in the Shopify, AI, or operator-ecosystem space. Remote / hybrid. Available now.*

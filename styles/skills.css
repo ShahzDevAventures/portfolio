@@ -32,7 +32,7 @@
   display: inline-block;
   letter-spacing: -0.01em;
 }
-.skills-install .signal { color: var(--signal); }
+.skills-install .signal { color: var(--paper); opacity: 0.85; }
 
 .skills-grid {
   margin-left: var(--rail);
@@ -149,7 +149,7 @@
 }
 .skill-status.live::before {
   content: "● ";
-  color: var(--signal);
+  color: var(--ink-3);
 }
 .skill-status.coming::before {
   content: "○ ";
