@@ -5,7 +5,7 @@
 .contact {
   background: var(--void);
   color: var(--chalk);
-  padding: 120px 0 80px;
+  padding: 96px 0 0;
 }
 
 .contact .section-num,

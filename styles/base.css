@@ -103,7 +103,7 @@ h1, h2, h3, h4 {
 
 .section {
   position: relative;
-  padding: 96px 0 80px;
+  padding: 96px 0 0;
   scroll-margin-top: 60px; /* offset for fixed nav when anchor-scrolling */
 }
 section[id], header[id] { scroll-margin-top: 60px; }
@@ -117,12 +117,12 @@ section[id], header[id] { scroll-margin-top: 60px; }
 }
 
 @media (max-width: 720px) {
-  .section { padding: 64px 0 48px; }
+  .section { padding: 64px 0 0; }
   .section-head { grid-template-columns: 1fr; gap: 8px; margin-bottom: 36px; }
 }
 @media (max-width: 480px) {
   :root { --gutter: 20px; }
-  .section { padding: 48px 0 40px; }
+  .section { padding: 48px 0 0; }
   .section-head { margin-bottom: 24px; }
 }
 
