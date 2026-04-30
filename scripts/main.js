@@ -41,7 +41,7 @@
   onScrollTheme();
 
   /* ── scroll-spy ── */
-  const spyIds = ['about', 'experience', 'stats', 'skills', 'work', 'approach', 'contact'];
+  const spyIds = ['about', 'experience', 'stats', 'skills', 'work', 'references', 'contact'];
   const spyMap = {};
   spyIds.forEach(id => {
     const sec = document.getElementById(id);
