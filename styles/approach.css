@@ -66,9 +66,9 @@
   color: var(--ink-3);
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
   .references-grid { grid-template-columns: 1fr; max-width: none; }
-  .reference-cell { border-right: none; border-bottom: 1px solid var(--rule); }
+  .reference-cell { border-right: none; border-bottom: 1px solid var(--rule); padding: 28px 24px; }
   .reference-cell:last-child { border-bottom: none; }
   .reference-name { padding: 6px 0; min-height: 44px; display: inline-flex; align-items: center; }
 }

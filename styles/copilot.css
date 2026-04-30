@@ -198,6 +198,39 @@
   border-color: var(--ink);
 }
 
+@media (max-width: 768px) {
+  .copilot { right: 16px; bottom: 16px; }
+  .copilot-trigger {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border-radius: 50%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    box-shadow: 4px 4px 0 -1px var(--ink);
+  }
+  .copilot-trigger > span:not(.dot) { display: none; }
+  .copilot-trigger::after {
+    content: "AI";
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    pointer-events: none;
+  }
+  .copilot-trigger:hover::after { color: var(--paper); }
+  .copilot-trigger .dot {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 7px;
+    height: 7px;
+  }
+}
 @media (max-width: 480px) {
   .copilot-panel { right: 12px; left: 12px; bottom: 12px; width: auto; }
   .copilot { right: 12px; bottom: 12px; }

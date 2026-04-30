@@ -123,14 +123,10 @@
   color: color-mix(in oklab, var(--chalk) 55%, transparent);
 }
 
-@media (max-width: 880px) {
+@media (max-width: 768px) {
   .stats-intro { grid-template-columns: 1fr; }
-  .stats-grid { grid-template-columns: 1fr 1fr; margin-left: 0; }
-  .stat-cell:nth-child(4n) { border-right: 1px solid var(--void-3); }
-  .stat-cell:nth-child(2n) { border-right: none; }
+  .stats-grid { grid-template-columns: 1fr; margin-left: 0; }
+  .stat-cell { border-right: none; border-bottom: 1px solid var(--void-3); }
+  .stat-cell:last-child { border-bottom: none; }
   .stats-footer { margin-left: 0; }
-}
-@media (max-width: 480px) {
-  .stats-grid { grid-template-columns: 1fr; }
-  .stat-cell { border-right: none; }
 }

@@ -78,7 +78,7 @@
   color: var(--ink);
 }
 
-@media (max-width: 880px) {
+@media (max-width: 768px) {
   .about-grid { grid-template-columns: 1fr; }
   .about-headline { position: static; }
   .about-pull { margin-left: 0; }

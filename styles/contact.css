@@ -97,7 +97,29 @@ footer {
   font-weight: 700;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
   .contact-row { grid-template-columns: 100px 1fr auto; gap: 12px; }
   .contact-link { font-size: 15px; }
+}
+@media (max-width: 480px) {
+  .contact-row {
+    display: block;
+    padding: 18px 0;
+  }
+  .contact-row:hover { padding-left: 0; }
+  .contact-row .label {
+    display: block;
+    font-size: 10px;
+    margin-bottom: 6px;
+  }
+  .contact-row .contact-link {
+    font-size: 16px;
+    word-break: normal;
+    overflow-wrap: anywhere;
+  }
+  .contact-row .arr {
+    display: inline;
+    margin-left: 8px;
+  }
+  .contact-row:hover .arr { transform: none; }
 }

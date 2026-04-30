@@ -136,7 +136,7 @@
   font-weight: 700;
 }
 
-@media (max-width: 880px) {
+@media (max-width: 768px) {
   .experience-list { grid-template-columns: 1fr; }
   .exp-spine { display: none; }
 }
