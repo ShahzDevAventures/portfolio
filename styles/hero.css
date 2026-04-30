@@ -153,7 +153,7 @@
        Cursor moves → real photo punches through the art via radial mask. ─── */
 .hero-photo {
   position: relative;
-  width: 340px;
+  width: clamp(360px, 32vw, 460px);
   aspect-ratio: 4/5;
   overflow: hidden;
   --px: 50%;
