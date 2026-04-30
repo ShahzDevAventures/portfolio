@@ -56,32 +56,11 @@
 }
 .inline-link:hover { opacity: 0.82; }
 
-.about-facts {
+.about-cta {
   margin-top: 32px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  border: 1px solid var(--rule);
-}
-.fact {
-  padding: 14px 16px;
-  border-right: 1px solid var(--rule);
-}
-.fact:last-child { border-right: none; }
-.fact .label { font-size: 10px; }
-.fact .v {
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: 18px;
-  color: var(--ink);
-  margin-top: 4px;
-  font-variant-numeric: tabular-nums;
 }
 
 @media (max-width: 880px) {
   .about-grid { grid-template-columns: 1fr; }
   .about-headline { position: static; }
-  .about-facts { grid-template-columns: 1fr; }
-  .fact { border-right: none; border-bottom: 1px solid var(--rule); }
-  .fact:last-child { border-bottom: none; }
 }

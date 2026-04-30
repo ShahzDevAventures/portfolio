@@ -16,9 +16,9 @@
     function frame(now) {
       const t = Math.min(1, (now - start) / durMs);
       const v = Math.round(target * easeOut(t));
-      numEl.textContent = String(v);
+      numEl.textContent = v.toLocaleString('en-US');
       if (t < 1) requestAnimationFrame(frame);
-      else numEl.textContent = String(target);
+      else numEl.textContent = target.toLocaleString('en-US');
     }
     requestAnimationFrame(frame);
   }
@@ -45,7 +45,7 @@
   } else {
     cells.forEach(el => {
       const t = parseInt(el.dataset.target, 10);
-      if (!isNaN(t)) el.querySelector('.num-target').textContent = String(t);
+      if (!isNaN(t)) el.querySelector('.num-target').textContent = t.toLocaleString('en-US');
       setBar(el);
       el.classList.add('in-view');
     });

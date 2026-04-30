@@ -54,13 +54,45 @@
 .skill-card:nth-child(2n) { border-right: none; }
 .skill-card:nth-last-child(-n+2) { border-bottom: none; }
 
+.skill-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
 .skill-name {
   font-family: var(--font-mono);
   font-size: 17px;
   font-weight: 800;
   letter-spacing: -0.025em;
   color: var(--ink);
-  margin-bottom: 8px;
+}
+
+.skill-meta {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-3);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.skill-meta .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signal);
+  display: inline-block;
+}
+
+@media (max-width: 720px) {
+  .skill-head { flex-direction: column; gap: 6px; }
+  .skill-meta { white-space: normal; }
 }
 
 .skill-desc {
@@ -93,6 +125,7 @@
   align-items: stretch;
   border: 1px solid var(--ink);
   background: var(--paper-2);
+  margin-top: auto;
   margin-bottom: 12px;
   font-family: var(--font-mono);
   font-size: 12px;

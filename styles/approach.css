@@ -7,12 +7,13 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 0;
   border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
 }
 
 .approach-cell {
   padding: 28px 24px;
   border-right: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
 }
 .approach-cell:last-child { border-right: none; }
 
@@ -50,14 +51,17 @@
 }
 
 .approach-pull {
-  margin-top: 18px;
+  margin-top: auto;
+  padding-top: 18px;
   font-family: var(--font-mono);
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--ink);
   border-top: 1px solid var(--rule);
-  padding-top: 12px;
+}
+.approach-cell p {
+  margin-bottom: 12px;
 }
 .approach-pull a {
   border-bottom: 1px solid var(--ink);
