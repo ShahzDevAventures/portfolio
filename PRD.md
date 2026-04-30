@@ -29,7 +29,7 @@ A single-page portfolio that, in under 60 seconds of a recruiter or hiring manag
 
 | Metric | Target |
 |---|---|
-| First-impression clarity (recruiter test, 5-sec read) | "Senior PM, ex-founder, AI/Shopify" without scrolling |
+| First-impression clarity (recruiter test, 5-sec read) | "Senior PM, ex-CEO operator, AI/Shopify" without scrolling |
 | Time-to-proof | ≤ 30 seconds to a real artifact (Loom, repo, live store) |
 | Inbound replies via contact section | ≥ 1 / week during active hunt |
 | Mobile usability | All sections functional on iPhone SE viewport (375×667) |
@@ -199,9 +199,9 @@ Constellation skill-map section from v0 is **cut**. It was decorative, not load-
 **Copy:**
 
 > Senior PM. AI-first builder.
-> Ex-founder, Shopify ecosystem.
+> Ex-CEO operator, Shopify ecosystem.
 >
-> I'm Shahz. I co-founded Sirge (Shopify-AI) and ran it from operations to CEO. I build the system, read the metrics, and ship the product — in roughly that order.
+> I'm Shahz. I joined Sirge (Shopify-AI) early and ran it from operations to CEO. I build the system, read the metrics, and ship the product — in roughly that order.
 >
 > Hover the photo. The site is part of the interview.
 >

@@ -75,6 +75,8 @@
 .contact-row:hover .arr { color: var(--signal); transform: translateX(8px); }
 
 footer {
+  position: relative;
+  z-index: 100;
   background: var(--void);
   border-top: 1px solid var(--void-3);
   color: color-mix(in oklab, var(--chalk) 60%, transparent);

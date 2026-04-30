@@ -26,7 +26,7 @@ This profile is a working surface for the AI tooling I ship publicly. Browse the
 
 ### Background
 
-- 2022 — Present · Co-Founder, COO → CEO at **Sirge** (Shopify-AI)
+- 2022 — Present · Early operator → COO → CEO at **Sirge** (Shopify-AI)
 - 2019 — 2022 · Account Manager / Product at **SHOEBOX**
 - 2017 — 2019 · Territory Manager at **Trading Central**
 - 2015 — 2017 · Tax Analyst at **Deloitte**
