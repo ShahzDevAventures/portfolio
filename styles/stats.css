@@ -6,7 +6,6 @@
   background: var(--void);
   color: var(--chalk);
   padding: 80px 0;
-  border-top: 1px solid var(--rule);
 }
 
 .stats .section-num,
@@ -48,9 +47,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0;
-  border-top: 1px solid var(--void-3);
-  border-left: 1px solid var(--void-3);
-  border-right: 1px solid var(--void-3);
+  border: 1px solid var(--void-3);
 }
 
 .stat-cell {

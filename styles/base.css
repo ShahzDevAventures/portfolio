@@ -104,10 +104,8 @@ h1, h2, h3, h4 {
 .section {
   position: relative;
   padding: 144px 0 128px;
-  border-top: 1px solid var(--rule);
   scroll-margin-top: 60px; /* offset for fixed nav when anchor-scrolling */
 }
-.section:first-of-type { border-top: none; }
 section[id], header[id] { scroll-margin-top: 60px; }
 
 .section-head {
