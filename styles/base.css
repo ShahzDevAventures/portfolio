@@ -103,7 +103,7 @@ h1, h2, h3, h4 {
 
 .section {
   position: relative;
-  padding: 144px 0 128px;
+  padding: 96px 0 80px;
   scroll-margin-top: 60px; /* offset for fixed nav when anchor-scrolling */
 }
 section[id], header[id] { scroll-margin-top: 60px; }
@@ -113,17 +113,17 @@ section[id], header[id] { scroll-margin-top: 60px; }
   grid-template-columns: var(--rail) 1fr;
   gap: 24px;
   align-items: baseline;
-  margin-bottom: 80px;
+  margin-bottom: 56px;
 }
 
 @media (max-width: 720px) {
-  .section { padding: 88px 0 72px; }
-  .section-head { grid-template-columns: 1fr; gap: 8px; margin-bottom: 40px; }
+  .section { padding: 64px 0 48px; }
+  .section-head { grid-template-columns: 1fr; gap: 8px; margin-bottom: 36px; }
 }
 @media (max-width: 480px) {
   :root { --gutter: 20px; }
-  .section { padding: 64px 0 56px; }
-  .section-head { margin-bottom: 28px; }
+  .section { padding: 48px 0 40px; }
+  .section-head { margin-bottom: 24px; }
 }
 
 .section-num {
