@@ -5,7 +5,8 @@
 .contact {
   background: var(--void);
   color: var(--chalk);
-  padding: 96px 0 0;
+  padding-top: 96px;
+  padding-bottom: 0;
 }
 
 .contact .section-num,
@@ -100,8 +101,10 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 0; }
   .contact-row { grid-template-columns: 100px 1fr auto; gap: 12px; }
   .contact-link { font-size: 15px; }
+  .contact-headline { font-size: clamp(48px, 12vw, 96px); margin-bottom: 28px; }
 }
 @media (max-width: 480px) {
   .contact-row {
