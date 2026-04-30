@@ -6,7 +6,9 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0;
-  border: 1px solid var(--ink);
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--ink);
+  border-right: 1px solid var(--ink);
 }
 
 .work-card {

@@ -39,7 +39,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
-  border: 1px solid var(--ink);
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--ink);
+  border-right: 1px solid var(--ink);
 }
 
 .skill-card {
@@ -56,31 +58,21 @@
 
 .skill-head {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 12px;
+  flex-direction: column;
+  gap: 6px;
   margin-bottom: 10px;
-}
-
-.skill-name {
-  font-family: var(--font-mono);
-  font-size: 17px;
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  color: var(--ink);
 }
 
 .skill-meta {
   font-family: var(--font-mono);
   font-size: 9.5px;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: var(--ink-3);
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  white-space: nowrap;
-  flex-shrink: 0;
+  order: -1;
 }
 .skill-meta .dot {
   width: 6px;
@@ -90,9 +82,12 @@
   display: inline-block;
 }
 
-@media (max-width: 720px) {
-  .skill-head { flex-direction: column; gap: 6px; }
-  .skill-meta { white-space: normal; }
+.skill-name {
+  font-family: var(--font-mono);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--ink);
 }
 
 .skill-desc {
@@ -126,7 +121,7 @@
   border: 1px solid var(--ink);
   background: var(--paper-2);
   margin-top: auto;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   font-family: var(--font-mono);
   font-size: 12px;
   overflow: hidden;
@@ -160,9 +155,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: auto;
-  padding-top: 12px;
-  border-top: 1px solid var(--rule);
   font-family: var(--font-mono);
   font-size: 11px;
   text-transform: uppercase;
