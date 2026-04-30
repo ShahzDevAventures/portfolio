@@ -122,10 +122,26 @@
 
 .cta-row {
   display: flex;
-  gap: 12px;
+  gap: 16px;
   flex-wrap: wrap;
+  align-items: center;
   margin-top: 24px;
 }
+.cta-row .cta-link {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--chalk);
+  border-bottom: 1px solid var(--chalk);
+  padding-bottom: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color var(--dur-1) var(--ease), border-color var(--dur-1) var(--ease);
+}
+.cta-row .cta-link:hover { color: var(--signal); border-color: var(--signal); }
 .hero .btn {
   border-color: var(--chalk);
   color: var(--chalk);
