@@ -214,6 +214,8 @@
     object-position: center 25%;
   }
 
+  .hero-tags { justify-content: center; }
+  .cta-row { justify-content: center; }
   .cta-row .cta-link { display: none; }
 }
 @media (max-width: 480px) {
