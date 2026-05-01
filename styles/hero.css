@@ -222,8 +222,8 @@
     min-height: auto;
     position: relative;
     z-index: 2;
-    transform: translateY(-70px);
-    margin-bottom: -70px;
+    transform: translateY(-150px);
+    margin-bottom: -150px;
   }
   .hero-photo img {
     object-position: center 12%;
@@ -249,7 +249,7 @@
     color: var(--chalk);
     max-width: none;
     /* match photo's translateY so the bio stays at the photo's bottom */
-    transform: translateY(-70px);
+    transform: translateY(-150px);
   }
 
   /* tags: row 3, distributed across full width with gutter padding */
