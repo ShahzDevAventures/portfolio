@@ -182,41 +182,39 @@
   .hero-grid { grid-template-columns: 1fr; }
   .hero-rail { display: none; }
 
-  /* meta row hidden on mobile per wireframe */
   .hero-meta { display: none; }
 
-  /* unwrap .hero-body-l so its children become direct flex items
-     of .hero-body, then order them: name → photo → lede → tags → CTAs */
+  /* CSS Grid: headline → [photo + lede stacked in same row] → tags → CTAs.
+     Photo and lede share grid-row 2 so they overlap; lede aligns to the
+     bottom of the cell. display: contents on .hero-body-l flattens the
+     wrapper so children participate directly. */
   .hero-body {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
     gap: 24px;
     text-align: center;
   }
   .hero-body-l { display: contents; }
 
   .hero-name {
-    order: 1;
+    grid-row: 1;
+    grid-column: 1;
     margin: 0;
     text-align: center;
-    font-size: clamp(30px, 8vw, 48px);
+    font-size: clamp(48px, 12vw, 55px);
     line-height: 1.05;
     position: relative;
     z-index: 1;
   }
   .hero-name .rise-line { text-align: center; display: block; }
-  .hero-photo { order: 2; }
-  .hero-body-l ~ * .lede,
-  .lede { order: 3; }
-  .hero-tags { order: 4; margin-top: 0; justify-content: center; }
-  .cta-row { order: 5; margin-top: 0; justify-content: center; }
 
-  /* photo: portrait aspect, full container width.
-     translateY pulls it up visually + margin-bottom: -Npx removes the
-     equivalent layout space so following elements aren't pushed down.
-     This is more reliable than margin-top with flex gap. */
+  /* photo: in row 2, lifted via translateY so it overlaps the headline.
+     -70px nets ~46px after absorbing the 24px flex gap, putting the
+     hair tips into the bottom of OPERATOR AT HEART. glyphs. */
   .hero-photo {
+    grid-row: 2;
+    grid-column: 1;
     width: 100%;
     max-width: none;
     aspect-ratio: 4/5;
@@ -224,21 +222,57 @@
     min-height: auto;
     position: relative;
     z-index: 2;
-    transform: translateY(-30px);
-    margin-bottom: -30px;
+    transform: translateY(-70px);
+    margin-bottom: -70px;
   }
   .hero-photo img {
-    object-position: center 8%;
+    object-position: center 12%;
+  }
+  /* dark gradient scrim on bottom of photo for bio readability */
+  .hero-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 30%, transparent 60%);
+    pointer-events: none;
+    z-index: 1;
   }
 
-  /* lede width sane on small viewports */
-  .hero-body-l p,
+  /* bio overlaid on bottom of photo, stacked in same grid row */
   .lede {
-    max-width: 38ch;
-    margin-left: auto;
-    margin-right: auto;
+    grid-row: 2;
+    grid-column: 1;
+    align-self: end;
+    z-index: 3;
+    margin: 0 0 28px;
+    padding: 0 24px;
+    color: var(--chalk);
+    max-width: none;
+    /* match photo's translateY so the bio stays at the photo's bottom */
+    transform: translateY(-70px);
   }
 
+  /* tags: row 3, distributed across full width with gutter padding */
+  .hero-tags {
+    grid-row: 3;
+    grid-column: 1;
+    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .hero-tag { flex: 1 1 0; text-align: center; }
+
+  /* CTAs: row 4, full width stacked */
+  .cta-row {
+    grid-row: 4;
+    grid-column: 1;
+    margin-top: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .cta-row .btn { width: 100%; justify-content: center; }
   .cta-row .cta-link { display: none; }
 }
 @media (max-width: 480px) {
