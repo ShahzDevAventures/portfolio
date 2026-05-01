@@ -2,8 +2,9 @@
    REFERENCES — testimonial cards (replaces approach principles)
    ═══════════════════════════════════════════════════════════ */
 
-@media (min-width: 769px) {
-  #references { padding-bottom: 96px; }
+#references.section { padding-bottom: 96px; }
+@media (max-width: 768px) {
+  #references.section { padding-bottom: 32px; }
 }
 
 .references-grid {

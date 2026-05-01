@@ -2,8 +2,9 @@
    EXPERIENCE — vertical card stack (V1, no scroll-pin)
    ═══════════════════════════════════════════════════════════ */
 
-@media (min-width: 769px) {
-  #experience { padding-bottom: 96px; }
+#experience.section { padding-bottom: 96px; }
+@media (max-width: 768px) {
+  #experience.section { padding-bottom: 32px; }
 }
 
 .experience-list {
