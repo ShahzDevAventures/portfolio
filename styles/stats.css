@@ -5,7 +5,8 @@
 .stats {
   background: var(--void);
   color: var(--chalk);
-  padding: 96px 0 0;
+  padding-top: 96px;
+  padding-bottom: 96px;
 }
 
 .stats .section-num,
@@ -124,6 +125,7 @@
 }
 
 @media (max-width: 768px) {
+  .stats { padding-top: 64px; padding-bottom: 32px; }
   .stats-intro { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: 1fr; margin-left: 0; }
   .stat-cell { border-right: none; border-bottom: 1px solid var(--void-3); }
