@@ -200,12 +200,12 @@
     order: 1;
     margin: 0;
     text-align: center;
-    font-size: clamp(56px, 16vw, 84px);
+    font-size: clamp(38px, 11vw, 60px);
+    line-height: 1.0;
     position: relative;
     z-index: 1;
   }
   .hero-name .rise-line { text-align: center; }
-  .hero-name .rise-line:nth-child(3) { display: none; }
   .hero-photo { order: 2; }
   .hero-body-l ~ * .lede,
   .lede { order: 3; }
