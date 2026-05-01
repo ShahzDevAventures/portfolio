@@ -196,7 +196,12 @@
   }
   .hero-body-l { display: contents; }
 
-  .hero-name { order: 1; margin: 0; }
+  .hero-name {
+    order: 1;
+    margin: 0;
+    font-size: clamp(41px, 9vw, 60px);
+  }
+  .hero-name .rise-line:nth-child(3) { display: none; }
   .hero-photo { order: 2; }
   .hero-body-l ~ * .lede,
   .lede { order: 3; }
