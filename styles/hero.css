@@ -209,9 +209,11 @@
   }
   .hero-name .rise-line { text-align: center; display: block; }
 
-  /* photo: in row 2, lifted via translateY so it overlaps the headline.
-     -70px nets ~46px after absorbing the 24px flex gap, putting the
-     hair tips into the bottom of OPERATOR AT HEART. glyphs. */
+  /* photo: in row 2, lifted via margin-top so it overlaps the headline
+     above without compressing the rows below. translateY+margin-bottom
+     was wrong: it pulled tags + first button up under the photo and the
+     photo (z-index: 2) painted over them. margin-top: -N pulls the photo
+     itself up; subsequent rows are untouched. */
   .hero-photo {
     grid-row: 2;
     grid-column: 1;
@@ -222,8 +224,7 @@
     min-height: auto;
     position: relative;
     z-index: 2;
-    transform: translateY(-150px);
-    margin-bottom: -150px;
+    margin-top: -150px;
   }
   .hero-photo img {
     object-position: center 12%;
@@ -238,7 +239,10 @@
     z-index: 1;
   }
 
-  /* bio overlaid on bottom of photo, stacked in same grid row */
+  /* bio overlaid on bottom of photo, stacked in same grid row.
+     align-self: end places it at the bottom of row 2's track, which —
+     after the photo's margin-top: -150 shrinks the track — is exactly
+     the photo's visible bottom edge. No transform needed. */
   .lede {
     grid-row: 2;
     grid-column: 1;
@@ -248,8 +252,6 @@
     padding: 0 24px;
     color: var(--chalk);
     max-width: none;
-    /* match photo's translateY so the bio stays at the photo's bottom */
-    transform: translateY(-150px);
   }
 
   /* tags: row 3, distributed across full width with gutter padding */
