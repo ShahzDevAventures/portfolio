@@ -9,10 +9,10 @@
 
 .references-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 0;
   border: 1px solid var(--rule);
-  max-width: 1040px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
