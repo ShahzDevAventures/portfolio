@@ -199,8 +199,12 @@
   .hero-name {
     order: 1;
     margin: 0;
-    font-size: clamp(41px, 9vw, 60px);
+    text-align: center;
+    font-size: clamp(56px, 16vw, 84px);
+    position: relative;
+    z-index: 1;
   }
+  .hero-name .rise-line { text-align: center; }
   .hero-name .rise-line:nth-child(3) { display: none; }
   .hero-photo { order: 2; }
   .hero-body-l ~ * .lede,
@@ -208,13 +212,18 @@
   .hero-tags { order: 4; margin-top: 0; justify-content: center; }
   .cta-row { order: 5; margin-top: 0; justify-content: center; }
 
-  /* photo: portrait aspect, full container width */
+  /* photo: portrait aspect, full container width.
+     z-index: 2 + negative margin-top so it visually covers the bottom
+     of the headline behind it. */
   .hero-photo {
     width: 100%;
     max-width: none;
     aspect-ratio: 4/5;
     height: auto;
     min-height: auto;
+    position: relative;
+    z-index: 2;
+    margin-top: -40px;
   }
   .hero-photo img {
     object-position: center top;
