@@ -178,7 +178,7 @@
 }
 
 @media (max-width: 768px) {
-  .hero { padding-top: 100px; }
+  .hero { padding-top: 100px; padding-bottom: 32px; }
   .hero-grid { grid-template-columns: 1fr; }
   .hero-rail { display: none; }
 
@@ -278,5 +278,5 @@
   .cta-row .cta-link { display: none; }
 }
 @media (max-width: 480px) {
-  .hero { padding-top: 92px; padding-bottom: 0; }
+  .hero { padding-top: 92px; }
 }
