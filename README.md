@@ -71,10 +71,6 @@ The Shahz-AI spoof copilot currently uses a `mailto:` fallback. To switch to a r
 
 V2 will introduce GSAP for the full Lando-style mask reveal + ScrollTrigger pinned timeline.
 
-## Decision log
-
-See `PRD.md` Appendix A.
-
 ## License
 
 Private.

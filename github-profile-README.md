@@ -1,7 +1,7 @@
 # Shahzaib Siddiqui
 
-Senior PM. AI-first builder. Operator at heart.
-Ottawa, Canada · Open to senior product roles.
+Senior PM. AI-first builder.
+Ottawa, Canada · Open to senior PM roles.
 
 ---
 
@@ -27,9 +27,9 @@ This profile is a working surface for the AI tooling I ship publicly. Browse the
 ### Background
 
 - 2022 — Present · Early operator → COO → CEO at **Sirge** (Shopify-AI)
-- 2019 — 2022 · Account Manager / Product at **SHOEBOX**
-- 2017 — 2019 · Territory Manager at **Trading Central**
-- 2015 — 2017 · Tax Analyst at **Deloitte**
+- 2018 — 2021 · Account Manager at **SHOEBOX**
+- 2016 — 2018 · Territory Manager, Americas at **Trading Central Ltd.**
+- 2012 — 2013 · Tax Analyst at **Deloitte**
 
 ### Get in touch
 
