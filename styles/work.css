@@ -272,3 +272,21 @@
   .modal-stat { border-right: none; border-bottom: 1px solid var(--rule); }
   .modal-stat:last-child { border-bottom: none; }
 }
+
+/* ── Live block (above the case grid) ── */
+.live-block {
+  display: grid; grid-template-columns: 120px 1fr; gap: 24px;
+  border: 1px solid var(--ink); padding: 24px 28px; margin: 0 auto 32px;
+  max-width: 1280px; background: var(--paper);
+}
+.live-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); display: flex; align-items: center; gap: 8px; }
+.live-title { font-family: var(--font-mono); font-size: 17px; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); }
+.live-title:hover { background: var(--signal); }
+.live-block p { margin: 10px 0 0; font-size: 15px; line-height: 1.55; color: var(--ink-2); max-width: 64ch; }
+@media (max-width: 768px) { .live-block { grid-template-columns: 1fr; gap: 12px; padding: 20px; } }
+
+/* ── Case charts (inline SVG) ── */
+.case-chart { margin: 8px 0 20px; }
+.case-chart svg { width: 100%; height: auto; display: block; font-family: var(--font-mono); }
+.case-chart .cap { font-size: 12px; color: var(--ink-3); margin-top: 6px; font-family: var(--font-mono); }
+.modal-body h4 + .case-chart { margin-top: 12px; }

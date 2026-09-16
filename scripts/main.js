@@ -25,9 +25,9 @@
   navToggle?.addEventListener('click', () => navLinks.classList.toggle('open'));
   $$('.nav-links a').forEach(a => a.addEventListener('click', () => navLinks?.classList.remove('open')));
 
-  /* ── nav theme: dark on hero/contact/stats, light otherwise ── */
+  /* ── nav theme: dark on hero/contact, light otherwise ── */
   const navEl = $('.nav');
-  const darkSections = ['.hero', '.contact', '.stats'].map(s => $(s)).filter(Boolean);
+  const darkSections = ['.hero', '.contact'].map(s => $(s)).filter(Boolean);
   const onScrollTheme = () => {
     const y = window.scrollY + 30;
     let onDark = false;
@@ -41,7 +41,7 @@
   onScrollTheme();
 
   /* ── scroll-spy ── */
-  const spyIds = ['about', 'experience', 'stats', 'skills', 'work', 'references', 'contact'];
+  const spyIds = ['work', 'skills', 'about', 'contact'];
   const spyMap = {};
   spyIds.forEach(id => {
     const sec = document.getElementById(id);
@@ -92,12 +92,6 @@
     }, { threshold: 0.1 });
     io.observe(spine);
   }
-
-  /* ── one-pager placeholder ── */
-  $('#downloadOnePager')?.addEventListener('click', e => {
-    e.preventDefault();
-    alert('One-pager coming next phase. For now: shahz.siddiqui@outlook.com — happy to send one over.');
-  });
 
   /* ── skill copy buttons ── */
   $$('.copy-btn').forEach(btn => {

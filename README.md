@@ -1,8 +1,8 @@
-# shahzaibsiddiqui.vercel.app — Portfolio
+# shahzsiddiqui.vercel.app — Portfolio
 
 Single-page portfolio for Shahzaib Siddiqui. Vanilla HTML/CSS/JS. No build step. Hosted on Vercel.
 
-Live: https://shahzaibsiddiqui.vercel.app
+Live: https://shahzsiddiqui.vercel.app
 
 ## Local preview
 
@@ -48,7 +48,7 @@ Drop these in to wire the site fully:
 |---|---|
 | `assets/photos/portrait.jpg` (or .png/.webp) | Hero cursor-glow photo. ≥2000px long edge. Auto-detected by `scripts/hero-photo.js`. |
 | `assets/cases/sirge-os/01.jpg` etc. | Case-study screenshots (when ready, replace the placeholder divs in `scripts/work-modal.js` with `<img>` tags). |
-| `assets/pdf/shahzaib-siddiqui.pdf` | One-pager resume. |
+| `assets/pdf/shahzaib-siddiqui.pdf` | Resume PDF (contact button links here). |
 | `assets/og/og-image.png` | 1200×630 PNG converted from `og-image.svg` for full LinkedIn/FB OG card support. |
 
 ## Form endpoint
@@ -66,7 +66,6 @@ The Shahz-AI spoof copilot currently uses a `mailto:` fallback. To switch to a r
 - `IntersectionObserver` triggers `.fade-in` → `.in-view` for scroll-fade entrances
 - Hero name uses CSS keyframe stagger on load
 - Hero photo uses cursor-position CSS variables driving a `mask-image` radial-gradient
-- Stats grid uses vanilla CountUp with `requestAnimationFrame`
 - All motion respects `prefers-reduced-motion: reduce`
 
 V2 will introduce GSAP for the full Lando-style mask reveal + ScrollTrigger pinned timeline.
