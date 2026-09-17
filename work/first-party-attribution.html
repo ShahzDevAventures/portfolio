@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="/styles/case.css" />
 </head>
 <body class="case-page">
-<nav class="nav light">
+<nav class="nav">
   <div class="nav-inner">
     <a href="/" class="monogram"><span class="monogram-mark">SS</span><span>Shahzaib&nbsp;Siddiqui</span></a>
     <div class="nav-links" id="navLinks">
@@ -33,10 +33,10 @@
   </div>
 </nav>
 
-<header class="shell case-hero">
+<header class="case-hero"><div class="shell case-hero-inner">
   <div class="case-rail"><a href="/#work" class="label back">← All work</a><span class="label">Case / 02</span></div>
   <div>
-    <h1 class="display-1"><span class="rise-line">First-Party Attribution</span><span class="rise-line">&amp; PostTrack</span></h1>
+    <h1 class="display-1"><span class="rise-line">First-Party Attribution</span><span class="rise-line accent">&amp; PostTrack</span></h1>
     <p class="lede fade-in in-view">After iOS 14, ad platforms and Shopify disagreed by a third. Merchants were budgeting on the wrong number.</p>
     <dl class="case-meta fade-in in-view">
       <div><dt class="label">Company</dt><dd>Sirge</dd></div>
@@ -45,15 +45,16 @@
       <div><dt class="label">Outcome</dt><dd class="chip">35% → <3% variance</dd></div>
     </dl>
   </div>
+</div>
 </header>
 
-<section class="shell case-metrics fade-in in-view"><div class="cm"><div class="label">Reporting variance</div><div class="cm-v">35% → <3%</div><div class="cm-c">ad platforms vs. Shopify deposits</div></div><div class="cm"><div class="label">Time saved</div><div class="cm-v">12 hrs/wk</div><div class="cm-c">per store owner or media buyer</div></div><div class="cm"><div class="label">Spend reallocated</div><div class="cm-v">24%</div><div class="cm-c">from misattributed to organic and creator channels</div></div></section>
+<section class="shell"><div class="case-metrics"><div class="cm"><div class="label">Reporting variance</div><div class="cm-v">35% → <3%</div><div class="cm-c">ad platforms vs. Shopify deposits</div></div><div class="cm"><div class="label">Time saved</div><div class="cm-v">12 hrs/wk</div><div class="cm-c">per store owner or media buyer</div></div><div class="cm"><div class="label">Spend reallocated</div><div class="cm-v">24%</div><div class="cm-c">from misattributed to organic and creator channels</div></div></div></section>
 
 <section class="shell section case-section">
   <div class="section-head"><span class="section-num">01</span><span class="section-title">Evidence trail</span></div>
   <div class="case-body">
     <h2>A 35% gap, and 15 hours a week of spreadsheets.</h2>
-    <p>After the iOS 14 privacy changes, client ad data showed a 35% average variance between Meta- and Google-reported ROAS and actual Shopify payouts. Merchants were scaling campaigns on numbers that did not match their bank account.</p><p>The second problem was organic. Merchants told us they spent 15+ hours a week trying to line up influencer post timing against sales spikes by hand, and still could not say which creator earned what.</p>
+    <p class="lead">After the iOS 14 privacy changes, client ad data showed a <span class="hl">35%</span> average variance between Meta- and Google-reported ROAS and actual Shopify payouts. Merchants were scaling campaigns on numbers that did not match their bank account.</p><p>The second problem was organic. Merchants told us they spent <span class="hl">15+ hours a week</span> trying to line up influencer post timing against sales spikes by hand, and still could not say which creator earned what.</p>
     <figure class="case-figure"><img src="/assets/cases/first-party-attribution.png" alt="Performance view: ad sets across platforms, with spend, clicks and Shopify-attributed orders in one row" loading="lazy" /><figcaption>Performance view: ad sets across platforms, with spend, clicks and Shopify-attributed orders in one row</figcaption></figure>
   </div>
 </section>
@@ -67,20 +68,10 @@
   <div class="section-head"><span class="section-num">03</span><span class="section-title">Tradeoffs</span></div>
   <div class="case-body"><div class="tradeoff">
         <h3>Deterministic, not probabilistic.</h3>
-        <div class="to-grid">
-          <div><div class="label">Chose</div><p>A first-party tracking script with custom UTM parameters</p></div>
-          <div><div class="label">Over</div><p>Machine-learning statistical modelling</p></div>
-          <div><div class="label">Gave up</div><p>A small share of edge-case coverage that a model would have inferred.</p></div>
-          <div><div class="label">Got</div><p>100% auditability. Every attributed order traces to a real click, which is what made merchants trust the number over the ad platform's.</p></div>
-        </div>
+        <div class="to-pair"><div><div class="label">Chose</div><p>A first-party tracking script with custom UTM parameters</p></div><div class="to-vs">vs</div><div><div class="label">Over</div><p>Machine-learning statistical modelling</p></div></div><div class="to-result"><div><div class="label">Gave up</div><p>A small share of edge-case coverage that a model would have inferred.</p></div><div class="got"><div class="label">Got</div><p><span class="hl">100%</span> auditability. Every attributed order traces to a real click, which is what made merchants trust the number over the ad platform's.</p></div></div>
       </div><div class="tradeoff">
         <h3>Controls inside the report, not next to it.</h3>
-        <div class="to-grid">
-          <div><div class="label">Chose</div><p>Live campaign controls (budgets, pause) in the attribution view</p></div>
-          <div><div class="label">Over</div><p>A read-only dashboard</p></div>
-          <div><div class="label">Gave up</div><p>Simplicity, and some scope. Write access to ad platforms is more to build and maintain.</p></div>
-          <div><div class="label">Got</div><p>The decision and the action in the same place, which is where the time savings came from.</p></div>
-        </div>
+        <div class="to-pair"><div><div class="label">Chose</div><p>Live campaign controls (budgets, pause) in the attribution view</p></div><div class="to-vs">vs</div><div><div class="label">Over</div><p>A read-only dashboard</p></div></div><div class="to-result"><div><div class="label">Gave up</div><p>Simplicity, and some scope. Write access to ad platforms is more to build and maintain.</p></div><div class="got"><div class="label">Got</div><p>The decision and the action in the same place, which is where the time savings came from.</p></div></div>
       </div></div>
 </section>
 
@@ -88,7 +79,7 @@
   <div class="section-head"><span class="section-num">04</span><span class="section-title">How we arrived at the solution</span></div>
   <div class="case-body">
     <h2>Visitor journeys first, then the same architecture for creators.</h2>
-    <p>We built individual visitor-journey tracking that mapped every touchpoint from first click to checkout, on the merchant's own domain, so nothing depended on a platform's pixel.</p><p>PostTrack extended that architecture: merchants issue unique link parameters for influencer bio-links, and organic social gets the same attribution clarity as paid campaigns, side by side in one view.</p>
+    <p class="lead">We built individual visitor-journey tracking that mapped every touchpoint from first click to checkout, on the merchant's own domain, so nothing depended on a platform's pixel.</p><p>PostTrack extended that architecture: merchants issue unique link parameters for influencer bio-links, and organic social gets the same attribution clarity as paid campaigns, side by side in one view.</p>
     <!-- second figure slot: add <figure class="case-figure"> here when a second asset exists -->
   </div>
 </section>
@@ -97,7 +88,7 @@
   <div class="section-head"><span class="section-num">05</span><span class="section-title">What happened</span></div>
   <div class="case-body">
     <h2>Brands moved a quarter of their spend.</h2>
-    <p>With variance under 3%, brands reallocated 24% of previously misattributed ad spend into organic and creator channels that had been under-credited, and dropped the weekly spreadsheet.</p>
+    <p class="lead">With variance under <span class="hl">3%</span>, brands reallocated <span class="hl">24%</span> of previously misattributed ad spend into organic and creator channels that had been under-credited, and dropped the weekly spreadsheet.</p>
     <div class="case-metrics inline"><div class="cm"><div class="label">Reporting variance</div><div class="cm-v">35% → <3%</div><div class="cm-c">ad platforms vs. Shopify deposits</div></div><div class="cm"><div class="label">Time saved</div><div class="cm-v">12 hrs/wk</div><div class="cm-c">per store owner or media buyer</div></div><div class="cm"><div class="label">Spend reallocated</div><div class="cm-v">24%</div><div class="cm-c">from misattributed to organic and creator channels</div></div></div>
     
   </div>

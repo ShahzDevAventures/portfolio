@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="/styles/case.css" />
 </head>
 <body class="case-page">
-<nav class="nav light">
+<nav class="nav">
   <div class="nav-inner">
     <a href="/" class="monogram"><span class="monogram-mark">SS</span><span>Shahzaib&nbsp;Siddiqui</span></a>
     <div class="nav-links" id="navLinks">
@@ -33,10 +33,10 @@
   </div>
 </nav>
 
-<header class="shell case-hero">
+<header class="case-hero"><div class="shell case-hero-inner">
   <div class="case-rail"><a href="/#work" class="label back">← All work</a><span class="label">Case / 03</span></div>
   <div>
-    <h1 class="display-1"><span class="rise-line">Cross-Platform Campaign</span><span class="rise-line">Optimization Engine</span></h1>
+    <h1 class="display-1"><span class="rise-line">Cross-Platform Campaign</span><span class="rise-line accent">Optimization Engine</span></h1>
     <p class="lede fade-in in-view">Every media buyer started the day in six tabs. The margin they missed was lost between them.</p>
     <dl class="case-meta fade-in in-view">
       <div><dt class="label">Company</dt><dd>Sirge</dd></div>
@@ -45,15 +45,16 @@
       <div><dt class="label">Outcome</dt><dd class="chip">45 min → 15 min daily</dd></div>
     </dl>
   </div>
+</div>
 </header>
 
-<section class="shell case-metrics fade-in in-view"><div class="cm"><div class="label">Daily optimisation time</div><div class="cm-v">−65%</div><div class="cm-c">45 minutes → 15 minutes</div></div><div class="cm"><div class="label">Unprofitable spend saved</div><div class="cm-v">$1,200/mo</div><div class="cm-c">per merchant, from faster reactions</div></div><div class="cm"><div class="label">DAU / MAU</div><div class="cm-v">78%</div><div class="cm-c">the dashboard became the daily workspace</div></div></section>
+<section class="shell"><div class="case-metrics"><div class="cm"><div class="label">Daily optimisation time</div><div class="cm-v">−65%</div><div class="cm-c">45 minutes → 15 minutes</div></div><div class="cm"><div class="label">Unprofitable spend saved</div><div class="cm-v">$1,200/mo</div><div class="cm-c">per merchant, from faster reactions</div></div><div class="cm"><div class="label">DAU / MAU</div><div class="cm-v">78%</div><div class="cm-c">the dashboard became the daily workspace</div></div></div></section>
 
 <section class="shell section case-section">
   <div class="section-head"><span class="section-num">01</span><span class="section-title">Evidence trail</span></div>
   <div class="case-body">
     <h2>Four to six tabs, and 42% missing their margin.</h2>
-    <p>Session replays showed media buyers opening four to six browser tabs every morning — Facebook Ads Manager, TikTok Ads, Google Ads, Shopify — just to evaluate daily ROAS and adjust budgets.</p><p>42% of merchants reported missing target profit margins because they reacted late to overspending ads scattered across those tools. The cost was not the tabs; it was the delay.</p>
+    <p class="lead">Session replays showed media buyers opening four to six browser tabs every morning — Facebook Ads Manager, TikTok Ads, Google Ads, Shopify — just to evaluate daily ROAS and adjust budgets.</p><p><span class="hl">42%</span> of merchants reported missing target profit margins because they reacted late to overspending ads scattered across those tools. The cost was not the tabs; it was the delay.</p>
     <figure class="case-figure"><img src="/assets/cases/campaign-optimization.png" alt="Ad-set drawer: status toggle and daily budget edited without leaving the report" loading="lazy" /><figcaption>Ad-set drawer: status toggle and daily budget edited without leaving the report</figcaption></figure>
   </div>
 </section>
@@ -67,20 +68,10 @@
   <div class="section-head"><span class="section-num">03</span><span class="section-title">Tradeoffs</span></div>
   <div class="case-body"><div class="tradeoff">
         <h3>Quick actions, not a campaign builder.</h3>
-        <div class="to-grid">
-          <div><div class="label">Chose</div><p>Lightweight controls: scale a daily budget, toggle an ad on or off</p></div>
-          <div><div class="label">Over</div><p>A full campaign creation suite</p></div>
-          <div><div class="label">Gave up</div><p>Complex ad setup. Campaigns are still built in the native platforms.</p></div>
-          <div><div class="label">Got</div><p>Focus on the one high-frequency job: the daily performance decision.</p></div>
-        </div>
+        <div class="to-pair"><div><div class="label">Chose</div><p>Lightweight controls: scale a daily budget, toggle an ad on or off</p></div><div class="to-vs">vs</div><div><div class="label">Over</div><p>A full campaign creation suite</p></div></div><div class="to-result"><div><div class="label">Gave up</div><p>Complex ad setup. Campaigns are still built in the native platforms.</p></div><div class="got"><div class="label">Got</div><p>Focus on the one high-frequency job: the daily performance decision.</p></div></div>
       </div><div class="tradeoff">
         <h3>One vocabulary across three networks.</h3>
-        <div class="to-grid">
-          <div><div class="label">Chose</div><p>Normalised metrics — blended ROAS and CPA — under one framework</p></div>
-          <div><div class="label">Over</div><p>Channel-specific terminology and reporting</p></div>
-          <div><div class="label">Gave up</div><p>Network-specific nuance that power users occasionally wanted.</p></div>
-          <div><div class="label">Got</div><p>An apples-to-apples comparison a merchant can read in one pass.</p></div>
-        </div>
+        <div class="to-pair"><div><div class="label">Chose</div><p>Normalised metrics — blended ROAS and CPA — under one framework</p></div><div class="to-vs">vs</div><div><div class="label">Over</div><p>Channel-specific terminology and reporting</p></div></div><div class="to-result"><div><div class="label">Gave up</div><p>Network-specific nuance that power users occasionally wanted.</p></div><div class="got"><div class="label">Got</div><p>An apples-to-apples comparison a merchant can read in one pass.</p></div></div>
       </div></div>
 </section>
 
@@ -88,7 +79,7 @@
   <div class="section-head"><span class="section-num">04</span><span class="section-title">How we arrived at the solution</span></div>
   <div class="case-body">
     <h2>Shadow the morning routine, then build for its highest-frequency decision.</h2>
-    <p>We shadowed e-commerce media buyers through their daily workflow to isolate the decisions they made most often: scale, hold, or cut.</p><p>Cross-channel reporting was standardised into a single performance dashboard that also flags the gap between platform-reported figures and true Shopify sales, with one-click adjustments available where the number is read.</p>
+    <p class="lead">We shadowed e-commerce media buyers through their daily workflow to isolate the decisions they made most often: scale, hold, or cut.</p><p>Cross-channel reporting was standardised into a single performance dashboard that also flags the gap between platform-reported figures and true Shopify sales, with one-click adjustments available where the number is read.</p>
     <!-- second figure slot: add <figure class="case-figure"> here when a second asset exists -->
   </div>
 </section>
@@ -97,7 +88,7 @@
   <div class="section-head"><span class="section-num">05</span><span class="section-title">What happened</span></div>
   <div class="case-body">
     <h2>The dashboard became the place people started their day.</h2>
-    <p>Daily ad optimisation dropped from 45 minutes to 15. Faster reactions saved an average of $1,200 a month in unprofitable spend per merchant, and a 78% DAU/MAU ratio showed the tool had become the primary workspace rather than a report people checked.</p>
+    <p class="lead">Daily ad optimisation dropped from <span class="hl">45 minutes</span> to 15. Faster reactions saved an average of <span class="hl">$1,200 a month</span> in unprofitable spend per merchant, and a <span class="hl">78%</span> DAU/MAU ratio showed the tool had become the primary workspace rather than a report people checked.</p>
     <div class="case-metrics inline"><div class="cm"><div class="label">Daily optimisation time</div><div class="cm-v">−65%</div><div class="cm-c">45 minutes → 15 minutes</div></div><div class="cm"><div class="label">Unprofitable spend saved</div><div class="cm-v">$1,200/mo</div><div class="cm-c">per merchant, from faster reactions</div></div><div class="cm"><div class="label">DAU / MAU</div><div class="cm-v">78%</div><div class="cm-c">the dashboard became the daily workspace</div></div></div>
     
   </div>

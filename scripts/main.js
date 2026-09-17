@@ -27,7 +27,7 @@
 
   /* ── nav theme: dark on hero/contact, light otherwise ── */
   const navEl = $('.nav');
-  const darkSections = ['.hero', '.contact'].map(s => $(s)).filter(Boolean);
+  const darkSections = ['.hero', '.case-hero', '.contact'].map(s => $(s)).filter(Boolean);
   const onScrollTheme = () => {
     const y = window.scrollY + 30;
     let onDark = false;
