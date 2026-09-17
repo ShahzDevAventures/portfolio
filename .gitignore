@@ -5,3 +5,5 @@ node_modules/
 .env
 .env.*
 content/sirge-pm-repo
+.vercel
+.env*
