@@ -1,0 +1,65 @@
+/* ═══════════════════════════════════════════════════════════
+   CASE PAGES — /work/<slug>
+   ═══════════════════════════════════════════════════════════ */
+.case-page { background: var(--paper); }
+.case-page .nav.light { position: sticky; }
+
+.case-hero { padding-top: 140px; display: grid; grid-template-columns: var(--rail) 1fr; gap: 24px; }
+.case-rail { display: flex; flex-direction: column; gap: 16px; }
+.case-rail .back { color: var(--ink); border-bottom: 1px solid var(--ink); width: fit-content; }
+.case-rail .back:hover { background: var(--signal); }
+.case-hero h1 { margin-bottom: 28px; }
+.case-hero .lede { max-width: 56ch; }
+.case-meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px; border-top: 1px solid var(--ink); padding-top: 20px; }
+.case-meta dd { font-family: var(--font-mono); font-size: 13px; color: var(--ink); margin-top: 6px; }
+.case-meta dd.chip { display: inline-block; background: var(--ink); color: var(--signal); padding: 4px 8px; }
+
+.case-metrics { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--ink); margin-top: 64px; }
+.case-metrics .cm { padding: 24px 28px; border-right: 1px solid var(--ink); }
+.case-metrics .cm:last-child { border-right: none; }
+.cm-v { font-family: var(--font-display); font-size: clamp(30px, 3.4vw, 44px); line-height: 1; color: var(--ink); margin: 10px 0 8px; letter-spacing: -0.01em; }
+.cm-c { font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); line-height: 1.5; }
+.case-metrics.inline { margin: 32px 0; }
+
+.case-section .section-head { margin-bottom: 32px; }
+.case-body { display: grid; grid-template-columns: var(--rail) minmax(0, 72ch); gap: 24px; }
+.case-body > * { grid-column: 2; }
+.case-body h2 { font-size: clamp(26px, 3vw, 40px); margin-bottom: 20px; }
+.case-body p { margin-bottom: 18px; }
+.case-body .btn { margin-top: 8px; }
+
+.case-figure { margin: 24px 0 8px; }
+.fig-ph { aspect-ratio: 16/9; border: 1px dashed var(--ink-3); background: repeating-linear-gradient(45deg, transparent 0 14px, var(--paper-2) 14px 15px); }
+.case-figure img { border: 1px solid var(--ink); }
+.case-figure figcaption { font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); margin-top: 10px; }
+
+.problem { font-family: var(--font-body); font-variation-settings: "opsz" 36, "SOFT" 50, "wght" 420; font-size: clamp(20px, 2vw, 28px); line-height: 1.35; color: var(--ink); border-left: 3px solid var(--signal); padding-left: 24px; }
+
+.tradeoff { border-top: 1px solid var(--ink); padding: 28px 0 8px; }
+.tradeoff:last-child { border-bottom: 1px solid var(--ink); }
+.tradeoff h3 { font-size: clamp(22px, 2.4vw, 30px); margin-bottom: 20px; }
+.to-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 32px; }
+.to-grid p { font-size: 15px; line-height: 1.55; margin: 6px 0 0; }
+.to-grid > div:nth-child(4) .label { color: var(--ink); }
+
+.case-nav { display: grid; grid-template-columns: 1fr 1fr; margin-top: 96px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.case-nav a { padding: 28px 0; display: flex; flex-direction: column; gap: 8px; font-family: var(--font-mono); font-size: 14px; color: var(--ink); }
+.case-nav a.next { text-align: right; border-left: 1px solid var(--ink); padding-left: 24px; }
+.case-nav a:hover { background: var(--paper-2); }
+.case-page .contact { margin-top: 0; }
+
+a.work-card { display: block; }
+
+@media (max-width: 768px) {
+  .case-hero { grid-template-columns: 1fr; padding-top: 110px; gap: 16px; }
+  .case-rail { flex-direction: row; justify-content: space-between; }
+  .case-meta { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .case-metrics { grid-template-columns: 1fr; margin-top: 40px; }
+  .case-metrics .cm { border-right: none; border-bottom: 1px solid var(--ink); }
+  .case-metrics .cm:last-child { border-bottom: none; }
+  .case-body { grid-template-columns: 1fr; }
+  .case-body > * { grid-column: 1; }
+  .to-grid { grid-template-columns: 1fr; gap: 14px; }
+  .case-nav { grid-template-columns: 1fr; }
+  .case-nav a.next { text-align: left; border-left: none; border-top: 1px solid var(--ink); padding-left: 0; }
+}

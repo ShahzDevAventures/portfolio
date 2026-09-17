@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>First-Party Attribution — Case 02 — Shahzaib Siddiqui</title>
+  <meta name="description" content="Closing a 35% gap between platform-reported ROAS and what actually landed in Shopify after iOS 14." />
+  <link rel="canonical" href="https://shahzsiddiqui.vercel.app/work/first-party-attribution" />
+  <meta property="og:title" content="First-Party Attribution — Shahzaib Siddiqui" />
+  <meta property="og:description" content="Closing a 35% gap between platform-reported ROAS and what actually landed in Shopify after iOS 14." />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="/assets/og/og-image.svg" />
+  <meta name="theme-color" content="#F2EFE8" />
+  <link rel="icon" href="/assets/og/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@300;400;500;700;800&family=Anton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/tokens.css" />
+  <link rel="stylesheet" href="/styles/base.css" />
+  <link rel="stylesheet" href="/styles/nav.css" />
+  <link rel="stylesheet" href="/styles/contact.css" />
+  <link rel="stylesheet" href="/styles/case.css" />
+</head>
+<body class="case-page">
+<nav class="nav light">
+  <div class="nav-inner">
+    <a href="/" class="monogram"><span class="monogram-mark">SS</span><span>Shahzaib&nbsp;Siddiqui</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="/#work">Work</a><a href="/#skills">Skills</a><a href="/#about">About</a><a href="/#contact">Contact</a>
+    </div>
+    <div class="nav-meta"><span class="live-dot" aria-hidden="true"></span><span id="liveClock">—</span><span>·</span><span>Ottawa / GMT-4</span></div>
+    <button class="nav-toggle" aria-label="Menu" id="navToggle">≡</button>
+  </div>
+</nav>
+
+<header class="shell case-hero">
+  <div class="case-rail"><a href="/#work" class="label back">← All work</a><span class="label">Case / 02</span></div>
+  <div>
+    <h1 class="display-1"><span class="rise-line">First-Party Attribution</span><span class="rise-line">&amp; PostTrack</span></h1>
+    <p class="lede fade-in in-view">After iOS 14, ad platforms and Shopify disagreed by a third. Merchants were budgeting on the wrong number.</p>
+    <dl class="case-meta fade-in in-view">
+      <div><dt class="label">Company</dt><dd>Sirge</dd></div>
+      <div><dt class="label">Role</dt><dd>Product lead</dd></div>
+      <div><dt class="label">Focus</dt><dd>Data privacy (iOS 14) · Creator ROI</dd></div>
+      <div><dt class="label">Outcome</dt><dd class="chip">35% → <3% variance</dd></div>
+    </dl>
+  </div>
+</header>
+
+<section class="shell case-metrics fade-in in-view"><div class="cm"><div class="label">Reporting variance</div><div class="cm-v">35% → <3%</div><div class="cm-c">ad platforms vs. Shopify deposits</div></div><div class="cm"><div class="label">Time saved</div><div class="cm-v">12 hrs/wk</div><div class="cm-c">per store owner or media buyer</div></div><div class="cm"><div class="label">Spend reallocated</div><div class="cm-v">24%</div><div class="cm-c">from misattributed to organic and creator channels</div></div></section>
+
+<section class="shell section case-section">
+  <div class="section-head"><span class="section-num">01</span><span class="section-title">Evidence trail</span></div>
+  <div class="case-body">
+    <h2>A 35% gap, and 15 hours a week of spreadsheets.</h2>
+    <p>After the iOS 14 privacy changes, client ad data showed a 35% average variance between Meta- and Google-reported ROAS and actual Shopify payouts. Merchants were scaling campaigns on numbers that did not match their bank account.</p><p>The second problem was organic. Merchants told us they spent 15+ hours a week trying to line up influencer post timing against sales spikes by hand, and still could not say which creator earned what.</p>
+    <figure class="case-figure"><div class="fig-ph"></div><figcaption>Chart: platform-reported ROAS vs. Shopify payouts, before and after</figcaption></figure>
+  </div>
+</section>
+
+<section class="shell section case-section">
+  <div class="section-head"><span class="section-num">02</span><span class="section-title">Problem statement</span></div>
+  <div class="case-body"><blockquote class="problem">E-commerce brands cannot accurately attribute orders across fragmented ad networks and organic creator channels, so marketing budgets are misallocated and influencer ROI goes unmeasured.</blockquote></div>
+</section>
+
+<section class="shell section case-section">
+  <div class="section-head"><span class="section-num">03</span><span class="section-title">Tradeoffs</span></div>
+  <div class="case-body"><div class="tradeoff">
+        <h3>Deterministic, not probabilistic.</h3>
+        <div class="to-grid">
+          <div><div class="label">Chose</div><p>A first-party tracking script with custom UTM parameters</p></div>
+          <div><div class="label">Over</div><p>Machine-learning statistical modelling</p></div>
+          <div><div class="label">Gave up</div><p>A small share of edge-case coverage that a model would have inferred.</p></div>
+          <div><div class="label">Got</div><p>100% auditability. Every attributed order traces to a real click, which is what made merchants trust the number over the ad platform's.</p></div>
+        </div>
+      </div><div class="tradeoff">
+        <h3>Controls inside the report, not next to it.</h3>
+        <div class="to-grid">
+          <div><div class="label">Chose</div><p>Live campaign controls (budgets, pause) in the attribution view</p></div>
+          <div><div class="label">Over</div><p>A read-only dashboard</p></div>
+          <div><div class="label">Gave up</div><p>Simplicity, and some scope. Write access to ad platforms is more to build and maintain.</p></div>
+          <div><div class="label">Got</div><p>The decision and the action in the same place, which is where the time savings came from.</p></div>
+        </div>
+      </div></div>
+</section>
+
+<section class="shell section case-section">
+  <div class="section-head"><span class="section-num">04</span><span class="section-title">How we arrived at the solution</span></div>
+  <div class="case-body">
+    <h2>Visitor journeys first, then the same architecture for creators.</h2>
+    <p>We built individual visitor-journey tracking that mapped every touchpoint from first click to checkout, on the merchant's own domain, so nothing depended on a platform's pixel.</p><p>PostTrack extended that architecture: merchants issue unique link parameters for influencer bio-links, and organic social gets the same attribution clarity as paid campaigns, side by side in one view.</p>
+    <figure class="case-figure"><div class="fig-ph"></div><figcaption>Screenshot: visitor journey timeline and PostTrack link view</figcaption></figure>
+  </div>
+</section>
+
+<section class="shell section case-section">
+  <div class="section-head"><span class="section-num">05</span><span class="section-title">What happened</span></div>
+  <div class="case-body">
+    <h2>Brands moved a quarter of their spend.</h2>
+    <p>With variance under 3%, brands reallocated 24% of previously misattributed ad spend into organic and creator channels that had been under-credited, and dropped the weekly spreadsheet.</p>
+    <div class="case-metrics inline"><div class="cm"><div class="label">Reporting variance</div><div class="cm-v">35% → <3%</div><div class="cm-c">ad platforms vs. Shopify deposits</div></div><div class="cm"><div class="label">Time saved</div><div class="cm-v">12 hrs/wk</div><div class="cm-c">per store owner or media buyer</div></div><div class="cm"><div class="label">Spend reallocated</div><div class="cm-v">24%</div><div class="cm-c">from misattributed to organic and creator channels</div></div></div>
+    
+  </div>
+</section>
+
+<nav class="shell case-nav">
+  <a href="/work/ai-conversion-audit"><span class="label">← Previous</span><span>Case 01 · AI Conversion Audit</span></a>
+  <a href="/work/campaign-optimization" class="next"><span class="label">Next →</span><span>Case 03 · Cross-Platform Campaign</span></a>
+</nav>
+
+<section id="contact" class="shell contact">
+  <div class="section-head"><span class="section-num">06</span><span class="section-title">Contact</span></div>
+  <div class="contact-grid"><div></div><div>
+    <h2 class="contact-headline">Let's <em>build</em><br/>something.</h2>
+    <div class="contact-rows">
+      <a href="/assets/pdf/shahzaib-siddiqui.pdf" class="contact-row" download><span class="label">Resume</span><span class="contact-link">Download PDF resume</span><span class="arr">→</span></a>
+      <a href="https://cal.com/shahz-siddiqui/30min" class="contact-row" target="_blank" rel="noopener"><span class="label">Book a call</span><span class="contact-link">cal.com/shahz-siddiqui</span><span class="arr">→</span></a>
+      <a href="mailto:shahz.siddiqui@outlook.com" class="contact-row"><span class="label">Email</span><span class="contact-link">shahz.siddiqui@outlook.com</span><span class="arr">→</span></a>
+      <a href="https://www.linkedin.com/in/shahz-siddiqui-lead" class="contact-row" target="_blank" rel="noopener"><span class="label">LinkedIn</span><span class="contact-link">in/shahz-siddiqui-lead</span><span class="arr">→</span></a>
+    </div>
+  </div></div>
+</section>
+
+<footer><div class="shell footer-inner"><div>© 2026 Shahzaib Siddiqui · All rights reserved</div><div>Set in JetBrains Mono &amp; Fraunces · <em>Built as the interview</em></div></div></footer>
+<script src="/scripts/main.js" defer></script>
+</body>
+</html>

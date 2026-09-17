@@ -1,6 +1,6 @@
 # shahzsiddiqui.vercel.app — Portfolio
 
-Single-page portfolio for Shahzaib Siddiqui. Vanilla HTML/CSS/JS. No build step. Hosted on Vercel.
+Portfolio for Shahzaib Siddiqui: homepage plus four case-study pages under `work/`. Vanilla HTML/CSS/JS. No build step. Hosted on Vercel (`cleanUrls` serves `work/<slug>.html` at `/work/<slug>`; locally use the `.html` URL).
 
 Live: https://shahzsiddiqui.vercel.app
 
@@ -28,7 +28,8 @@ npx vercel --prod
 
 ```
 .
-├── index.html         single-page app
+├── index.html         homepage
+├── work/<slug>.html   case-study pages (styles/case.css)
 ├── 404.html           custom 404
 ├── styles/            CSS (tokens, base, per-section)
 ├── scripts/           JS (vanilla, no build, no GSAP in V1)
@@ -47,7 +48,7 @@ Drop these in to wire the site fully:
 | Path | Purpose |
 |---|---|
 | `assets/photos/portrait.jpg` (or .png/.webp) | Hero cursor-glow photo. ≥2000px long edge. Auto-detected by `scripts/hero-photo.js`. |
-| `assets/cases/sirge-os/01.jpg` etc. | Case-study screenshots (when ready, replace the placeholder divs in `scripts/work-modal.js` with `<img>` tags). |
+| `assets/cases/<slug>/*.png` | Case-study figures — replace each `<div class="fig-ph">` in `work/<slug>.html` with an `<img>`; the `<figcaption>` says what goes there. |
 | `assets/pdf/shahzaib-siddiqui.pdf` | Resume PDF (contact button links here). |
 | `assets/og/og-image.png` | 1200×630 PNG converted from `og-image.svg` for full LinkedIn/FB OG card support. |
 
