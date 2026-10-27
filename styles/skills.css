@@ -167,6 +167,8 @@
   transition: border-color var(--dur-1) var(--ease);
 }
 .skill-foot a:hover { border-bottom-color: var(--signal); }
+/* open-source section reuses .skill-card without .skill-cmd; pin the link to the card foot */
+#open-source .skill-foot { margin-top: auto; }
 .skill-status {
   color: var(--ink-3);
 }
