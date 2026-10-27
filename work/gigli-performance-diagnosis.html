@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Gigli Performance Diagnosis — Case 06 — Shahzaib Siddiqui</title>
+  <meta name="description" content="A Shopify Plus store with a field CLS of 0.9 while every lab run was green. The new theme was blamed and reverted; instrumenting the field found the cause outside it." />
+  <link rel="canonical" href="https://shahzsiddiqui.vercel.app/work/gigli-performance-diagnosis" />
+  <meta property="og:title" content="Gigli Performance Diagnosis — Shahzaib Siddiqui" />
+  <meta property="og:description" content="A Shopify Plus store with a field CLS of 0.9 while every lab run was green. The new theme was blamed and reverted; instrumenting the field found the cause outside it." />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="/assets/og/og-image.svg" />
+  <meta name="theme-color" content="#F2EFE8" />
+  <link rel="icon" href="/assets/og/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@300;400;500;700;800&family=Anton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/tokens.css" />
+  <link rel="stylesheet" href="/styles/base.css" />
+  <link rel="stylesheet" href="/styles/nav.css" />
+  <link rel="stylesheet" href="/styles/contact.css" />
+  <link rel="stylesheet" href="/styles/case.css" />
+</head>
+<body class="case-page">
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="monogram"><span class="monogram-mark">SS</span><span>Shahzaib&nbsp;Siddiqui</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="/#work">Work</a><a href="/#skills">Skills</a><a href="/#about">About</a><a href="/#contact">Contact</a>
+    </div>
+    <div class="nav-meta"><span class="live-dot" aria-hidden="true"></span><span id="liveClock">—</span><span>·</span><span>Ottawa / GMT-4</span></div>
+    <button class="nav-toggle" aria-label="Menu" id="navToggle">≡</button>
+  </div>
+</nav>
+
+<header class="case-hero"><div class="shell case-hero-inner">
+  <div class="case-rail"><a href="/#work" class="label back">← All work</a><span class="label">Case / 06</span></div>
+  <div>
+    <h1 class="display-1"><span class="rise-line">Gigli Performance:</span><span class="rise-line accent">When field and lab disagree</span></h1>
+    <p class="lede fade-in in-view">Gigli, a Shopify Plus brand, had a mobile field CLS of 0.9 in PageSpeed while every lab run was green. The performance theme we had just published was blamed and reverted, and the field number did not move. So I stopped trusting the lab and instrumented the field.</p>
+    <dl class="case-meta fade-in in-view">
+      <div><dt class="label">Company</dt><dd>Sirge for Gigli</dd></div>
+      <div><dt class="label">Role</dt><dd>Technical lead · performance</dd></div>
+      <div><dt class="label">Focus</dt><dd>Core Web Vitals · Liquid profiling</dd></div>
+      <div><dt class="label">Outcome</dt><dd class="chip">Cause outside the theme</dd></div>
+    </dl>
+  </div>
+</div>
+</header>
+
+<section class="shell"><div class="case-metrics"><div class="cm"><div class="label">Field CLS, mobile</div><div class="cm-v">0.9</div><div class="cm-c">in PageSpeed field data, while lab CLS for the same homepage was 0.009</div></div><div class="cm"><div class="label">Layout shifts</div><div class="cm-v">121</div><div class="cm-c">in eight seconds on the live theme, from one logo marquee. The new theme: zero</div></div><div class="cm"><div class="label">PDP server time</div><div class="cm-v">+178%</div><div class="cm-c">140 ms to 389 ms of Liquid CPU on the new theme, single captures</div></div></div></section>
+
+<section class="shell section case-section">
+  <div class="section-head"><span class="section-num">01</span><span class="section-title">Evidence trail</span></div>
+  <div class="case-body">
+    <h2>The field said 0.9. The lab said 0.009.</h2>
+    <p class="lead">PageSpeed's field data for gigli.com on mobile showed a CLS of <span class="hl">0.9</span>, and it had been 0.0 on 20 July. Every lab run was green: Lighthouse put the homepage at 0.009 and the product page at 0.051. We had just published a performance theme, so the publish was blamed and reverted. The field number stayed where it was.</p>
+    <p>The performance theme was a real improvement on the lab side. Measured on the preview against the live theme, median of three Lighthouse runs on mobile: LCP <span class="hl">11.65 s to 6.96 s</span>, total bytes 6,323 KB to 3,296 KB, requests 466 to 285, lab CLS 0.000. None of that explained a field CLS of 0.9, and a revert that did not move the number was itself evidence the theme was never the cause.</p>
+    <p>It was not the first time the easy reading had been wrong on this store. The original audit flagged a 2,289 KB hero PNG as the biggest problem. That figure came from curl's default Accept header; a real browser asks for WebP, and Shopify's CDN was already serving the same image at <span class="hl">107 KB</span>, an 18.5 times difference. I wrote the correction into the audit and moved the hero down the list, behind 2,843 KB of third-party JavaScript across 187 requests. The lesson carried over: measure what the visitor's browser does, not what a tool reports.</p>
+    <!-- figure slot: add <figure class="case-figure"> here when a neutral asset exists -->
+  </div>
+</section>
+
+<section class="shell section case-section">
+  <div class="section-head"><span class="section-num">02</span><span class="section-title">Problem statement</span></div>
+  <div class="case-body"><blockquote class="problem">Lab tools load a page once and never touch it, so they cannot see shifts from a looping animation or from an app popup a visitor has to dismiss. When the field disagrees with the lab, re-running the lab and reverting the theme both answer the wrong question. The diagnosis needed a measurement taken the way a visitor's browser takes it.</blockquote></div>
+</section>
+
+<section class="shell section case-section">
+  <div class="section-head"><span class="section-num">03</span><span class="section-title">Tradeoffs</span></div>
+  <div class="case-body"><div class="tradeoff">
+        <h3>Instrument the field, not another lab run.</h3>
+        <div class="to-pair"><div><div class="label">Chose</div><p>A buffered PerformanceObserver on layout-shift at a mobile viewport, full load plus a full-page scroll, run against the live theme and the reverted one</p></div><div class="to-vs">vs</div><div><div class="label">Over</div><p>More Lighthouse runs, or accepting the revert as the fix</p></div></div><div class="to-result"><div><div class="label">Gave up</div><p>The simple story. The revert was already live and everyone had a theme to blame.</p></div><div class="got"><div class="label">Got</div><p>Attribution. Zero shifts on the new theme, <span class="hl">121 in eight seconds</span> on the live one, and the rest of the field number in app-injected iframes no lab run interacts with.</p></div></div>
+      </div><div class="tradeoff">
+        <h3>Pause one campaign, keep the app.</h3>
+        <div class="to-pair"><div><div class="label">Chose</div><p>Pause the full-screen scratch-card campaign for five to seven days, keep the 15% offer on a normal template, watch field CLS daily</p></div><div class="to-vs">vs</div><div><div class="label">Over</div><p>Removing the popup app, or working around it in theme code</p></div></div><div class="to-result"><div><div class="label">Gave up</div><p>A week of the campaign in its full-screen format. The client had decided to keep the app, so removal was never on the table.</p></div><div class="got"><div class="label">Got</div><p>A zero-code experiment that isolates the suspect. Field CLS lags about <span class="hl">28 days</span>, so the judgement is on the daily trend, not a single reading.</p></div></div>
+      </div><div class="tradeoff">
+        <h3>Republish alone, with rollback one click away.</h3>
+        <div class="to-pair"><div><div class="label">Chose</div><p>Re-publish the performance theme with no simultaneous content changes, after the server-side fixes land, with the old theme one click from rollback</p></div><div class="to-vs">vs</div><div><div class="label">Over</div><p>Re-publishing straight away with everything bundled</p></div></div><div class="to-result"><div><div class="label">Gave up</div><p>Speed. The Fancybox split, <span class="hl">139 KB</span> and 35% of the theme bundle, waits for the next train.</p></div><div class="got"><div class="label">Got</div><p>A publish whose effect can be attributed. If the field moves, we know which change moved it.</p></div></div>
+      </div></div>
+</section>
+
+<section class="shell section case-section">
+  <div class="section-head"><span class="section-num">04</span><span class="section-title">How we arrived at the solution</span></div>
+  <div class="case-body">
+    <h2>Two themes, one observer, then the profiler.</h2>
+    <p class="lead">I ran the observer on both themes at a mobile viewport. The new theme produced zero layout shifts through a full load and a full-page scroll. The live theme produced a continuous shift loop: <span class="hl">121 events in eight seconds</span> from an "as seen on" logo marquee animating layout properties. That section had been rewritten on the new theme, which is why the new theme was clean. The revert had reinstated a CLS bug.</p>
+    <p>The marquee was not the whole 0.9. The rest sat in a stack of app-injected popup iframes: a full-screen scratch-card, an offer tab, a chat bar, all new inside the window where the field number regressed. Chrome's field CLS counts shifts inside iframes weighted by how much of the viewport they cover, and the scratch-card covers roughly the whole screen on mobile. Lab never interacts with it, so lab stays green. It is app-injected, so it survived the revert, which is why the field number survived the revert too.</p>
+    <p>In the same pass I read the four Liquid profiler captures the developer had taken. Homepage server CPU was 107 ms on the live theme and 159 ms on the new one; the product page went from <span class="hl">140 ms to 389 ms</span>, up 178%, with the caveat that these were single captures and possibly different products. Two causes stood out. An <span class="hl">83 KB</span> icon snippet was re-evaluated on every render at about 5.5 ms a call. And a <span class="hl">for product in collections.all.products</span> loop was costing 11 ms against 1.7 ms on the live theme. It existed on both themes, on every page, and in no repo file: it lived in editor-configured content, rendered quick-buy markup per product, and grew with every product added to the catalogue. Code review could never have seen it.</p>
+    <p>The plan I handed over, in order: paired profiler captures on the same product URL and homepage on both themes, three runs each, to attribute the regression precisely. Split the hot icons into one small snippet each, which pays on every page on both themes. Find the catalogue loop in the editor content and replace it with a capped source. Pause the scratch-card campaign and watch the daily field trend. Then re-publish with nothing else on the train.</p>
+  </div>
+</section>
+
+<section class="shell section case-section">
+  <div class="section-head"><span class="section-num">05</span><span class="section-title">What happened</span></div>
+  <div class="case-body">
+    <h2>The revert had fixed nothing and broken one thing.</h2>
+    <p class="lead">The theme that was rolled back was the one with zero shifts. The theme that stayed live had the marquee loop, the app popups, and a catalogue-wide Liquid loop nobody had put in the repo. Everything on the plan went to the developer with the capture method written down, so the next publish gets judged on measurements rather than a story.</p>
+    <div class="case-metrics inline"><div class="cm"><div class="label">Shifts on the new theme</div><div class="cm-v">0</div><div class="cm-c">full load plus full-page scroll, mobile viewport</div></div><div class="cm"><div class="label">Icon snippet</div><div class="cm-v">83 KB</div><div class="cm-c">re-evaluated on every render, about 5.5 ms a call</div></div><div class="cm"><div class="label">Catalogue loop</div><div class="cm-v">11 ms</div><div class="cm-c">vs 1.7 ms on the live theme, in editor content, not the repo</div></div></div>
+    <p>The habit I kept from it: when lab and field disagree, instrument the field before touching the theme.</p>
+  </div>
+</section>
+
+<nav class="shell case-nav">
+  <a href="/work/gigli-functional-build"><span class="label">← Previous</span><span>Case 05 · Gigli Functional</span></a>
+  <a href="/work/ai-conversion-audit" class="next"><span class="label">Next →</span><span>Case 01 · AI Conversion Audit</span></a>
+</nav>
+
+<section id="contact" class="shell contact">
+  <div class="section-head"><span class="section-num">06</span><span class="section-title">Contact</span></div>
+  <div class="contact-grid"><div></div><div>
+    <h2 class="contact-headline">Let's <em>build</em><br/>something.</h2>
+    <div class="contact-rows">
+      <a href="/assets/pdf/shahzaib-siddiqui.pdf" class="contact-row" download><span class="label">Resume</span><span class="contact-link">Download PDF resume</span><span class="arr">→</span></a>
+      <a href="https://cal.com/shahz-siddiqui/30min" class="contact-row" target="_blank" rel="noopener"><span class="label">Book a call</span><span class="contact-link">cal.com/shahz-siddiqui</span><span class="arr">→</span></a>
+      <a href="mailto:shahz.siddiqui@outlook.com" class="contact-row"><span class="label">Email</span><span class="contact-link">shahz.siddiqui@outlook.com</span><span class="arr">→</span></a>
+      <a href="https://www.linkedin.com/in/shahz-siddiqui-lead" class="contact-row" target="_blank" rel="noopener"><span class="label">LinkedIn</span><span class="contact-link">in/shahz-siddiqui-lead</span><span class="arr">→</span></a>
+    </div>
+  </div></div>
+</section>
+
+<footer><div class="shell footer-inner"><div>© 2026 Shahzaib Siddiqui · All rights reserved</div><div>Set in JetBrains Mono &amp; Fraunces · <em>Built as the interview</em></div></div></footer>
+<script src="/scripts/main.js" defer></script>
+</body>
+</html>

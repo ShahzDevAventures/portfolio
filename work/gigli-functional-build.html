@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Gigli Functional Theme Build — Case 05 — Shahzaib Siddiqui</title>
+  <meta name="description" content="A new Shopify store built from Figma into 29 verified Liquid sections in one overnight agent run, then polished by humans to launch." />
+  <link rel="canonical" href="https://shahzsiddiqui.vercel.app/work/gigli-functional-build" />
+  <meta property="og:title" content="Gigli Functional Theme Build — Shahzaib Siddiqui" />
+  <meta property="og:description" content="A new Shopify store built from Figma into 29 verified Liquid sections in one overnight agent run, then polished by humans to launch." />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="/assets/og/og-image.svg" />
+  <meta name="theme-color" content="#F2EFE8" />
+  <link rel="icon" href="/assets/og/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@300;400;500;700;800&family=Anton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/tokens.css" />
+  <link rel="stylesheet" href="/styles/base.css" />
+  <link rel="stylesheet" href="/styles/nav.css" />
+  <link rel="stylesheet" href="/styles/contact.css" />
+  <link rel="stylesheet" href="/styles/case.css" />
+</head>
+<body class="case-page">
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="monogram"><span class="monogram-mark">SS</span><span>Shahzaib&nbsp;Siddiqui</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="/#work">Work</a><a href="/#skills">Skills</a><a href="/#about">About</a><a href="/#contact">Contact</a>
+    </div>
+    <div class="nav-meta"><span class="live-dot" aria-hidden="true"></span><span id="liveClock">—</span><span>·</span><span>Ottawa / GMT-4</span></div>
+    <button class="nav-toggle" aria-label="Menu" id="navToggle">≡</button>
+  </div>
+</nav>
+
+<header class="case-hero"><div class="shell case-hero-inner">
+  <div class="case-rail"><a href="/#work" class="label back">← All work</a><span class="label">Case / 05</span></div>
+  <div>
+    <h1 class="display-1"><span class="rise-line">Gigli Functional:</span><span class="rise-line accent">Figma to live Shopify theme</span></h1>
+    <p class="lede fade-in in-view">A beverage brand needed a brand-new Shopify store in fifteen days. I built the delivery pipeline that turned the Figma file into 29 verified Liquid sections overnight, then ran the humans who took it to launch.</p>
+    <dl class="case-meta fade-in in-view">
+      <div><dt class="label">Company</dt><dd>Sirge for Gigli</dd></div>
+      <div><dt class="label">Role</dt><dd>Technical lead · pipeline architect</dd></div>
+      <div><dt class="label">Focus</dt><dd>Shopify OS 2.0 · AI delivery pipeline</dd></div>
+      <div><dt class="label">Outcome</dt><dd class="chip">Live at gigli.com</dd></div>
+    </dl>
+  </div>
+</div>
+</header>
+
+<section class="shell"><div class="case-metrics"><div class="cm"><div class="label">First verified build</div><div class="cm-v">8h 13m</div><div class="cm-c">29 sections, 9 templates, five release gates passed overnight</div></div><div class="cm"><div class="label">Style checks</div><div class="cm-v">3,041</div><div class="cm-c">computed-style assertions per build (2,092 desktop · 949 mobile)</div></div><div class="cm"><div class="label">Agent runs</div><div class="cm-v">183</div><div class="cm-c">30 builders · 87 verifiers · 65 fixers, up to five loops a section</div></div></div></section>
+
+<section class="shell section case-section">
+  <div class="section-head"><span class="section-num">01</span><span class="section-title">Evidence trail</span></div>
+  <div class="case-body">
+    <h2>The scope changed on day one, and the date did not.</h2>
+    <p class="lead">The August statement of work described one site with the THC range behind an age gate. The client's September launch plan replaced it: <span class="hl">gigli.com</span> would become a brand-new, functional-only Shopify store so it could run ads, and the THC business would move to a second domain behind a 21+ gate. Design review and development started the same day; QA-ready was <span class="hl">four days</span> out and go-live fifteen.</p>
+    <p>The inherited theme was a Prestige base with forty agency-added sections and a 387 KB jQuery bundle shipped without source, so two full JS and CSS stacks loaded on every page. The Figma file failed its readiness audit: token binding on 0–37% of frames, text styles on 0–96%, default layer names on roughly half. Product photography did not exist yet. The client said it plainly: some bugs at go-live are part of the deal.</p>
+    <figure class="case-figure"><img src="/assets/cases/gigli-functional.png" alt="gigli.com homepage after launch: hero, benefit ticker and the flavour grid built as customsirge sections" loading="lazy" /><figcaption>gigli.com after launch. Every section on the page is an editable OS 2.0 section with its schema, tokens and spec file generated by the pipeline.</figcaption></figure>
+  </div>
+</section>
+
+<section class="shell section case-section">
+  <div class="section-head"><span class="section-num">02</span><span class="section-title">Problem statement</span></div>
+  <div class="case-body"><blockquote class="problem">A two-developer agency cannot hand-build a 29-section theme to a pixel spec in fifteen days, and a single large AI generation cannot be trusted to match a design file that is itself inconsistent. The build needed to be fast and checkable at the same time.</blockquote></div>
+</section>
+
+<section class="shell section case-section">
+  <div class="section-head"><span class="section-num">03</span><span class="section-title">Tradeoffs</span></div>
+  <div class="case-body"><div class="tradeoff">
+        <h3>Build as drawn, fix the design file later.</h3>
+        <div class="to-pair"><div><div class="label">Chose</div><p>Waive the Figma readiness gate and transcribe literal values where tokens were unbound</p></div><div class="to-vs">vs</div><div><div class="label">Over</div><p>Sending the file back to the designer for token binding first</p></div></div><div class="to-result"><div><div class="label">Gave up</div><p>Clean token references in about a third of the CSS, replaced by literal px and hex values the specs already carried.</p></div><div class="got"><div class="label">Got</div><p>The date. The designer fix-list went into <span class="hl">figma_audit.json</span> for the next design round instead of blocking this one.</p></div></div>
+      </div><div class="tradeoff">
+        <h3>Many small agents with gates, not one big generation.</h3>
+        <div class="to-pair"><div><div class="label">Chose</div><p>Per-section research specs, then builder → verifier → fixer loops behind five release gates</p></div><div class="to-vs">vs</div><div><div class="label">Over</div><p>Generating the theme in one pass and reviewing it by eye</p></div></div><div class="to-result"><div><div class="label">Gave up</div><p>Tokens and wall-clock: <span class="hl">65M</span> tokens and an overnight run, with 64 failing loops along the way.</p></div><div class="got"><div class="label">Got</div><p>Every failure caught by a check, not a client. The page-integration gate alone found <span class="hl">16</span> issues no section-level test could see: header overlay, three overflow breakpoints, seams between pull-up sections.</p></div></div>
+      </div><div class="tradeoff">
+        <h3>Verified mode on a static harness before the store existed.</h3>
+        <div class="to-pair"><div><div class="label">Chose</div><p>A local render harness with the real brand fonts, a measurement script and visual diff</p></div><div class="to-vs">vs</div><div><div class="label">Over</div><p>Waiting for the new store and building against live previews</p></div></div><div class="to-result"><div><div class="label">Gave up</div><p>A final pass on real data, which had to happen later with the developer.</p></div><div class="got"><div class="label">Got</div><p>Measured parity to the Figma frames on day one, and a store that could be created in parallel.</p></div></div>
+      </div></div>
+</section>
+
+<section class="shell section case-section">
+  <div class="section-head"><span class="section-num">04</span><span class="section-title">How we arrived at the solution</span></div>
+  <div class="case-body">
+    <h2>Intake, 322 decisions, then an overnight run with human check-ins at the gates.</h2>
+    <p class="lead">The pipeline started with a review of four inputs: the brand book and design system, the July theme export, the prior performance sprint, and the repo history. Each of the 29 sections got a research pass that produced a brief and a spec file of computed-style assertions, and the plan surfaced <span class="hl">322</span> open questions. I answered them in one sitting: 308 by default, 13 changed, one asked back.</p>
+    <p>With the plan approved, the build ran in six waves. Builders wrote sections against the specs, verifiers measured them on the harness, fixers took the failures, up to five loops a section. At 02:10 a platform usage limit killed fourteen agents mid-task; at 02:52 all fourteen resumed from their saved transcripts with nothing lost on disk. Templates were assembled at 05:15, the page-integration gate failed with 16 items, and by 07:30 all five gates (reachability, coverage, editability, functional, performance) had passed, with a 456-item deferral ledger and a handoff document for the developer.</p>
+    <p>From there the work was human: the developer and I polished through client reviews, split the new store from the THC store, migrated catalogue and redirects, and dealt with the parts no pipeline sees, from mega-menu bands bleeding across columns to a quiz page that only broke on wide screens.</p>
+  </div>
+</section>
+
+<section class="shell section case-section">
+  <div class="section-head"><span class="section-num">05</span><span class="section-title">What happened</span></div>
+  <div class="case-body">
+    <h2>The store launched, and the pipeline became the product.</h2>
+    <p class="lead">gigli.com is live as a functional-only store with the full flavour range, build-a-box and quiz flows, and the THC business on its own domain. The same pipeline has since been pointed at the next client, and the pieces that generalise are published as installable skills.</p>
+    <div class="case-metrics inline"><div class="cm"><div class="label">Sections shipped</div><div class="cm-v">29</div><div class="cm-c">across 9 templates plus header, footer and cart drawer</div></div><div class="cm"><div class="label">Commits to launch</div><div class="cm-v">480+</div><div class="cm-c">from first run to go-live, two humans and the pipeline</div></div><div class="cm"><div class="label">Issues caught by gates</div><div class="cm-v">16 + 5</div><div class="cm-c">page-integration items and CLS blockers fixed before any human review</div></div></div>
+  </div>
+</section>
+
+<nav class="shell case-nav">
+  <a href="/work/shop-manager"><span class="label">← Previous</span><span>Case 04 · Shop Manager</span></a>
+  <a href="/work/gigli-performance-diagnosis" class="next"><span class="label">Next →</span><span>Case 06 · Gigli Performance</span></a>
+</nav>
+
+<section id="contact" class="shell contact">
+  <div class="section-head"><span class="section-num">06</span><span class="section-title">Contact</span></div>
+  <div class="contact-grid"><div></div><div>
+    <h2 class="contact-headline">Let's <em>build</em><br/>something.</h2>
+    <div class="contact-rows">
+      <a href="/assets/pdf/shahzaib-siddiqui.pdf" class="contact-row" download><span class="label">Resume</span><span class="contact-link">Download PDF resume</span><span class="arr">→</span></a>
+      <a href="https://cal.com/shahz-siddiqui/30min" class="contact-row" target="_blank" rel="noopener"><span class="label">Book a call</span><span class="contact-link">cal.com/shahz-siddiqui</span><span class="arr">→</span></a>
+      <a href="mailto:shahz.siddiqui@outlook.com" class="contact-row"><span class="label">Email</span><span class="contact-link">shahz.siddiqui@outlook.com</span><span class="arr">→</span></a>
+      <a href="https://www.linkedin.com/in/shahz-siddiqui-lead" class="contact-row" target="_blank" rel="noopener"><span class="label">LinkedIn</span><span class="contact-link">in/shahz-siddiqui-lead</span><span class="arr">→</span></a>
+    </div>
+  </div></div>
+</section>
+
+<footer><div class="shell footer-inner"><div>© 2026 Shahzaib Siddiqui · All rights reserved</div><div>Set in JetBrains Mono &amp; Fraunces · <em>Built as the interview</em></div></div></footer>
+<script src="/scripts/main.js" defer></script>
+</body>
+</html>
