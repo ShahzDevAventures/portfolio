@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conversion audit: example-store.com</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;550;650;700&display=swap" rel="stylesheet">
+<style>
+/* Report styles modelled on Shopify Polaris (admin look): Inter, white cards on
+   a light grey page, 12px radius, Polaris tone colours for badges and banners.
+   Copy this block unchanged into the report's <style>. Do not add colours. */
+:root {
+  --bg: #f1f1f1;
+  --surface: #ffffff;
+  --surface-2: #f7f7f7;
+  --surface-3: #f3f3f3;
+  --text: #303030;
+  --text-2: #616161;
+  --text-3: #8a8a8a;
+  --border: #e3e3e3;
+  --border-2: #ebebeb;
+  --fill: #303030;
+  --link: #005bd3;
+  --ok-bg: #affebf;   --ok-tx: #014b40;
+  --bad-bg: #fedad9;  --bad-tx: #8e0b21;
+  --warn-bg: #ffd6a4; --warn-tx: #5e4200;
+  --att-bg: #ffef9d;  --att-tx: #4f4700;
+  --info-bg: #e0f0ff; --info-tx: #00527c;
+  --mute-bg: #e3e3e3; --mute-tx: #616161;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 0 0 rgba(26,26,26,.07), inset 0 0 0 1px rgba(0,0,0,.08);
+  --font: "Inter", -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 450 14px/20px var(--font); }
+.page { max-width: 998px; margin: 0 auto; padding: 24px 16px 64px; }
+.page-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 20px; }
+.page-head h1 { font-size: 20px; line-height: 24px; font-weight: 700; margin: 0 0 4px; }
+.page-head .sub { color: var(--text-2); margin: 0; }
+h2 { font-size: 14px; line-height: 20px; font-weight: 650; margin: 0 0 12px; }
+h3 { font-size: 14px; line-height: 20px; font-weight: 650; margin: 0; }
+p { margin: 0 0 12px; max-width: 72ch; }
+p:last-child { margin-bottom: 0; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+code { font: 500 12.5px/18px ui-monospace, "SF Mono", Menlo, monospace; background: var(--surface-3); padding: 1px 5px; border-radius: 6px; }
+.card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px; margin-bottom: 16px; }
+.card-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 12px; }
+.card-head h2, .card-head h3 { margin: 0; }
+.muted { color: var(--text-2); }
+.small { font-size: 12px; line-height: 16px; }
+
+/* badges */
+.badge { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: var(--radius-sm); font-size: 12px; line-height: 16px; font-weight: 550; white-space: nowrap; background: var(--mute-bg); color: var(--mute-tx); }
+.badge.ok { background: var(--ok-bg); color: var(--ok-tx); }
+.badge.bad { background: var(--bad-bg); color: var(--bad-tx); }
+.badge.warn { background: var(--warn-bg); color: var(--warn-tx); }
+.badge.att { background: var(--att-bg); color: var(--att-tx); }
+.badge.info { background: var(--info-bg); color: var(--info-tx); }
+.badges { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* summary numbers */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 16px; }
+.stat { background: var(--surface-2); border-radius: var(--radius-sm); padding: 12px; }
+.stat .n { font-size: 24px; line-height: 28px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.stat .l { color: var(--text-2); font-size: 12px; line-height: 16px; }
+
+/* banners */
+.banner { border-radius: var(--radius); padding: 12px 16px; margin-bottom: 16px; background: var(--info-bg); color: var(--info-tx); }
+.banner.bad { background: var(--bad-bg); color: var(--bad-tx); }
+.banner.warn { background: var(--warn-bg); color: var(--warn-tx); }
+.banner.ok { background: var(--ok-bg); color: var(--ok-tx); }
+.banner strong { font-weight: 650; }
+
+/* tables (Polaris IndexTable look) */
+.table-wrap { overflow-x: auto; margin: 0 -16px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 20px; }
+th { text-align: left; font-weight: 550; color: var(--text-2); background: var(--surface-2); padding: 8px 16px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+td { padding: 10px 16px; border-bottom: 1px solid var(--border-2); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* definition rows inside a card */
+.rows { display: grid; grid-template-columns: 180px 1fr; gap: 0; border-top: 1px solid var(--border-2); }
+.rows > dt, .rows > dd { margin: 0; padding: 10px 0; border-bottom: 1px solid var(--border-2); }
+.rows > dt { color: var(--text-2); padding-right: 16px; }
+.rows > dd:last-of-type, .rows > dt:last-of-type { border-bottom: none; }
+
+/* steps and checklists */
+ol.steps { margin: 0; padding-left: 20px; }
+ol.steps li { margin-bottom: 8px; padding-left: 4px; }
+ul.check { list-style: none; margin: 0; padding: 0; }
+ul.check li { display: grid; grid-template-columns: 20px 1fr; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--border-2); }
+ul.check li:last-child { border-bottom: none; }
+ul.check li::before { content: ""; width: 16px; height: 16px; margin-top: 2px; border: 1.5px solid var(--text-3); border-radius: 4px; }
+.expect { color: var(--text-2); }
+
+/* split fix lists */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.split .card { margin-bottom: 0; }
+
+/* collapsible developer detail */
+details { border-top: 1px solid var(--border-2); margin-top: 12px; padding-top: 12px; }
+summary { cursor: pointer; font-weight: 550; }
+details[open] summary { margin-bottom: 8px; }
+
+.foot { color: var(--text-3); font-size: 12px; line-height: 16px; margin-top: 24px; }
+
+@media (max-width: 640px) {
+  .split { grid-template-columns: 1fr; }
+  .rows { grid-template-columns: 1fr; }
+  .rows > dt { padding-bottom: 0; border-bottom: none; }
+}
+@media print {
+  body { background: #fff; }
+  .card { box-shadow: none; border: 1px solid var(--border); break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="page-head">
+    <div>
+      <h1>Conversion audit: example-store.com</h1>
+      <p class="sub">Checked 4 November 2026 from public pages only. No logins, carts, checkouts or forms.</p>
+    </div>
+    <div class="badges">
+      <span class="badge bad">2 high impact</span>
+      <span class="badge warn">1 medium impact</span>
+    </div>
+  </header>
+  <div class="banner">This is an example report. The store, the competitors and every number in it are made up.</div>
+  <div class="banner bad"><strong>Fix first:</strong> on phones the home page takes 6.1 seconds to show its main image. Google counts 2.5 seconds or less as good. Source: PageSpeed Insights, real-user data.</div>
+  <section class="card">
+    <div class="card-head">
+      <h2>Executive summary</h2>
+      <span class="badge info">Coffee, sold by bag and subscription</span>
+    </div>
+    <p>Example Store sells whole-bean coffee online. The product pages are clear and the reviews are strong. Two things hold sales back: the home page is slow on phones, and its headline does not say what the store sells.</p>
+    <dl class="rows">
+      <dt>Category</dt><dd>Specialty coffee, direct to consumer</dd>
+      <dt>Price point</dt><dd>$18 to $24 a bag (product pages)</dd>
+      <dt>Likely customers</dt><dd>Home coffee drinkers who buy every 2 to 4 weeks (product copy and reviews)</dd>
+      <dt>Estimated lift</dt><dd>8 to 15% more orders from phone visits if both high-impact fixes ship. This is an estimate from this audit's impact bands, not a forecast.</dd>
+    </dl>
+    <div class="stats">
+      <div class="stat"><div class="n">2</div><div class="l">High impact</div></div>
+      <div class="stat"><div class="n">1</div><div class="l">Medium impact</div></div>
+      <div class="stat"><div class="n">0</div><div class="l">Low impact</div></div>
+      <div class="stat"><div class="n">1</div><div class="l">Quick wins (under a week)</div></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="split">
+      <div>
+        <div class="card-head"><h3>Top issues</h3></div>
+        <ol class="steps">
+          <li>The home page is slow to show on phones.</li>
+          <li>The hero headline does not say what the store sells.</li>
+          <li>The free-shipping threshold is only in the announcement bar.</li>
+        </ol>
+      </div>
+      <div>
+        <div class="card-head"><h3>Quick wins</h3></div>
+        <ol class="steps">
+          <li>Rewrite the hero headline and add the review count under the main button. About 1 hour in the theme editor.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+  <h2>Priority issues</h2>
+  <p class="muted">Ordered by what to fix first: anything that stops pages loading, then conversion rate, then order value, then repeat purchases.</p>
+  <section class="card">
+    <div class="card-head">
+      <h3>1. The home page is slow to show on phones</h3>
+      <div class="badges">
+        <span class="badge bad">High impact</span>
+        <span class="badge info">Conversion rate</span>
+      </div>
+    </div>
+    <dl class="rows">
+      <dt>Current state</dt><dd>On phones the main image takes 6.1 seconds to appear (Largest Contentful Paint, or LCP: the time until the biggest thing on screen shows). The hero image is 3,800 pixels wide but phones show it at about 400. A chat app and a quiz app load before the page appears.</dd>
+      <dt>Industry standard</dt><dd>Google counts LCP of 2.5 seconds or less as good. Competitor A and Competitor B both show their main image in under 2.5 seconds on phones (PageSpeed Insights, same day).</dd>
+      <dt>Why it matters</dt><dd>Visitors leave before they see the coffee. In a 2020 Deloitte study for Google, a mobile site 0.1 seconds faster went with 8.4% more retail conversions.</dd>
+      <dt>Recommended approach</dt><dd>Send phones a phone-sized hero image. Load the chat and quiz apps after the page has shown. Test again in PageSpeed Insights.</dd>
+      <dt>A/B test</dt><dd>Hypothesis: a faster home page raises phone conversion rate. Split 50/50 between the current theme and a faster copy, for example with Shopify Rollouts. Run 3 weeks. Watch phone conversion rate.</dd>
+      <dt>Success metrics</dt><dd>LCP at or under 2.5 seconds in PageSpeed Insights real-user data within 28 days. Phone conversion rate up against the merchant's current rate.</dd>
+    </dl>
+    <details>
+      <summary>Evidence</summary>
+      <p>PageSpeed Insights, mobile, https://example-store.com/, real-user data for the 28 days to 3 November 2026: LCP 6.1 s, INP 180 ms, CLS 0.04. Hero image file width read from the page source.</p>
+    </details>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <h3>2. The hero headline does not say what the store sells</h3>
+      <div class="badges">
+        <span class="badge bad">High impact</span>
+        <span class="badge info">Conversion rate</span>
+        <span class="badge ok">Quick win</span>
+      </div>
+    </div>
+    <dl class="rows">
+      <dt>Current state</dt><dd>The hero says "Crafted with passion". It does not say the store sells coffee, who it is for or why it is different. The review count (4.8 stars from 2,140 reviews) only appears on product pages.</dd>
+      <dt>Industry standard</dt><dd>Competitor A's hero reads "Fresh-roasted coffee, at your door every two weeks", with its review count under the button.</dd>
+      <dt>Why it matters</dt><dd>Visitors decide in a few seconds whether they are in the right place. A vague headline sends them back to search.</dd>
+      <dt>Recommended approach</dt><dd>Rewrite the headline to name the product, the customer and the benefit. Put the star rating and review count under the main button.</dd>
+      <dt>A/B test</dt><dd>Hypothesis: a headline that names the product raises clicks from the home page to products. Split 50/50, 2 weeks. Watch home page to product page click rate, then conversion rate.</dd>
+      <dt>Success metrics</dt><dd>Click rate from the home page to a product or collection up 10% or more (target, set by this audit).</dd>
+    </dl>
+    <details>
+      <summary>Evidence</summary>
+      <p>Home page hero text and product page review widget, https://example-store.com/, loaded 4 November 2026.</p>
+    </details>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <h3>3. The free-shipping threshold is only in the announcement bar</h3>
+      <div class="badges">
+        <span class="badge warn">Medium impact</span>
+        <span class="badge info">Average order value</span>
+      </div>
+    </div>
+    <dl class="rows">
+      <dt>Current state</dt><dd>The announcement bar says "Free shipping over $40". Product pages and the cart page do not mention it. Most bags cost $18, so one bag leaves a customer $22 short.</dd>
+      <dt>Industry standard</dt><dd>Competitor B shows how far the customer is from free shipping in the cart and next to the price.</dd>
+      <dt>Why it matters</dt><dd>A visible threshold gives people a reason to add a second bag. In Baymard Institute's survey, 40% of US shoppers who left a checkout said extra costs such as shipping were too high.</dd>
+      <dt>Recommended approach</dt><dd>Show free-shipping progress in the cart. Repeat the threshold next to the price on product pages.</dd>
+      <dt>A/B test</dt><dd>Optional for a medium issue. Hypothesis: a progress message raises average order value. Split 50/50, 3 weeks. Watch average order value.</dd>
+      <dt>Success metrics</dt><dd>More orders over $40 and a higher average order value in Shopify Analytics.</dd>
+    </dl>
+    <details>
+      <summary>Evidence</summary>
+      <p>Announcement bar on every page; empty cart page https://example-store.com/cart; two product pages. All loaded 4 November 2026. Claude did not add anything to the cart.</p>
+    </details>
+  </section>
+  <section class="card">
+    <div class="card-head">
+      <h2>Industry benchmarks</h2>
+      <span class="badge info">Checked live on 4 November 2026</span>
+    </div>
+    <p>Category conversion rate: 2.1% for specialty food stores (example source, 2026). Replace with a figure you can source, or write "not checked".</p>
+    <p>Open position: none of the three competitors shows the roast date on the product page. Example Store roasts to order and could own "roasted this week".</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Competitor</th><th>What they do</th><th>What this store does</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Competitor A</td><td>Hero names the product and delivery rhythm. Review count under the button.</td><td>Vague hero. Reviews only on product pages.</td></tr>
+          <tr><td>Competitor B</td><td>Free-shipping progress in the cart. "Pair it with" block on product pages.</td><td>Threshold only in the announcement bar.</td></tr>
+          <tr><td>Competitor C</td><td>Tasting-note filter on collections.</td><td>Filters by roast level only.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <section class="card">
+    <div class="card-head"><h2>Testing roadmap</h2></div>
+    <p>Run one test per page at a time. Stop a test early only if it clearly harms sales.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Weeks</th><th>Test</th><th>Hypothesis</th><th>Split and length</th><th>Success metric</th><th>Decision rule</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="num">1 to 2</td><td>New hero headline</td><td>Naming the product raises clicks to products</td><td class="num">50/50, 2 weeks</td><td>Home to product click rate</td><td>Keep if click rate rises and conversion rate does not fall</td></tr>
+          <tr><td class="num">3 to 6</td><td>Faster phone home page</td><td>Faster pages convert more phone visits</td><td class="num">50/50, 3 weeks</td><td>Phone conversion rate</td><td>Keep if conversion rate rises or stays level</td></tr>
+          <tr><td class="num">7 to 12</td><td>Free-shipping progress in cart</td><td>Showing the gap adds a second bag</td><td class="num">50/50, 3 weeks</td><td>Average order value</td><td>Keep if order value rises and conversion rate does not fall</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <section class="card">
+    <div class="card-head"><h2>Immediate actions (this week)</h2></div>
+    <ul class="check">
+      <li><div><strong>Rewrite the hero headline to say what you sell and for whom.</strong><br><span class="expect">Expected: more clicks from the home page to products. Time: about 30 minutes in the theme editor.</span></div></li>
+      <li><div><strong>Add the star rating and review count under the hero button.</strong><br><span class="expect">Expected: more trust before the first click. Time: about 30 minutes in the theme editor.</span></div></li>
+      <li><div><strong>Add "Free shipping over $40" next to the price on product pages.</strong><br><span class="expect">Expected: more two-bag orders. Time: about 15 minutes.</span></div></li>
+    </ul>
+  </section>
+  <section class="card">
+    <div class="card-head">
+      <h2>What we could not check</h2>
+      <span class="badge">Not checked</span>
+    </div>
+    <p>This audit never logs in, adds to cart or starts a checkout, so some parts of the buying path were not visible.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Item</th><th>Why not</th><th>How to check it</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Guest checkout</td><td>Needs a checkout to be started</td><td>Send a screenshot of the first checkout step</td></tr>
+          <tr><td>Cart with an item in it</td><td>Needs an item added to the cart</td><td>Send a screenshot of the cart with one bag in it</td></tr>
+          <tr><td>Order confirmation page and emails</td><td>Needs an order</td><td>Send screenshots or a list of your email flows</td></tr>
+          <tr><td>Conversion rate and order value</td><td>Store analytics are private</td><td>Share the last 90 days from Shopify Analytics</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <section class="card">
+    <div class="card-head"><h2>How this audit was done</h2></div>
+    <dl class="rows">
+      <dt>Pages loaded</dt><dd>Home, About, Press, one collection, two product pages and the empty cart. 7 pages on 4 November 2026.</dd>
+      <dt>Speed</dt><dd>PageSpeed Insights, mobile, real-user data</dd>
+      <dt>Brand research</dt><dd>One search for the brand, all 10 results read, 3 follow-up searches</dd>
+      <dt>Competitors</dt><dd>3 competitor sites loaded the same day</dd>
+      <dt>From the merchant</dt><dd>Nothing supplied</dd>
+      <dt>Not done</dt><dd>No logins, no form submissions, nothing added to cart, no checkout, no changes to the store</dd>
+    </dl>
+    <details>
+      <summary>All sources</summary>
+      <ol class="steps">
+        <li>https://example-store.com/ (4 November 2026)</li>
+        <li>https://example-store.com/products/house-blend (4 November 2026)</li>
+        <li>PageSpeed Insights report for https://example-store.com/ (4 November 2026)</li>
+        <li>Deloitte, Milliseconds Make Millions, 2020</li>
+        <li>Baymard Institute, cart abandonment rate statistics (read 4 November 2026)</li>
+      </ol>
+    </details>
+  </section>
+
+  <p class="foot">Prepared with cro-audit-skill by Shahz Siddiqui. Read-only: nothing on the store was changed. Figures marked as estimates are estimates.</p>
+
+</main>
+</body>
+</html>

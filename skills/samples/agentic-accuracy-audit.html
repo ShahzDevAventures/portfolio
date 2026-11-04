@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agentic accuracy audit: Example Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;550;650;700&display=swap" rel="stylesheet">
+<style>
+/* Report styles modelled on Shopify Polaris (admin look): Inter, white cards on
+   a light grey page, 12px radius, Polaris tone colours for badges and banners.
+   Copy this block unchanged into the report's <style>. Do not add colours. */
+:root {
+  --bg: #f1f1f1;
+  --surface: #ffffff;
+  --surface-2: #f7f7f7;
+  --surface-3: #f3f3f3;
+  --text: #303030;
+  --text-2: #616161;
+  --text-3: #8a8a8a;
+  --border: #e3e3e3;
+  --border-2: #ebebeb;
+  --fill: #303030;
+  --link: #005bd3;
+  --ok-bg: #affebf;   --ok-tx: #014b40;
+  --bad-bg: #fedad9;  --bad-tx: #8e0b21;
+  --warn-bg: #ffd6a4; --warn-tx: #5e4200;
+  --att-bg: #ffef9d;  --att-tx: #4f4700;
+  --info-bg: #e0f0ff; --info-tx: #00527c;
+  --mute-bg: #e3e3e3; --mute-tx: #616161;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 0 0 rgba(26,26,26,.07), inset 0 0 0 1px rgba(0,0,0,.08);
+  --font: "Inter", -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 450 14px/20px var(--font); }
+.page { max-width: 998px; margin: 0 auto; padding: 24px 16px 64px; }
+.page-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 20px; }
+.page-head h1 { font-size: 20px; line-height: 24px; font-weight: 700; margin: 0 0 4px; }
+.page-head .sub { color: var(--text-2); margin: 0; }
+h2 { font-size: 14px; line-height: 20px; font-weight: 650; margin: 0 0 12px; }
+h3 { font-size: 14px; line-height: 20px; font-weight: 650; margin: 0; }
+p { margin: 0 0 12px; max-width: 72ch; }
+p:last-child { margin-bottom: 0; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+code { font: 500 12.5px/18px ui-monospace, "SF Mono", Menlo, monospace; background: var(--surface-3); padding: 1px 5px; border-radius: 6px; }
+.card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px; margin-bottom: 16px; }
+.card-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 12px; }
+.card-head h2, .card-head h3 { margin: 0; }
+.muted { color: var(--text-2); }
+.small { font-size: 12px; line-height: 16px; }
+
+/* badges */
+.badge { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: var(--radius-sm); font-size: 12px; line-height: 16px; font-weight: 550; white-space: nowrap; background: var(--mute-bg); color: var(--mute-tx); }
+.badge.ok { background: var(--ok-bg); color: var(--ok-tx); }
+.badge.bad { background: var(--bad-bg); color: var(--bad-tx); }
+.badge.warn { background: var(--warn-bg); color: var(--warn-tx); }
+.badge.att { background: var(--att-bg); color: var(--att-tx); }
+.badge.info { background: var(--info-bg); color: var(--info-tx); }
+.badges { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* summary numbers */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 16px; }
+.stat { background: var(--surface-2); border-radius: var(--radius-sm); padding: 12px; }
+.stat .n { font-size: 24px; line-height: 28px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.stat .l { color: var(--text-2); font-size: 12px; line-height: 16px; }
+
+/* banners */
+.banner { border-radius: var(--radius); padding: 12px 16px; margin-bottom: 16px; background: var(--info-bg); color: var(--info-tx); }
+.banner.bad { background: var(--bad-bg); color: var(--bad-tx); }
+.banner.warn { background: var(--warn-bg); color: var(--warn-tx); }
+.banner.ok { background: var(--ok-bg); color: var(--ok-tx); }
+.banner strong { font-weight: 650; }
+
+/* tables (Polaris IndexTable look) */
+.table-wrap { overflow-x: auto; margin: 0 -16px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 20px; }
+th { text-align: left; font-weight: 550; color: var(--text-2); background: var(--surface-2); padding: 8px 16px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+td { padding: 10px 16px; border-bottom: 1px solid var(--border-2); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* definition rows inside a card */
+.rows { display: grid; grid-template-columns: 180px 1fr; gap: 0; border-top: 1px solid var(--border-2); }
+.rows > dt, .rows > dd { margin: 0; padding: 10px 0; border-bottom: 1px solid var(--border-2); }
+.rows > dt { color: var(--text-2); padding-right: 16px; }
+.rows > dd:last-of-type, .rows > dt:last-of-type { border-bottom: none; }
+
+/* steps and checklists */
+ol.steps { margin: 0; padding-left: 20px; }
+ol.steps li { margin-bottom: 8px; padding-left: 4px; }
+ul.check { list-style: none; margin: 0; padding: 0; }
+ul.check li { display: grid; grid-template-columns: 20px 1fr; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--border-2); }
+ul.check li:last-child { border-bottom: none; }
+ul.check li::before { content: ""; width: 16px; height: 16px; margin-top: 2px; border: 1.5px solid var(--text-3); border-radius: 4px; }
+.expect { color: var(--text-2); }
+
+/* split fix lists */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.split { margin-bottom: 16px; }
+.split .card { margin-bottom: 0; }
+
+/* collapsible developer detail */
+details { border-top: 1px solid var(--border-2); margin-top: 12px; padding-top: 12px; }
+summary { cursor: pointer; font-weight: 550; }
+details[open] summary { margin-bottom: 8px; }
+.card > details:first-child { border-top: none; margin-top: 0; padding-top: 0; }
+
+.foot { color: var(--text-3); font-size: 12px; line-height: 16px; margin-top: 24px; }
+
+@media (max-width: 640px) {
+  .split { grid-template-columns: 1fr; }
+  .rows { grid-template-columns: 1fr; }
+  .rows > dt { padding-bottom: 0; border-bottom: none; }
+}
+@media print {
+  body { background: #fff; }
+  .card { box-shadow: none; border: 1px solid var(--border); break-inside: avoid; }
+}
+
+/* code blocks (appendix) */
+pre { margin: 0; padding: 12px; background: var(--surface-3); border-radius: var(--radius-sm); overflow-x: auto; font: 500 12px/18px ui-monospace, "SF Mono", Menlo, monospace; white-space: pre; }
+</style>
+</head>
+<body>
+<div class="page">
+<div class="page-head">
+  <div>
+    <h1>Agentic accuracy audit: Example Store</h1>
+    <p class="sub">example-store.com · admin handle example-store · 4 November 2026 · Claude in Chrome (Chrome 156)</p>
+  </div>
+  <div class="badges"><span class="badge">Read-only</span><span class="badge">Facts verified 2026-11-04</span></div>
+</div>
+
+<div class="banner">This is an example report. The store, its products and every number in it are made up.</div>
+<div class="card">
+  <div class="card-head"><h2>Summary</h2><span class="badge bad">2 critical</span></div>
+  <ul>
+    <li>AI agents quote the full price on the store's best seller. Shoppers on the website see a 20% sale price.</li>
+    <li>The store's returns window is 30 days. Asked by an agent, the store's own answer says 14 days.</li>
+    <li>9 of 10 sampled products match on price, availability and options.</li>
+  </ul>
+  <div class="stats">
+    <div class="stat"><div class="n">14</div><div class="l">Checks passed</div></div>
+    <div class="stat"><div class="n">3</div><div class="l">Failed</div></div>
+    <div class="stat"><div class="n">2</div><div class="l">Warnings</div></div>
+    <div class="stat"><div class="n">3</div><div class="l">Not tested</div></div>
+  </div>
+</div>
+<div class="card">
+  <details><summary>Store details</summary>
+  <dl class="rows">
+    <dt>Website</dt><dd>example-store.com</dd>
+    <dt>Admin handle</dt><dd>example-store (read from the store switcher)</dd>
+    <dt>myshopify name</dt><dd>example-store.myshopify.com</dd>
+    <dt>Shop ID</dt><dd>12345678901 (from the store's UCP profile)</dd>
+    <dt>Audit date</dt><dd>2026-11-04</dd>
+    <dt>Audit country</dt><dd>US (browser and store signals agree)</dd>
+    <dt>Run mode</dt><dd>Claude in Chrome, with admin access</dd>
+    <dt>Browser</dt><dd>Chrome 156</dd>
+    <dt>Prepared for</dt><dd>Example PM</dd>
+    <dt>Read-only</dt><dd>Yes. Nothing was added to a cart, no checkout was started, no setting was changed</dd>
+    <dt>Skill version</dt><dd>agentic-accuracy-audit 1.2 (facts last verified 2026-11-04)</dd>
+  </dl>
+  </details>
+</div>
+<div class="card">
+  <h2>Top fixes</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>#</th><th>Problem</th><th>Severity</th><th>Confidence</th><th>Who fixes</th><th>Fix</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Sale shown by the theme only, so agents quote the full price</td><td><span class="badge bad">Critical</span></td><td><span class="badge info">Confirmed</span></td><td><span class="badge info">PM</span></td><td>Put the sale in the product's price and crossed-out price (PM-05)</td></tr>
+      <tr><td>2</td><td>Knowledge base says 14-day returns; the policy page says 30</td><td><span class="badge bad">Critical</span></td><td><span class="badge info">Confirmed</span></td><td><span class="badge info">PM</span></td><td>Correct the fact in the knowledge base (PM-01)</td></tr>
+    </tbody>
+  </table></div>
+</div>
+<div class="card">
+  <h2>What AI agents can see about this store</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Surface</th><th>What we found</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>agents.md (instructions file for agents)</td><td>Shopify-managed, lists 4 policies</td><td><span class="badge ok">Pass</span></td></tr>
+      <tr><td>UCP profile (the store's machine-readable business card)</td><td>Version 2026-08-25, catalog and checkout</td><td><span class="badge ok">Pass</span></td></tr>
+      <tr><td>Store MCP (how agents search products)</td><td>4 read tools answered</td><td><span class="badge ok">Pass</span></td></tr>
+      <tr><td>WebMCP (tools inside the web page)</td><td>12 tools on the home page</td><td><span class="badge ok">Pass</span></td></tr>
+      <tr><td>Shopify Catalog (feeds ChatGPT, Copilot, Shop)</td><td>46 of 48 products</td><td><span class="badge warn">Warn</span></td></tr>
+      <tr><td>Knowledge base (facts agents use to answer)</td><td>3 facts, 1 out of date</td><td><span class="badge bad">Fail</span></td></tr>
+    </tbody>
+  </table></div>
+</div>
+<h2>Findings by check</h2>
+<div class="card">
+  <div class="card-head"><h3>C10 Sale prices agents can see</h3><div class="badges"><span class="badge bad">Fail</span><span class="badge bad">Critical</span><span class="badge info">Confirmed</span><span class="badge info">PM</span></div></div>
+  <dl class="rows">
+    <dt>Shoppers see</dt><dd>$40, was $50, on /products/classic-tee</dd>
+    <dt>Agents see</dt><dd>$50 and no sale (store MCP get_product)</dd>
+    <dt>Why it matters</dt><dd>A shopper who asks an agent for the price is told it costs more than it does.</dd>
+    <dt>Fix</dt><dd>Put the sale in the product price (PM-05)</dd>
+    <dt>Evidence</dt><dd>Product page, store MCP get_product, WebMCP get_product</dd>
+  </dl>
+</div>
+<div class="card">
+  <h2>Product comparison (sample of 10)</h2>
+  <p class="small muted">4 best sellers, up to 3 promoted products, the rest spread across the catalog. Best-seller order from the Best selling collection.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>#</th><th>Product</th><th>Site price</th><th>Agent price</th><th>Sale on site</th><th>Agents see sale</th><th>In Catalog</th><th>Verdict</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Classic tee (best seller)</td><td class="num">$40.00</td><td class="num">$50.00</td><td>Yes: "Save 20%"</td><td>No</td><td>Yes</td><td><span class="badge bad">Fail</span></td></tr>
+      <tr><td>2</td><td>Canvas tote (best seller)</td><td class="num">$28.00</td><td class="num">$28.00</td><td>No</td><td>n/a</td><td>Yes</td><td><span class="badge ok">Pass</span></td></tr>
+    </tbody>
+  </table></div>
+</div>
+<div class="card">
+  <h2>Promotions and discounts</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>#</th><th>Promotion</th><th>Type</th><th>Discount in admin</th><th>Visible to agents</th><th>Manual test</th></tr></thead>
+    <tbody><tr><td>P1</td><td>"Free shipping over $75" (announcement bar)</td><td>Threshold</td><td>Free shipping, automatic</td><td>As text in agents.md only</td><td>MC-01a</td></tr></tbody>
+  </table></div>
+</div>
+<div class="card">
+  <h2>Agent answers vs the website</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Q</th><th>Question</th><th>Agent answer</th><th>Website says</th><th>Grade</th></tr></thead>
+    <tbody>
+      <tr><td>Q3</td><td>How long do I have to return an item?</td><td>14 days from delivery</td><td>30 days from delivery (/policies/refund-policy)</td><td><span class="badge bad">Wrong</span></td></tr>
+      <tr><td>Q5</td><td>Do you ship to Canada?</td><td>Yes, from $12</td><td>Yes, from $12 (/policies/shipping-policy)</td><td><span class="badge ok">Correct</span></td></tr>
+    </tbody>
+  </table></div>
+</div>
+<div class="split">
+  <div class="card">
+    <h2>PM can do this</h2>
+    <p class="small muted">Don't change anything you haven't agreed with the merchant.</p>
+    <h3>1. Put the sale in the product price (PM-05)</h3>
+    <ol class="steps">
+      <li>Products &gt; Classic tee &gt; Pricing.</li>
+      <li>Set Price to $40 and Compare-at price to $50.</li>
+      <li>Remove the theme's "Save 20%" setting for this product.</li>
+    </ol>
+    <p class="small">Check it worked: the store MCP returns $40 with a $50 crossed-out price.</p>
+  </div>
+  <div class="card">
+    <h2>Needs a developer</h2>
+    <p class="small muted">No code was written by this audit.</p>
+    <h3>1. Stop the theme inventing sale prices (DEV-02)</h3>
+    <dl class="rows">
+      <dt>Problem</dt><dd>The theme shows a sale the product data doesn't have.</dd>
+      <dt>Where</dt><dd>Product card and product page templates</dd>
+      <dt>Change</dt><dd>Show a sale only when the product has a crossed-out price.</dd>
+      <dt>How to test</dt><dd>Re-run checks C10 and C12.</dd>
+    </dl>
+  </div>
+</div>
+<div class="card">
+  <h2>Manual checklist for the PM</h2>
+  <p class="small muted">Test orders only. Go up to the payment step and leave. Never pay.</p>
+  <ul class="check">
+    <li><div><strong>MC-01a.</strong> Add $80 of products to a cart in a private window. <span class="expect">Expected: free shipping at checkout.</span></div></li>
+  </ul>
+</div>
+<div class="card">
+  <h2>Not tested and why</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Check</th><th>Reason</th><th>What would let us test it</th></tr></thead>
+    <tbody><tr><td>C07</td><td>No access to Sales channels &gt; Agentic</td><td>Ask the store owner for that permission</td></tr></tbody>
+  </table></div>
+</div>
+<div class="card">
+  <h2>Coverage check</h2>
+  <dl class="rows">
+    <dt>Checks included</dt><dd>22 of 22; scorecard adds up to 22</dd>
+    <dt>Products in the sample</dt><dd>10 of 10, compared on both sides</dd>
+    <dt>Agent questions</dt><dd>12 fixed + 3 store-specific, all graded</dd>
+  </dl>
+</div>
+<div class="card">
+  <h2>Method and sources</h2>
+  <p>Read-only tools only: store MCP search_catalog, lookup_catalog, get_product and ask_business; Global Catalog; WebMCP search and product tools. About 140 requests.</p>
+  <p>Agent answers are generated text and can be worded differently on another day. Shopify changes these surfaces often. Re-run this audit after fixes and at least quarterly.</p>
+</div>
+
+<p class="foot">Agentic accuracy audit · example-store · 2026-11-04 · Read-only</p>
+</div>
+</body>
+</html>
