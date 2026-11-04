@@ -22,8 +22,9 @@
   flex-direction: column;
   overflow: hidden;
 }
-.work-card:nth-child(2n) { border-right: none; }
-.work-card:nth-last-child(-n+2) { border-bottom: none; }
+/* four cases in a 2x2 grid, then the featured card full width at the end */
+.work-card:nth-child(even) { border-right: none; }
+.work-card:last-child { border-bottom: none; }
 
 .work-card::before {
   content: "";
@@ -94,8 +95,51 @@
 }
 .work-card:hover .wc-arrow { transform: translateX(6px); }
 
+/* ── featured case: Shop Manager ── */
+.work-card.featured {
+  grid-column: 1 / -1;
+  border-right: none;
+  border-bottom: none;
+  background: color-mix(in oklab, var(--signal) 14%, var(--paper));
+  padding: 40px 36px 28px;
+  min-height: 0;
+  cursor: default;
+  transition: background var(--dur-2) var(--ease);
+}
+.work-card.featured::before { content: none; }
+.work-card.featured > * { position: static; }
+.work-card.featured:hover { color: var(--ink); background: color-mix(in oklab, var(--signal) 24%, var(--paper)); }
+.work-card.featured:hover .wc-metric { color: var(--ink); }
+.work-card.featured:hover .wc-arrow { transform: translateX(6px); }
+.wc-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: 48px;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.featured .wc-title { display: block; font-size: clamp(36px, 4vw, 60px); margin-bottom: 18px; color: var(--ink); }
+.featured .wc-desc { font-size: 17px; max-width: 46ch; color: var(--ink-2); }
+.wc-link::after { content: ""; position: absolute; inset: 0; z-index: 1; cursor: pointer; }
+.wc-live {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 2px;
+}
+.wc-live:hover { background: var(--signal); }
+.wc-shot { width: 100%; height: auto; border: 1px solid var(--ink); box-shadow: 10px 10px 0 -1px var(--ink); }
+
 @media (max-width: 768px) {
   .work-grid { grid-template-columns: 1fr; }
+  .work-card.featured { padding: 28px 20px 24px; }
+  .wc-feature { grid-template-columns: 1fr; gap: 28px; }
+  .wc-shot { box-shadow: 6px 6px 0 -1px var(--ink); }
   .work-card { border-right: none; }
   .work-card:nth-last-child(-n+2) { border-bottom: 1px solid var(--rule); }
   .work-card:last-child { border-bottom: none; }

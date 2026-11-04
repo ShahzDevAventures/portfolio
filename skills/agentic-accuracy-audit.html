@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Agentic Accuracy Audit — Shahzaib Siddiqui</title>
+  <meta name="description" content="Checks what AI shopping agents see about a Shopify store against what shoppers see on the site: products, prices, discounts and policies." />
+  <link rel="canonical" href="https://shahzsiddiqui.vercel.app/skills/agentic-accuracy-audit" />
+  <meta property="og:title" content="Agentic Accuracy Audit — Shahzaib Siddiqui" />
+  <meta property="og:description" content="Checks what AI shopping agents see about a Shopify store against what shoppers see on the site: products, prices, discounts and policies." />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="/assets/og/og-image.svg" />
+  <meta name="theme-color" content="#F2EFE8" />
+  <link rel="icon" href="/assets/og/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@300;400;500;700;800&family=Anton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/tokens.css" />
+  <link rel="stylesheet" href="/styles/base.css" />
+  <link rel="stylesheet" href="/styles/nav.css" />
+  <link rel="stylesheet" href="/styles/contact.css" />
+  <link rel="stylesheet" href="/styles/skills.css" />
+  <link rel="stylesheet" href="/styles/case.css" />
+</head>
+<body class="case-page">
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="monogram"><span class="monogram-mark">SS</span><span>Shahzaib&nbsp;Siddiqui</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="/#about">About</a><a href="/#work">Work</a><a href="/#skills">Skills</a><a href="/#contact">Contact</a>
+    </div>
+    <div class="nav-meta"><span class="live-dot" aria-hidden="true"></span><span id="liveClock">—</span><span>·</span><span>Ottawa / GMT-4</span></div>
+    <button class="nav-toggle" aria-label="Menu" id="navToggle">≡</button>
+  </div>
+</nav>
+
+<header class="case-hero"><div class="shell case-hero-inner">
+  <div class="case-rail"><a href="/#skills" class="label back">← Skills</a></div>
+  <div>
+    <h1 class="display-1"><span class="rise-line">Agentic</span><span class="rise-line accent">Accuracy Audit</span></h1>
+    <p class="lede fade-in in-view">Every Shopify store now publishes a file and a set of tools for AI shopping agents. This audit checks whether what those agents are told about products, prices, discounts and policies matches the website.</p>
+    <dl class="case-meta fade-in in-view">
+      <div><dt class="label">Built for</dt><dd>Agency PMs and merchants</dd></div>
+      <div><dt class="label">Runs in</dt><dd>Claude app with Claude in Chrome · Claude Code</dd></div>
+      <div><dt class="label">Store access</dt><dd>Read-only; runs without admin access too</dd></div>
+      <div><dt class="label">Output</dt><dd class="chip">One report per store</dd></div>
+    </dl>
+  </div>
+</div>
+</header>
+
+<section class="shell"><div class="case-metrics"><div class="cm"><div class="label">Checks</div><div class="cm-v">22</div><div class="cm-c">each with one status and a fix owner</div></div><div class="cm"><div class="label">Products compared</div><div class="cm-v">10</div><div class="cm-c">picked by a fixed rule, never by hand</div></div><div class="cm"><div class="label">Questions put to the store's agent</div><div class="cm-v">15</div><div class="cm-c">graded against the policy pages</div></div></div></section>
+
+<section class="shell section case-section">
+  <div class="case-body"><h2>The problem</h2><blockquote class="problem">A shopper asks an AI agent what a product costs and gets the full price, because the sale only exists in the theme or at the cart. In the first test run, three of a store's four best sellers showed a bundle saving on the product page that every agent tool missed.</blockquote></div>
+</section>
+
+<section class="shell section case-section">
+  <div class="case-body">
+    <h2>Ask the store what agents ask, then check every answer against the site.</h2>
+    <p class="lead">Claude works in the PM's own Chrome, calls only the store's read-only agent tools, and compares each answer with the page a shopper would see.</p>
+    <ol class="skill-steps">
+      <li><span><strong>Find the agent surfaces.</strong> The store's agents.md file, its UCP profile, the store's agent API, the tools built into its web pages, and Shopify Catalog, which feeds ChatGPT, Copilot and Shop.</span></li>
+      <li><span><strong>Check catalog coverage.</strong> Which products agents can find, which are missing, and which are expected exclusions such as gift cards and helper products.</span></li>
+      <li><span><strong>Compare a fixed sample.</strong> Four best sellers, up to three promoted products and the rest spread across the catalog: price, crossed-out price, stock and options, on both sides.</span></li>
+      <li><span><strong>List every promotion.</strong> Banners, product-page offers and admin discounts, each marked as visible to agents in the price, as text, or not at all.</span></li>
+      <li><span><strong>Question the store's own agent.</strong> Fifteen fixed questions on returns, shipping, promotions and more, each graded against the store's policy pages.</span></li>
+      <li><span><strong>Hand over what needs a cart.</strong> Whether a cart discount really applies is written up as a manual checklist. Claude never adds to cart.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="shell section case-section">
+  <div class="case-body">
+    <h2>One report per store, with the answer first.</h2>
+    <p class="lead">A single HTML file styled like the Shopify admin, plus a Markdown copy for tickets. Top fixes come first, split between what the PM can change in the admin and what needs a developer.</p>
+    <ul class="skill-out">
+      <li><strong>Top fixes</strong> ranked by severity, with who fixes each one</li>
+      <li><strong>What agents can see:</strong> each surface and its status</li>
+      <li><strong>Product comparison</strong> for the fixed sample</li>
+      <li><strong>Promotions and discounts</strong> and whether agents can see them</li>
+      <li><strong>Agent answers vs the website</strong>, question by question</li>
+      <li><strong>Manual checklist</strong> for anything that needs a cart</li>
+    </ul>
+    <figure class="case-figure"><img src="/assets/skills/agentic-accuracy-audit-report.png" alt="Sample agentic accuracy report for a made-up store, styled like the Shopify admin" loading="lazy" /><figcaption>Sample report. The store and every number in it are made up.</figcaption></figure>
+  </div>
+</section>
+
+<section class="shell section case-section">
+  <div class="case-body"><h2>Tradeoffs</h2><div class="tradeoff">
+        <h3>No cart, even to prove a discount works.</h3>
+        <div class="to-pair"><div><div class="label">Chose</div><p>Read-only agent tools, with cart-level checks handed to the PM as a checklist</p></div><div class="to-vs">vs</div><div><div class="label">Over</div><p>Adding to cart to watch the discount apply</p></div></div><div class="to-result"><div><div class="label">Gave up</div><p>Automatic proof of cart discounts</p></div><div class="got"><div class="label">Got</div><p>No stray carts, abandoned-checkout emails or analytics noise on a client's live store.</p></div></div>
+      </div><div class="tradeoff">
+        <h3>A fixed sample, not the products that look interesting.</h3>
+        <div class="to-pair"><div><div class="label">Chose</div><p>Four best sellers, up to three promoted products and the rest spread across the catalog</p></div><div class="to-vs">vs</div><div><div class="label">Over</div><p>Picking products by hand during the run</p></div></div><div class="to-result"><div><div class="label">Gave up</div><p>Chasing a hunch mid-audit</p></div><div class="got"><div class="label">Got</div><p>Two runs on the same store compare the same products.</p></div></div>
+      </div></div>
+</section>
+
+<section class="shell section case-section" id="install">
+  <div class="case-body">
+    <h2>Install it</h2>
+    <p class="lead">Install it in the Claude app and connect Claude in Chrome. With admin access it runs all 22 checks; without it, it runs a public-only audit and says which checks it skipped.</p>
+    <div class="install-grid">
+      <div class="install-col">
+        <h3>Claude app</h3>
+        <ol>
+          <li>Download the skill file below.</li>
+          <li>In Claude, open Settings → Capabilities and turn on Code execution and file creation.</li>
+          <li>Open Customize → Skills, click +, then Create skill → Upload a skill, and choose the file.</li>
+          <li>Install the Claude in Chrome extension and connect it. Without it, the skill walks you through a manual export instead.</li>
+          <li>Open the store in Chrome (signed in to the admin if you have access), then start a new chat.</li>
+        </ol>
+        <a class="btn solid" href="https://github.com/ShahzDevAventures/agentic-accuracy-audit/releases/latest/download/agentic-accuracy-audit.zip">Download agentic-accuracy-audit.zip</a>
+      </div>
+      <div class="install-col">
+        <h3>Claude Code</h3>
+        <p>Run this once in a terminal:</p>
+        <div class="skill-cmd"><code>npx skills add ShahzDevAventures/agentic-accuracy-audit</code><button class="copy-btn" data-copy="npx skills add ShahzDevAventures/agentic-accuracy-audit">Copy</button></div>
+        <p>Then start Claude Code in any folder and ask for the audit.</p>
+      </div>
+    </div>
+    <p class="say">Then say: <span class="hl">Run the agentic accuracy audit for example-store.com</span></p>
+    <p><a class="inline-link" href="https://github.com/ShahzDevAventures/agentic-accuracy-audit" target="_blank" rel="noopener">Source and full instructions on GitHub →</a></p>
+  </div>
+</section>
+
+<nav class="shell case-nav">
+  <a href="/skills/scripts-to-functions-audit"><span class="label">← Previous</span><span>Scripts to Functions Audit</span></a>
+  <a href="/skills/shopify-seo-audit" class="next"><span class="label">Next →</span><span>Shopify SEO Audit</span></a>
+</nav>
+
+<section id="contact" class="shell contact">
+  <div class="contact-grid"><div></div><div>
+    <h2 class="contact-headline">Let's <em>build</em><br/>something.</h2>
+    <div class="contact-rows">
+      <a href="/assets/pdf/shahzaib-siddiqui.pdf" class="contact-row" download><span class="label">Resume</span><span class="contact-link">Download PDF resume</span><span class="arr">→</span></a>
+      <a href="https://cal.com/shahz-siddiqui/30min" class="contact-row" target="_blank" rel="noopener"><span class="label">Book a call</span><span class="contact-link">cal.com/shahz-siddiqui</span><span class="arr">→</span></a>
+      <a href="mailto:shahz.siddiqui@outlook.com" class="contact-row"><span class="label">Email</span><span class="contact-link">shahz.siddiqui@outlook.com</span><span class="arr">→</span></a>
+      <a href="https://www.linkedin.com/in/shahz-siddiqui-lead" class="contact-row" target="_blank" rel="noopener"><span class="label">LinkedIn</span><span class="contact-link">in/shahz-siddiqui-lead</span><span class="arr">→</span></a>
+    </div>
+  </div></div>
+</section>
+
+<footer><div class="shell footer-inner"><div>© 2026 Shahzaib Siddiqui · All rights reserved</div><div>Set in JetBrains Mono &amp; Fraunces · <em>Built as the interview</em></div></div></footer>
+<script src="/scripts/main.js" defer></script>
+</body>
+</html>

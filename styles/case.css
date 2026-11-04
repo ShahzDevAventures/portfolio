@@ -95,3 +95,31 @@ a.work-card { display: block; }
   .case-nav { grid-template-columns: 1fr; }
   .case-nav a.next { text-align: left; border-left: none; border-top: 1px solid var(--ink); padding-left: 0; }
 }
+
+/* ── skill pages (/skills/<slug>) ── */
+.skill-steps { list-style: none; counter-reset: step; margin: 12px 0 0; padding: 0; border-top: 1px solid var(--ink); max-width: 860px; }
+.skill-steps li { counter-increment: step; display: grid; grid-template-columns: 56px 1fr; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); font-size: 16.5px; line-height: 1.55; color: var(--ink-2); }
+.skill-steps li::before { content: counter(step, decimal-leading-zero); font-family: var(--font-mono); font-size: 13px; color: var(--ink); padding-top: 3px; }
+.skill-steps li strong { color: var(--ink); font-variation-settings: "wght" 600; }
+.skill-out { margin: 8px 0 0; padding-left: 20px; max-width: 68ch; }
+.skill-out li { font-size: 16.5px; line-height: 1.55; margin-bottom: 10px; color: var(--ink-2); }
+.skill-out li strong { color: var(--ink); font-variation-settings: "wght" 600; }
+.sample-table { margin-top: 36px; overflow-x: auto; }
+.sample-table table { border-collapse: collapse; width: 100%; font-family: var(--font-mono); font-size: 12px; border: 1px solid var(--ink); background: var(--paper); }
+.sample-table th, .sample-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+.sample-table th { background: var(--paper-2); color: var(--ink); font-weight: 600; border-bottom: 1px solid var(--ink); }
+.sample-table .cap { font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); margin-top: 12px; }
+.install-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--ink); margin: 12px 0 28px; background: var(--paper); }
+.install-col { padding: 28px; display: flex; flex-direction: column; gap: 14px; }
+.install-col + .install-col { border-left: 1px solid var(--ink); }
+.install-col h3 { font-size: clamp(22px, 2.2vw, 30px); }
+.install-col ol { padding-left: 20px; margin: 0; }
+.install-col li, .install-col p { font-size: 15.5px; line-height: 1.55; color: var(--ink-2); margin: 0 0 8px; }
+.install-col .btn { align-self: flex-start; margin-top: auto; }
+.install-col .skill-cmd { margin: 0; }
+.case-body p.say { font-size: clamp(18px, 1.5vw, 21px); color: var(--ink); }
+@media (max-width: 768px) {
+  .install-grid { grid-template-columns: 1fr; }
+  .install-col + .install-col { border-left: none; border-top: 1px solid var(--ink); }
+  .skill-steps li { grid-template-columns: 40px 1fr; }
+}

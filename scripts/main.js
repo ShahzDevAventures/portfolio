@@ -41,7 +41,7 @@
   onScrollTheme();
 
   /* ── scroll-spy ── */
-  const spyIds = ['work', 'skills', 'open-source', 'about', 'contact'];
+  const spyIds = ['about', 'work', 'skills', 'contact']; // page order; the last section above the fold line wins
   const spyMap = {};
   spyIds.forEach(id => {
     const sec = document.getElementById(id);

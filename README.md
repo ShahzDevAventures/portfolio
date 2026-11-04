@@ -1,6 +1,6 @@
 # shahzsiddiqui.vercel.app — Portfolio
 
-Portfolio for Shahzaib Siddiqui: homepage plus four case-study pages under `work/`. Vanilla HTML/CSS/JS. No build step. Hosted on Vercel (`cleanUrls` serves `work/<slug>.html` at `/work/<slug>`; locally use the `.html` URL).
+Portfolio for Shahzaib Siddiqui: homepage, five case-study pages under `work/` and four skill pages under `skills/`. Vanilla HTML/CSS/JS. No build step. Hosted on Vercel (`cleanUrls` serves `work/<slug>.html` at `/work/<slug>` and `skills/<slug>.html` at `/skills/<slug>`; locally use the `.html` URL).
 
 Live: https://shahzsiddiqui.vercel.app
 
@@ -30,12 +30,14 @@ npx vercel --prod
 .
 ├── index.html         homepage
 ├── work/<slug>.html   case-study pages (styles/case.css)
+├── skills/<slug>.html skill pages, same design (styles/case.css + skills.css)
 ├── 404.html           custom 404
 ├── styles/            CSS (tokens, base, per-section)
 ├── scripts/           JS (vanilla, no build, no GSAP in V1)
 └── assets/
     ├── photos/        portrait + working photo
     ├── cases/<slug>/  case-study screenshots
+    ├── skills/        sample report screenshots for the skill pages
     ├── looms/         (looms hosted on loom.com — folder for thumbnails only)
     ├── pdf/           one-pager
     └── og/            favicon, og-image

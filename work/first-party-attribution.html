@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>First-Party Attribution — Case 02 — Shahzaib Siddiqui</title>
+  <title>First-Party Attribution — Shahzaib Siddiqui</title>
   <meta name="description" content="Closing a 35% gap between platform-reported ROAS and what actually landed in Shopify after iOS 14." />
   <link rel="canonical" href="https://shahzsiddiqui.vercel.app/work/first-party-attribution" />
   <meta property="og:title" content="First-Party Attribution — Shahzaib Siddiqui" />
@@ -26,7 +26,7 @@
   <div class="nav-inner">
     <a href="/" class="monogram"><span class="monogram-mark">SS</span><span>Shahzaib&nbsp;Siddiqui</span></a>
     <div class="nav-links" id="navLinks">
-      <a href="/#work">Work</a><a href="/#skills">Skills</a><a href="/#open-source">Open source</a><a href="/#about">About</a><a href="/#contact">Contact</a>
+      <a href="/#about">About</a><a href="/#work">Work</a><a href="/#skills">Skills</a><a href="/#contact">Contact</a>
     </div>
     <div class="nav-meta"><span class="live-dot" aria-hidden="true"></span><span id="liveClock">—</span><span>·</span><span>Ottawa / GMT-4</span></div>
     <button class="nav-toggle" aria-label="Menu" id="navToggle">≡</button>
@@ -34,7 +34,7 @@
 </nav>
 
 <header class="case-hero"><div class="shell case-hero-inner">
-  <div class="case-rail"><a href="/#work" class="label back">← All work</a><span class="label">Case / 02</span></div>
+  <div class="case-rail"><a href="/#work" class="label back">← All work</a></div>
   <div>
     <h1 class="display-1"><span class="rise-line">First-Party Attribution</span><span class="rise-line accent">&amp; PostTrack</span></h1>
     <p class="lede fade-in in-view">After iOS 14, ad platforms and Shopify disagreed by a third. Merchants were budgeting on the wrong number.</p>
@@ -51,7 +51,6 @@
 <section class="shell"><div class="case-metrics"><div class="cm"><div class="label">Reporting variance</div><div class="cm-v">35% → <3%</div><div class="cm-c">ad platforms vs. Shopify deposits</div></div><div class="cm"><div class="label">Time saved</div><div class="cm-v">12 hrs/wk</div><div class="cm-c">per store owner or media buyer</div></div><div class="cm"><div class="label">Spend reallocated</div><div class="cm-v">24%</div><div class="cm-c">from misattributed to organic and creator channels</div></div></div></section>
 
 <section class="shell section case-section">
-  <div class="section-head"><span class="section-num">01</span><span class="section-title">Evidence trail</span></div>
   <div class="case-body">
     <h2>A 35% gap, and 15 hours a week of spreadsheets.</h2>
     <p class="lead">After the iOS 14 privacy changes, client ad data showed a <span class="hl">35%</span> average variance between Meta- and Google-reported ROAS and actual Shopify payouts. Merchants were scaling campaigns on numbers that did not match their bank account.</p><p>The second problem was organic. Merchants told us they spent <span class="hl">15+ hours a week</span> trying to line up influencer post timing against sales spikes by hand, and still could not say which creator earned what.</p>
@@ -60,13 +59,11 @@
 </section>
 
 <section class="shell section case-section">
-  <div class="section-head"><span class="section-num">02</span><span class="section-title">Problem statement</span></div>
-  <div class="case-body"><blockquote class="problem">E-commerce brands cannot accurately attribute orders across fragmented ad networks and organic creator channels, so marketing budgets are misallocated and influencer ROI goes unmeasured.</blockquote></div>
+  <div class="case-body"><h2>The problem</h2><blockquote class="problem">E-commerce brands cannot accurately attribute orders across fragmented ad networks and organic creator channels, so marketing budgets are misallocated and influencer ROI goes unmeasured.</blockquote></div>
 </section>
 
 <section class="shell section case-section">
-  <div class="section-head"><span class="section-num">03</span><span class="section-title">Tradeoffs</span></div>
-  <div class="case-body"><div class="tradeoff">
+  <div class="case-body"><h2>Tradeoffs</h2><div class="tradeoff">
         <h3>Deterministic, not probabilistic.</h3>
         <div class="to-pair"><div><div class="label">Chose</div><p>A first-party tracking script with custom UTM parameters</p></div><div class="to-vs">vs</div><div><div class="label">Over</div><p>Machine-learning statistical modelling</p></div></div><div class="to-result"><div><div class="label">Gave up</div><p>A small share of edge-case coverage that a model would have inferred.</p></div><div class="got"><div class="label">Got</div><p><span class="hl">100%</span> auditability. Every attributed order traces to a real click, which is what made merchants trust the number over the ad platform's.</p></div></div>
       </div><div class="tradeoff">
@@ -76,7 +73,6 @@
 </section>
 
 <section class="shell section case-section">
-  <div class="section-head"><span class="section-num">04</span><span class="section-title">How we arrived at the solution</span></div>
   <div class="case-body">
     <h2>Visitor journeys first, then the same architecture for creators.</h2>
     <p class="lead">We built individual visitor-journey tracking that mapped every touchpoint from first click to checkout, on the merchant's own domain, so nothing depended on a platform's pixel.</p><p>PostTrack extended that architecture: merchants issue unique link parameters for influencer bio-links, and organic social gets the same attribution clarity as paid campaigns, side by side in one view.</p>
@@ -85,7 +81,6 @@
 </section>
 
 <section class="shell section case-section">
-  <div class="section-head"><span class="section-num">05</span><span class="section-title">What happened</span></div>
   <div class="case-body">
     <h2>Brands moved a quarter of their spend.</h2>
     <p class="lead">With variance under <span class="hl">3%</span>, brands reallocated <span class="hl">24%</span> of previously misattributed ad spend into organic and creator channels that had been under-credited, and dropped the weekly spreadsheet.</p>
@@ -95,12 +90,11 @@
 </section>
 
 <nav class="shell case-nav">
-  <a href="/work/ai-conversion-audit"><span class="label">← Previous</span><span>Case 01 · AI Conversion Audit</span></a>
-  <a href="/work/campaign-optimization" class="next"><span class="label">Next →</span><span>Case 03 · Cross-Platform Campaign</span></a>
+  <a href="/work/ai-conversion-audit"><span class="label">← Previous</span><span>AI Conversion Audit</span></a>
+  <a href="/work/campaign-optimization" class="next"><span class="label">Next →</span><span>Cross-Platform Campaign</span></a>
 </nav>
 
 <section id="contact" class="shell contact">
-  <div class="section-head"><span class="section-num">06</span><span class="section-title">Contact</span></div>
   <div class="contact-grid"><div></div><div>
     <h2 class="contact-headline">Let's <em>build</em><br/>something.</h2>
     <div class="contact-rows">

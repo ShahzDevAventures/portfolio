@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Scripts to Functions Audit — Shahzaib Siddiqui</title>
+  <meta name="description" content="Shopify switched Scripts off on June 30, 2026. This audit finds what each store lost and how to restore it with a native setting or a custom Shopify Function." />
+  <link rel="canonical" href="https://shahzsiddiqui.vercel.app/skills/scripts-to-functions-audit" />
+  <meta property="og:title" content="Scripts to Functions Audit — Shahzaib Siddiqui" />
+  <meta property="og:description" content="Shopify switched Scripts off on June 30, 2026. This audit finds what each store lost and how to restore it with a native setting or a custom Shopify Function." />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="/assets/og/og-image.svg" />
+  <meta name="theme-color" content="#F2EFE8" />
+  <link rel="icon" href="/assets/og/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@300;400;500;700;800&family=Anton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/tokens.css" />
+  <link rel="stylesheet" href="/styles/base.css" />
+  <link rel="stylesheet" href="/styles/nav.css" />
+  <link rel="stylesheet" href="/styles/contact.css" />
+  <link rel="stylesheet" href="/styles/skills.css" />
+  <link rel="stylesheet" href="/styles/case.css" />
+</head>
+<body class="case-page">
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="monogram"><span class="monogram-mark">SS</span><span>Shahzaib&nbsp;Siddiqui</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="/#about">About</a><a href="/#work">Work</a><a href="/#skills">Skills</a><a href="/#contact">Contact</a>
+    </div>
+    <div class="nav-meta"><span class="live-dot" aria-hidden="true"></span><span id="liveClock">—</span><span>·</span><span>Ottawa / GMT-4</span></div>
+    <button class="nav-toggle" aria-label="Menu" id="navToggle">≡</button>
+  </div>
+</nav>
+
+<header class="case-hero"><div class="shell case-hero-inner">
+  <div class="case-rail"><a href="/#skills" class="label back">← Skills</a></div>
+  <div>
+    <h1 class="display-1"><span class="rise-line">Scripts to</span><span class="rise-line accent">Functions Audit</span></h1>
+    <p class="lede fade-in in-view">Shopify switched every Script off on June 30, 2026. Checkout kept working, so nobody was told what went missing. This audit finds it, one store at a time.</p>
+    <dl class="case-meta fade-in in-view">
+      <div><dt class="label">Built for</dt><dd>Agency PMs running Shopify Plus stores</dd></div>
+      <div><dt class="label">Runs in</dt><dd>Claude app with Claude in Chrome · Claude Code</dd></div>
+      <div><dt class="label">Store access</dt><dd>Read-only admin, one store per run</dd></div>
+      <div><dt class="label">Output</dt><dd class="chip">One report per store</dd></div>
+    </dl>
+  </div>
+</div>
+</header>
+
+<section class="shell"><div class="case-metrics"><div class="cm"><div class="label">Script patterns mapped</div><div class="cm-v">46</div><div class="cm-c">24 line item, 13 shipping, 9 payment</div></div><div class="cm"><div class="label">Steps, same order every run</div><div class="cm-v">12</div><div class="cm-c">so two runs on one store match</div></div><div class="cm"><div class="label">Third-party apps recommended</div><div class="cm-v">0</div><div class="cm-c">native settings first, then a Function spec</div></div></div></section>
+
+<section class="shell section case-section">
+  <div class="case-body"><h2>The problem</h2><blockquote class="problem">When Shopify switched Scripts off, checkout kept running. The VIP discount, the hidden shipping rate and the payment rule each stopped without an error. An agency with 30 Plus stores had no quick way to see which stores lost what.</blockquote></div>
+</section>
+
+<section class="shell section case-section">
+  <div class="case-body">
+    <h2>Find every Script, work out what it did, check what replaced it.</h2>
+    <p class="lead">Claude reads the store admin in the PM's own Chrome and only looks. Without Chrome, it walks the PM through exporting the Scripts report and copying a few pages.</p>
+    <ol class="skill-steps">
+      <li><span><strong>Find the right store.</strong> The admin handle is read from the store switcher, never guessed from the website address. On one real client the two were completely different.</span></li>
+      <li><span><strong>Check there is anything to migrate.</strong> If the store never had Scripts, the PM gets a one-page "nothing to migrate" report and the run stops.</span></li>
+      <li><span><strong>Read each Script as rules.</strong> Every condition and effect becomes a rule with who it affected, what it did, when, and the message shoppers saw. Drafts that never ran are marked as such.</span></li>
+      <li><span><strong>Check what is live today.</strong> Discounts, rollouts, shipping, payments, checkout rules and installed apps are compared with each rule: lost, replaced, partly replaced, or never ran.</span></li>
+      <li><span><strong>Pick the fix.</strong> A native setting with click-by-click steps the PM can follow, or a written spec for a custom Shopify Function. Anything that can't be reproduced exactly is listed as a gap with the closest option.</span></li>
+      <li><span><strong>Rank and test.</strong> Lost rules are ranked by revenue impact, and every rule gets a plain-English test checkout the PM runs up to the payment step.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="shell section case-section">
+  <div class="case-body">
+    <h2>One report per store, with the answer first.</h2>
+    <p class="lead">A single HTML file styled like the Shopify admin, plus a Markdown copy for tickets. The summary and this week's fixes read in five minutes. Evidence, developer specs and the original code are folded underneath.</p>
+    <ul class="skill-out">
+      <li><strong>Priority list:</strong> what shoppers lost, ranked by revenue impact</li>
+      <li><strong>Script-by-script findings</strong> with a status and the evidence behind it</li>
+      <li><strong>PM can do this:</strong> native settings, click by click</li>
+      <li><strong>Needs a developer:</strong> Function specs with inputs, logic and edge cases, and no code</li>
+      <li><strong>Test-checkout checklist</strong> with the expected result for each test</li>
+      <li><strong>Things the PM must check</strong> for anything the audit couldn't see</li>
+    </ul>
+    <figure class="case-figure"><img src="/assets/skills/scripts-to-functions-audit-report.png" alt="Sample Scripts to Functions report for a made-up store, styled like the Shopify admin" loading="lazy" /><figcaption>Sample report. The store and every number in it are made up.</figcaption></figure>
+  </div>
+</section>
+
+<section class="shell section case-section">
+  <div class="case-body"><h2>Tradeoffs</h2><div class="tradeoff">
+        <h3>Read-only, even when a fix is one click away.</h3>
+        <div class="to-pair"><div><div class="label">Chose</div><p>An audit that only looks, with fixes written as steps</p></div><div class="to-vs">vs</div><div><div class="label">Over</div><p>Letting Claude set up the native discounts itself</p></div></div><div class="to-result"><div><div class="label">Gave up</div><p>Speed on the simplest fixes</p></div><div class="got"><div class="label">Got</div><p>Safe to run on live checkouts at any scale. Every change goes through the merchant first.</p></div></div>
+      </div><div class="tradeoff">
+        <h3>Native first, then a Function spec. No third-party apps.</h3>
+        <div class="to-pair"><div><div class="label">Chose</div><p>Built-in Shopify settings, or a developer spec for a custom Function</p></div><div class="to-vs">vs</div><div><div class="label">Over</div><p>Recommending App Store apps</p></div></div><div class="to-result"><div><div class="label">Gave up</div><p>The quick app installs some merchants prefer</p></div><div class="got"><div class="label">Got</div><p>No new subscriptions or vendor risk, and fixes the agency owns.</p></div></div>
+      </div></div>
+</section>
+
+<section class="shell section case-section" id="install">
+  <div class="case-body">
+    <h2>Install it</h2>
+    <p class="lead">Install it in the Claude app and connect Claude in Chrome. The PM needs a staff or collaborator login for the store, already signed in. Claude never signs in or asks for a password.</p>
+    <div class="install-grid">
+      <div class="install-col">
+        <h3>Claude app</h3>
+        <ol>
+          <li>Download the skill file below.</li>
+          <li>In Claude, open Settings → Capabilities and turn on Code execution and file creation.</li>
+          <li>Open Customize → Skills, click +, then Create skill → Upload a skill, and choose the file.</li>
+          <li>Install the Claude in Chrome extension and connect it. Without it, the skill walks you through a manual export instead.</li>
+          <li>Sign in to the store's Shopify admin in Chrome, then start a new chat.</li>
+        </ol>
+        <a class="btn solid" href="https://github.com/ShahzDevAventures/scripts-to-functions-audit/releases/latest/download/scripts-to-functions-audit.zip">Download scripts-to-functions-audit.zip</a>
+      </div>
+      <div class="install-col">
+        <h3>Claude Code</h3>
+        <p>Run this once in a terminal:</p>
+        <div class="skill-cmd"><code>npx skills add ShahzDevAventures/scripts-to-functions-audit</code><button class="copy-btn" data-copy="npx skills add ShahzDevAventures/scripts-to-functions-audit">Copy</button></div>
+        <p>Then start Claude Code in any folder and ask for the audit.</p>
+      </div>
+    </div>
+    <p class="say">Then say: <span class="hl">Run the Scripts to Functions audit for example-store.com</span></p>
+    <p><a class="inline-link" href="https://github.com/ShahzDevAventures/scripts-to-functions-audit" target="_blank" rel="noopener">Source and full instructions on GitHub →</a></p>
+  </div>
+</section>
+
+<nav class="shell case-nav">
+  <a href="/skills/cro-audit-skill"><span class="label">← Previous</span><span>Shopify CRO Audit</span></a>
+  <a href="/skills/agentic-accuracy-audit" class="next"><span class="label">Next →</span><span>Agentic Accuracy Audit</span></a>
+</nav>
+
+<section id="contact" class="shell contact">
+  <div class="contact-grid"><div></div><div>
+    <h2 class="contact-headline">Let's <em>build</em><br/>something.</h2>
+    <div class="contact-rows">
+      <a href="/assets/pdf/shahzaib-siddiqui.pdf" class="contact-row" download><span class="label">Resume</span><span class="contact-link">Download PDF resume</span><span class="arr">→</span></a>
+      <a href="https://cal.com/shahz-siddiqui/30min" class="contact-row" target="_blank" rel="noopener"><span class="label">Book a call</span><span class="contact-link">cal.com/shahz-siddiqui</span><span class="arr">→</span></a>
+      <a href="mailto:shahz.siddiqui@outlook.com" class="contact-row"><span class="label">Email</span><span class="contact-link">shahz.siddiqui@outlook.com</span><span class="arr">→</span></a>
+      <a href="https://www.linkedin.com/in/shahz-siddiqui-lead" class="contact-row" target="_blank" rel="noopener"><span class="label">LinkedIn</span><span class="contact-link">in/shahz-siddiqui-lead</span><span class="arr">→</span></a>
+    </div>
+  </div></div>
+</section>
+
+<footer><div class="shell footer-inner"><div>© 2026 Shahzaib Siddiqui · All rights reserved</div><div>Set in JetBrains Mono &amp; Fraunces · <em>Built as the interview</em></div></div></footer>
+<script src="/scripts/main.js" defer></script>
+</body>
+</html>
