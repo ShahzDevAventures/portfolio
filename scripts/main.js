@@ -41,19 +41,21 @@
   onScrollTheme();
 
   /* ── scroll-spy ── */
-  const spyIds = ['about', 'work', 'skills', 'contact']; // page order; the last section above the fold line wins
+  // Page order; the last section above the fold line wins. Experience and
+  // References have no menu link, so while they are on screen nothing is lit.
+  const spyIds = ['about', 'work', 'skills', 'experience', 'references', 'contact'];
   const spyMap = {};
   spyIds.forEach(id => {
     const sec = document.getElementById(id);
     const link = document.querySelector(`.nav-links a[href="#${id}"]`);
-    if (sec && link) spyMap[id] = { sec, link };
+    if (sec) spyMap[id] = { sec, link };
   });
   const onScrollSpy = () => {
     const y = window.scrollY + 140;
     let active = null;
     Object.entries(spyMap).forEach(([id, { sec }]) => { if (sec.offsetTop <= y) active = id; });
-    Object.values(spyMap).forEach(({ link }) => link.classList.remove('active'));
-    if (active && spyMap[active]) spyMap[active].link.classList.add('active');
+    Object.values(spyMap).forEach(({ link }) => link?.classList.remove('active'));
+    spyMap[active]?.link?.classList.add('active');
   };
   window.addEventListener('scroll', onScrollSpy, { passive: true });
   onScrollSpy();

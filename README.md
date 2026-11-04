@@ -52,7 +52,7 @@ Drop these in to wire the site fully:
 | `assets/photos/portrait.jpg` (or .png/.webp) | Hero cursor-glow photo. ≥2000px long edge. Auto-detected by `scripts/hero-photo.js`. |
 | `assets/cases/<slug>/*.png` | Case-study figures — replace each `<div class="fig-ph">` in `work/<slug>.html` with an `<img>`; the `<figcaption>` says what goes there. |
 | `assets/pdf/shahzaib-siddiqui.pdf` | Resume PDF (contact button links here). |
-| `assets/og/og-image.png` | 1200×630 PNG converted from `og-image.svg` for full LinkedIn/FB OG card support. |
+| `assets/og/<slug>.jpg` | 1200×630 link-preview image for each page (home, cases, skills). Rebuild with `python3 tools/build_og.py [slug]` after changing a page title or description; the page text lives in the `PAGES` list in that script. |
 
 ## Form endpoint
 
